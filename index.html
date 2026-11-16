@@ -3,10 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niraalii &amp; Uttkarsh — Wedding Invitation</title>
-    <meta name="description" content="Join us in celebrating the wedding of Niraalii &amp; Uttkarsh at Rambagh, Jaipur.">
+    <title>Niraalii &amp; Uttkarsh — Wedding Invitation (11th Feb 2027, Delhi)</title>
+    <meta name="description" content="Join us in Delhi on 11th February 2027 to celebrate the wedding of Niraalii &amp; Uttkarsh. View wedding events, venue routes, and the countdown.">
+    <link rel="canonical" href="https://ais-pre-4xxqiiuoertrl4ejyi7dgx-440349468220.asia-southeast1.run.app/">
+
+    <!-- OpenGraph / WhatsApp Rich Link Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Niraalii &amp; Uttkarsh Wedding">
     <meta property="og:title" content="Niraalii &amp; Uttkarsh — Wedding Invitation">
-    <meta property="og:description" content="Join us in celebrating the wedding of Niraalii &amp; Uttkarsh at Rambagh, Jaipur.">
+    <meta property="og:description" content="Join us in Delhi on 11th February 2027 as Niraalii &amp; Uttkarsh begin their forever. View the celebrations &amp; countdown.">
+    <meta property="og:url" content="https://ais-pre-4xxqiiuoertrl4ejyi7dgx-440349468220.asia-southeast1.run.app/">
+    <meta property="og:image" content="https://ais-pre-4xxqiiuoertrl4ejyi7dgx-440349468220.asia-southeast1.run.app/og-preview.jpg">
+    <meta property="og:image:secure_url" content="https://ais-pre-4xxqiiuoertrl4ejyi7dgx-440349468220.asia-southeast1.run.app/og-preview.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Niraalii and Uttkarsh Wedding Invitation — Heritage Palace &amp; Floral Vintage Car">
+
+    <!-- Twitter / X Social Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Niraalii &amp; Uttkarsh — Wedding Invitation">
+    <meta name="twitter:description" content="Join us in Delhi on 11th February 2027 to celebrate the wedding of Niraalii &amp; Uttkarsh.">
+    <meta name="twitter:image" content="https://ais-pre-4xxqiiuoertrl4ejyi7dgx-440349468220.asia-southeast1.run.app/og-preview.jpg">
+
+    <!-- Schema.org Wedding Event Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Wedding of Niraalii & Uttkarsh",
+      "startDate": "2027-02-11T18:00:00+05:30",
+      "endDate": "2027-02-13T23:00:00+05:30",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Delhi",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New Delhi",
+          "addressCountry": "IN"
+        }
+      },
+      "image": [
+        "https://ais-pre-4xxqiiuoertrl4ejyi7dgx-440349468220.asia-southeast1.run.app/og-preview.jpg"
+      ],
+      "description": "Join us in Delhi on 11th February 2027 to celebrate the wedding of Niraalii & Uttkarsh."
+    }
+    </script>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,7 +97,7 @@
         html, body {
             background-color: #7B8EAA;
             color: #F3ECBA;
-            overflow-x: hidden;
+            overflow-x: clip;
             font-family: 'Cormorant', Georgia, serif;
         }
 
@@ -148,6 +192,17 @@
             background-size: 48px 24px;
             background-repeat: repeat-x;
         }
+
+        /* Soft Feathered Mask for Scroll-Animated Vintage Cars */
+        .car-feather-mask {
+            -webkit-mask-image: radial-gradient(ellipse 68% 62% at 50% 54%, #000 48%, transparent 94%);
+            mask-image: radial-gradient(ellipse 68% 62% at 50% 54%, #000 48%, transparent 94%);
+        }
+
+        .car-scroll-layer {
+            will-change: transform, opacity;
+            transform-origin: center center;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-champagne selection:text-twilightdeep">
@@ -180,89 +235,95 @@
     <main class="w-full">
 
         <!-- ===============================================================
-             SECTION 1 (PART A): HERO — TWILIGHT SKY, LANTERNS, NAMES & CAR
+             SECTION 1 (PART A): HERO — TWILIGHT SKY, LANTERNS, NAMES & SCROLL CAR
         ================================================================ -->
-        <section class="relative w-full min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-between overflow-hidden bg-skyheritage">
-            <!-- Heritage Sky & Palace Backdrop -->
-            <div class="absolute inset-0 bg-gradient-to-b from-[#6F829E] via-[#536885] to-[#2C3F54]">
-                <img
-                    src="./src/assets/images/hero_heritage_sky_1794854787681.jpg"
-                    alt="Twilight Jaipur heritage palace skyline with glowing lanterns"
-                    referrerPolicy="no-referrer"
-                    class="w-full h-full object-cover object-center opacity-85 mix-blend-normal"
-                    onerror="this.style.display='none'"
-                />
-                <div class="absolute inset-0 bg-gradient-to-b from-[#1E2B3A]/45 via-[#243447]/30 to-[#283B4E]"></div>
-            </div>
-
-            <!-- Floating Glowing Sky Lanterns (SVG Accent Overlay) -->
-            <div class="pointer-events-none absolute inset-x-0 top-10 max-w-5xl mx-auto flex justify-between px-6 sm:px-14 opacity-85">
-                <svg class="w-7 h-10 lantern-float text-champagne" viewBox="0 0 32 44" fill="none">
-                    <ellipse cx="16" cy="18" rx="11" ry="15" fill="url(#lanternGlow1)" />
-                    <path d="M9 30h14l-2 5H11l-2-5z" fill="#F3ECBA" fill-opacity="0.7" />
-                    <defs>
-                        <radialGradient id="lanternGlow1" cx="50%" cy="55%" r="55%">
-                            <stop offset="0%" stop-color="#FFF6CC" />
-                            <stop offset="55%" stop-color="#F6B966" stop-opacity="0.85" />
-                            <stop offset="100%" stop-color="#E68843" stop-opacity="0.15" />
-                        </radialGradient>
-                    </defs>
-                </svg>
-                <svg class="w-6 h-9 lantern-float-delayed mt-8 text-champagne" viewBox="0 0 32 44" fill="none">
-                    <ellipse cx="16" cy="18" rx="10" ry="14" fill="url(#lanternGlow2)" />
-                    <path d="M10 29h12l-1.5 4h-9L10 29z" fill="#F3ECBA" fill-opacity="0.65" />
-                    <defs>
-                        <radialGradient id="lanternGlow2" cx="50%" cy="55%" r="55%">
-                            <stop offset="0%" stop-color="#FFF6CC" />
-                            <stop offset="55%" stop-color="#F6B966" stop-opacity="0.8" />
-                            <stop offset="100%" stop-color="#E68843" stop-opacity="0.1" />
-                        </radialGradient>
-                    </defs>
-                </svg>
-                <svg class="w-8 h-11 lantern-float mt-2 hidden sm:block text-champagne" viewBox="0 0 32 44" fill="none">
-                    <ellipse cx="16" cy="18" rx="11" ry="15" fill="url(#lanternGlow3)" />
-                    <path d="M9 30h14l-2 5H11l-2-5z" fill="#F3ECBA" fill-opacity="0.7" />
-                    <defs>
-                        <radialGradient id="lanternGlow3" cx="50%" cy="55%" r="55%">
-                            <stop offset="0%" stop-color="#FFF6CC" />
-                            <stop offset="55%" stop-color="#F6B966" stop-opacity="0.85" />
-                            <stop offset="100%" stop-color="#E68843" stop-opacity="0.15" />
-                        </radialGradient>
-                    </defs>
-                </svg>
-            </div>
-
-            <!-- Monumental Couple Names Header -->
-            <div class="relative z-10 w-full max-w-5xl mx-auto px-4 pt-16 sm:pt-20 pb-6 text-center flex flex-col items-center">
-                <h1 class="font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem);">
-                    Niraalii
-                </h1>
-                <div class="my-2 sm:my-3 flex items-center justify-center gap-5 w-full max-w-xs">
-                    <span class="h-[1px] flex-1 bg-champagne/55"></span>
-                    <span class="font-aboreto uppercase text-champagne tracking-[0.26em] drop-shadow-[0_2px_12px_rgba(18,28,39,0.8)]" style="font-size: clamp(1.35rem, 3vw, 2.5rem);">
-                        Weds
-                    </span>
-                    <span class="h-[1px] flex-1 bg-champagne/55"></span>
-                </div>
-                <p class="font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem);">
-                    Uttkarsh
-                </p>
-            </div>
-
-            <!-- Foreground Vintage Wedding Car Artwork -->
-            <div class="relative z-10 w-full max-w-3xl mx-auto px-4 pb-8 sm:pb-12">
-                <div class="relative rounded-t-[140px] rounded-b-3xl overflow-hidden border border-champagne/35 shadow-[0_24px_60px_rgba(15,24,34,0.65)] bg-twilightdeep">
+        <div id="hero-scroll-track" class="relative w-full h-[175vh] bg-skyheritage">
+            <section class="sticky top-0 w-full h-screen flex flex-col items-center justify-between overflow-hidden bg-skyheritage">
+                <!-- Heritage Sky & Cobblestone Palace Road Backdrop -->
+                <div class="absolute inset-0 bg-gradient-to-b from-[#6F829E] via-[#41536B] to-[#233245]">
                     <img
-                        src="./src/assets/images/hero_vintage_car_1794854788490.jpg"
-                        alt="Vintage Indian wedding car adorned with marigold and jasmine garlands"
+                        src="./src/assets/images/hero_palace_road_1794855675093.jpg"
+                        alt="Twilight Delhi heritage palace courtyard road with glowing lanterns"
                         referrerPolicy="no-referrer"
-                        class="w-full h-56 sm:h-80 md:h-[360px] object-cover object-center"
+                        class="w-full h-full object-cover object-bottom"
                         onerror="this.style.display='none'"
                     />
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#283B4E]/60 via-transparent to-transparent"></div>
+                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1A2636]/70 via-[#1E2C3E]/20 to-[#1B293B]/35"></div>
                 </div>
-            </div>
-        </section>
+
+                <!-- Floating Glowing Sky Lanterns (SVG Accent Overlay) -->
+                <div class="pointer-events-none absolute inset-x-0 top-10 max-w-5xl mx-auto flex justify-between px-6 sm:px-14 opacity-85">
+                    <svg class="w-7 h-10 lantern-float text-champagne" viewBox="0 0 32 44" fill="none">
+                        <ellipse cx="16" cy="18" rx="11" ry="15" fill="url(#lanternGlow1)" />
+                        <path d="M9 30h14l-2 5H11l-2-5z" fill="#F3ECBA" fill-opacity="0.7" />
+                        <defs>
+                            <radialGradient id="lanternGlow1" cx="50%" cy="55%" r="55%">
+                                <stop offset="0%" stop-color="#FFF6CC" />
+                                <stop offset="55%" stop-color="#F6B966" stop-opacity="0.85" />
+                                <stop offset="100%" stop-color="#E68843" stop-opacity="0.15" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                    <svg class="w-6 h-9 lantern-float-delayed mt-8 text-champagne" viewBox="0 0 32 44" fill="none">
+                        <ellipse cx="16" cy="18" rx="10" ry="14" fill="url(#lanternGlow2)" />
+                        <path d="M10 29h12l-1.5 4h-9L10 29z" fill="#F3ECBA" fill-opacity="0.65" />
+                        <defs>
+                            <radialGradient id="lanternGlow2" cx="50%" cy="55%" r="55%">
+                                <stop offset="0%" stop-color="#FFF6CC" />
+                                <stop offset="55%" stop-color="#F6B966" stop-opacity="0.8" />
+                                <stop offset="100%" stop-color="#E68843" stop-opacity="0.1" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                    <svg class="w-8 h-11 lantern-float mt-2 hidden sm:block text-champagne" viewBox="0 0 32 44" fill="none">
+                        <ellipse cx="16" cy="18" rx="11" ry="15" fill="url(#lanternGlow3)" />
+                        <path d="M9 30h14l-2 5H11l-2-5z" fill="#F3ECBA" fill-opacity="0.7" />
+                        <defs>
+                            <radialGradient id="lanternGlow3" cx="50%" cy="55%" r="55%">
+                                <stop offset="0%" stop-color="#FFF6CC" />
+                                <stop offset="55%" stop-color="#F6B966" stop-opacity="0.85" />
+                                <stop offset="100%" stop-color="#E68843" stop-opacity="0.15" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Monumental Couple Names Header -->
+                <div class="relative z-10 w-full max-w-5xl mx-auto px-4 pt-14 sm:pt-18 pb-4 text-center flex flex-col items-center">
+                    <h1 class="font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem);">
+                        Niraalii
+                    </h1>
+                    <div class="my-2 sm:my-3 flex items-center justify-center gap-5 w-full max-w-xs">
+                        <span class="h-[1px] flex-1 bg-champagne/55"></span>
+                        <span class="font-aboreto uppercase text-champagne tracking-[0.26em] drop-shadow-[0_2px_12px_rgba(18,28,39,0.8)]" style="font-size: clamp(1.35rem, 3vw, 2.5rem);">
+                            Weds
+                        </span>
+                        <span class="h-[1px] flex-1 bg-champagne/55"></span>
+                    </div>
+                    <p class="font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem);">
+                        Uttkarsh
+                    </p>
+                </div>
+
+                <!-- Scroll-Animated Transparent Vintage Wedding Car (Enters Left -> Drives Right Into Palace Road) -->
+                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[4vh] sm:pb-[6vh] pointer-events-none">
+                    <div
+                        id="hero-car-wrap"
+                        class="car-scroll-layer w-[280px] sm:w-[440px] md:w-[540px]"
+                        style="transform: translate3d(-54vw, 6vh, 0) scale(1.22);"
+                    >
+                        <img
+                            src="./src/assets/images/hero_car_transparent.png"
+                            alt="Night-lit midnight emerald vintage wedding convertible with mysterious couple silhouette"
+                            referrerPolicy="no-referrer"
+                            class="relative z-10 w-full h-auto object-contain drop-shadow-[0_14px_24px_rgba(10,16,26,0.55)]"
+                            onerror="this.style.display='none'"
+                        />
+                        <div class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/75 blur-md"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <!-- ===============================================================
              SECTION 1 (PART B): GANESHA INVOCATION, INVITE & 6 ARCH EVENTS
@@ -313,14 +374,7 @@
                 <!-- Heavenly Blessings Block -->
                 <div class="space-y-2 max-w-xl mx-auto mb-12 text-champagne">
                     <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90">
-                        With the heavenly blessings of
-                    </p>
-                    <p class="font-cormorant text-xl sm:text-2xl font-medium tracking-wide">
-                        Smt. Lata Devi &amp; Sm. Kamal Kapoor
-                    </p>
-                    <p class="font-cormorant text-champagne/70 tracking-widest py-0.5">——</p>
-                    <p class="font-cormorant text-xl sm:text-2xl font-medium tracking-wide">
-                        Mrs. Reena &amp; Mr. Rajiv Kapoor
+                        With the heavenly blessings of our elders &amp; families
                     </p>
                 </div>
 
@@ -343,13 +397,17 @@
                     </div>
                 </div>
 
-                <!-- Daughter of Block -->
-                <div class="space-y-1.5 mb-14 sm:mb-16">
+                <!-- Parents Block -->
+                <div class="space-y-2 mb-14 sm:mb-16">
                     <p class="font-cormorant italic text-base sm:text-lg text-champagne/85">Daughter of</p>
-                    <p class="font-cormorant text-xl sm:text-2xl font-medium text-champagne">
-                        Mrs. Shalini &amp; Mr. Aakash Mittal,
+                    <p class="font-cormorant text-xl sm:text-2xl font-medium text-champagne tracking-wide">
+                        Mrs. Shalini &amp; Mr. Gopalnarain Sharma
                     </p>
-                    <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90 pt-3">
+                    <p class="font-cormorant italic text-base sm:text-lg text-champagne/85 pt-2">Son of</p>
+                    <p class="font-cormorant text-xl sm:text-2xl font-medium text-champagne tracking-wide">
+                        Mrs. Leena &amp; Mr. Dinesh Bawankar
+                    </p>
+                    <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90 pt-4">
                         On the following events
                     </p>
                 </div>
@@ -377,12 +435,12 @@
                                 </svg>
 
                                 <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Mehendi</h3>
-                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 9th 2026</p>
-                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Monday, Feb 8th 2027</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Delhi</p>
                                 <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
                             </div>
                         </div>
-                        <a href="#route-mehendi" onclick="handleDummyLink(event, 'Directions to Mehendi at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                        <a href="#route-mehendi" onclick="handleDummyLink(event, 'Directions to Mehendi in Delhi')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
                             See the route
                         </a>
                     </div>
@@ -405,12 +463,12 @@
                                 </svg>
 
                                 <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Haldi</h3>
-                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 10th 2026</p>
-                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Tuesday, Feb 9th 2027</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Delhi</p>
                                 <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
                             </div>
                         </div>
-                        <a href="#route-haldi" onclick="handleDummyLink(event, 'Directions to Haldi at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                        <a href="#route-haldi" onclick="handleDummyLink(event, 'Directions to Haldi in Delhi')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
                             See the route
                         </a>
                     </div>
@@ -433,12 +491,12 @@
                                 </svg>
 
                                 <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Cocktail</h3>
-                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 10th 2026</p>
-                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Tuesday, Feb 9th 2027</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Delhi</p>
                                 <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
                             </div>
                         </div>
-                        <a href="#route-cocktail" onclick="handleDummyLink(event, 'Directions to Cocktail at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                        <a href="#route-cocktail" onclick="handleDummyLink(event, 'Directions to Cocktail in Delhi')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
                             See the route
                         </a>
                     </div>
@@ -461,12 +519,12 @@
                                 </svg>
 
                                 <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Engagement</h3>
-                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 11th 2026</p>
-                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Wednesday, Feb 10th 2027</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Delhi</p>
                                 <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
                             </div>
                         </div>
-                        <a href="#route-engagement" onclick="handleDummyLink(event, 'Directions to Engagement at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                        <a href="#route-engagement" onclick="handleDummyLink(event, 'Directions to Engagement in Delhi')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
                             See the route
                         </a>
                     </div>
@@ -489,12 +547,12 @@
                                 </svg>
 
                                 <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Shaadi</h3>
-                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 12th 2026</p>
-                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Thursday, Feb 11th 2027</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Delhi</p>
                                 <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
                             </div>
                         </div>
-                        <a href="#route-shaadi" onclick="handleDummyLink(event, 'Directions to Shaadi at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                        <a href="#route-shaadi" onclick="handleDummyLink(event, 'Directions to Shaadi in Delhi')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
                             See the route
                         </a>
                     </div>
@@ -517,12 +575,12 @@
                                 </svg>
 
                                 <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Reception</h3>
-                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 17th 2026</p>
-                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Saturday, Feb 13th 2027</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Delhi</p>
                                 <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
                             </div>
                         </div>
-                        <a href="#route-reception" onclick="handleDummyLink(event, 'Directions to Reception at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                        <a href="#route-reception" onclick="handleDummyLink(event, 'Directions to Reception in Delhi')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
                             See the route
                         </a>
                     </div>
@@ -531,7 +589,7 @@
 
                 <!-- Circular Double-Ring Location CTA Medallion -->
                 <div class="mt-20 flex justify-center">
-                    <a href="#open-map" onclick="handleDummyLink(event, 'Venue map: Rambagh Palace, Jaipur')" class="medallion-link group inline-block text-celadon focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne rounded-full">
+                    <a href="#open-map" onclick="handleDummyLink(event, 'Venue map: Delhi')" class="medallion-link group inline-block text-celadon focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne rounded-full">
                         <div class="medallion-outer w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
                             <div class="medallion-inner w-full h-full flex flex-col items-center justify-center px-6 text-center">
                                 <span class="font-cormorant italic text-4xl sm:text-5xl text-celadon leading-none">
@@ -602,7 +660,7 @@
                                 <img
                                     id="gallery-img-0"
                                     src="./src/assets/images/couple_portrait_one_1794854789919.jpg"
-                                    alt="Niraalii and Uttkarsh pre-wedding portrait beneath Jaipur sandstone arches"
+                                    alt="Niraalii and Uttkarsh pre-wedding portrait beneath Delhi sandstone heritage arches"
                                     referrerPolicy="no-referrer"
                                     class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 opacity-100"
                                     onerror="this.style.display='none'"
@@ -734,7 +792,7 @@
                         </div>
                         <h3 class="font-aboreto text-[20px] text-olivemoss mb-2.5">Weather</h3>
                         <p class="font-cormorant text-lg leading-snug text-olivemoss/90">
-                            It will be mostly sunny with temperature reaching up to 28 degrees at the venue
+                            It will be mostly sunny with pleasant temperatures up to 24 degrees at the venue
                         </p>
                     </div>
 
@@ -795,43 +853,66 @@
         </section>
 
         <!-- ===============================================================
-             FOOTER: THE COUNTDOWN BEGINS + TWILIGHT PALACE DRIVE-AWAY
+             FOOTER: THE COUNTDOWN BEGINS + SCROLLING CAR (RIGHT -> LEFT)
         ================================================================ -->
-        <footer class="relative w-full min-h-[78vh] flex flex-col items-center justify-between overflow-hidden bg-twilight text-champagne">
-            <!-- Twilight Palace Drive-Away Artwork -->
-            <div class="absolute inset-0 bg-gradient-to-b from-[#3B516B] via-[#2C3F54] to-[#1B2736]">
-                <img
-                    src="./src/assets/images/footer_sunset_car_1794854788608.jpg"
-                    alt="Vintage wedding car driving down a lantern-lit palace avenue at twilight"
-                    referrerPolicy="no-referrer"
-                    class="w-full h-full object-cover object-center opacity-85"
-                    onerror="this.style.display='none'"
-                />
-                <div class="absolute inset-0 bg-gradient-to-b from-[#1D2B3B]/80 via-[#1D2B3B]/35 to-[#16202C]/75"></div>
-            </div>
-
-            <!-- Countdown Content -->
-            <div class="relative z-10 max-w-4xl mx-auto px-4 pt-16 sm:pt-20 pb-8 text-center">
-                <h2 class="font-aboreto uppercase text-champagne tracking-[0.12em] drop-shadow-[0_3px_16px_rgba(15,24,34,0.85)]" style="font-size: clamp(1.75rem, 4.2vw, 2.5rem);">
-                    The countdown begins
-                </h2>
-
-                <div
-                    id="countdown-display"
-                    class="mt-5 font-aboreto text-champagne tracking-[0.14em] tabular-nums drop-shadow-[0_4px_18px_rgba(15,24,34,0.9)]"
-                    style="font-size: clamp(2.25rem, 6vw, 4.25rem);"
-                >
-                    00:00:00:00
+        <div id="footer-scroll-track" class="relative w-full h-[175vh] bg-twilight">
+            <footer class="sticky top-0 w-full h-screen flex flex-col items-center justify-between overflow-hidden bg-twilight text-champagne">
+                <!-- Stationary Twilight Palace Road Backdrop -->
+                <div class="absolute inset-0 bg-gradient-to-b from-[#3B516B] via-[#2C3F54] to-[#1B2736]">
+                    <img
+                        src="./src/assets/images/hero_palace_road_1794855675093.jpg"
+                        alt="Twilight Delhi heritage palace cobblestone road with lanterns"
+                        referrerPolicy="no-referrer"
+                        class="w-full h-full object-cover object-bottom brightness-90"
+                        onerror="this.style.display='none'"
+                    />
+                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#16202C]/85 via-[#1B2838]/30 to-[#16202C]/55"></div>
                 </div>
-            </div>
 
-            <!-- Subtle Clean Couple Footer Sign-Off (No Watermark, No Pricing) -->
-            <div class="relative z-10 w-full py-6 px-4 text-center">
-                <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90 tracking-wide">
-                    Niraalii &amp; Uttkarsh · Rambagh, Jaipur
-                </p>
-            </div>
-        </footer>
+                <!-- Countdown Content -->
+                <div class="relative z-10 max-w-4xl mx-auto px-4 pt-12 sm:pt-16 pb-2 text-center">
+                    <h2 class="font-aboreto uppercase text-champagne tracking-[0.12em] drop-shadow-[0_3px_16px_rgba(15,24,34,0.85)]" style="font-size: clamp(1.75rem, 4.2vw, 2.5rem);">
+                        The countdown begins
+                    </h2>
+
+                    <div
+                        id="countdown-display"
+                        class="mt-3 font-aboreto text-champagne tracking-[0.14em] tabular-nums drop-shadow-[0_4px_18px_rgba(15,24,34,0.9)]"
+                        style="font-size: clamp(2.25rem, 6vw, 4.25rem);"
+                    >
+                        00:00:00:00
+                    </div>
+                    <p class="mt-2 font-manrope text-xs uppercase tracking-[0.26em] text-champagne/80">
+                        Days &middot; Hours &middot; Mins &middot; Secs
+                    </p>
+                </div>
+
+                <!-- Scroll-Animated Transparent Footer Car (Enters Right -> Drives Forward Near Left) -->
+                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[3vh] sm:pb-[5vh] pointer-events-none">
+                    <div
+                        id="footer-car-wrap"
+                        class="car-scroll-layer w-[280px] sm:w-[440px] md:w-[540px]"
+                        style="transform: translate3d(34vw, -12vh, 0) scale(0.16); opacity: 0.75;"
+                    >
+                        <img
+                            src="./src/assets/images/footer_car_transparent.png"
+                            alt="Night-lit obsidian vintage wedding roadster with glowing amber headlights and couple silhouette"
+                            referrerPolicy="no-referrer"
+                            class="relative z-10 w-full h-auto object-contain drop-shadow-[0_14px_24px_rgba(10,16,26,0.55)]"
+                            onerror="this.style.display='none'"
+                        />
+                        <div class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/80 blur-md"></div>
+                    </div>
+                </div>
+
+                <!-- Subtle Clean Couple Footer Sign-Off (No Watermark, No Pricing) -->
+                <div class="relative z-10 w-full py-5 px-4 text-center">
+                    <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90 tracking-wide">
+                        Niraalii &amp; Uttkarsh &middot; 11th February 2027 &middot; Delhi
+                    </p>
+                </div>
+            </footer>
+        </div>
 
     </main>
 
@@ -892,9 +973,9 @@
         function prevPhoto() { setPhoto(currentPhotoIndex - 1); }
         function nextPhoto() { setPhoto(currentPhotoIndex + 1); }
 
-        // Countdown Timer (matches City-2 00:00:00:00 format for March 9, 2026)
+        // Live Wedding Countdown Timer -> Thursday, 11th Feb 2027 6:00 PM IST (Delhi)
         (function initCountdown() {
-            const target = new Date('2026-03-09T18:00:00+05:30').getTime();
+            const target = new Date('2027-02-11T18:00:00+05:30').getTime();
             const el = document.getElementById('countdown-display');
             function tick() {
                 if (!el) return;
@@ -907,6 +988,87 @@
             }
             tick();
             setInterval(tick, 1000);
+        })();
+
+        // City-2 Scroll-Driven Car Animations
+        // Top car: enters from outside left -> drives along road toward right and shrinks away
+        // Bottom car: enters small from far right -> drives forward toward near-left foreground
+        (function initScrollCars() {
+            const heroTrack = document.getElementById('hero-scroll-track');
+            const heroCar = document.getElementById('hero-car-wrap');
+            const footerTrack = document.getElementById('footer-scroll-track');
+            const footerCar = document.getElementById('footer-car-wrap');
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (reducedMotion) {
+                if (heroCar) {
+                    heroCar.style.transform = 'translate3d(0, 0, 0) scale(1)';
+                    heroCar.style.opacity = '1';
+                }
+                if (footerCar) {
+                    footerCar.style.transform = 'translate3d(0, 0, 0) scale(1)';
+                    footerCar.style.opacity = '1';
+                }
+                return;
+            }
+
+            let ticking = false;
+            const clamp = (val, min, max) => Math.min(max, Math.max(min, val));
+            const lerp = (a, b, t) => a + (b - a) * t;
+            const quadBezier = (p0, p1, p2, t) => {
+                const inv = 1 - t;
+                return inv * inv * p0 + 2 * inv * t * p1 + t * t * p2;
+            };
+
+            function updateCars() {
+                ticking = false;
+                const vh = window.innerHeight || 800;
+
+                // Top Car: sweeps from outside left -> curves along cobblestone road -> shrinks into right palace archway
+                if (heroTrack && heroCar) {
+                    const rect = heroTrack.getBoundingClientRect();
+                    const scrollable = Math.max(1, heroTrack.offsetHeight - vh);
+                    const p = clamp(-rect.top / scrollable, 0, 1);
+
+                    // Quadratic road path matching the cobblestone curve:
+                    // P0 (-54vw, +6vh) -> P1 (-4vw, +4vh) -> P2 (+21vw, -14vh)
+                    const xVw = quadBezier(-54, -4, 21, p);
+                    const yVh = quadBezier(6, 4, -14, p);
+                    const scale = lerp(1.22, 0.2, Math.pow(p, 0.92));
+                    const opacity = p < 0.84 ? 1 : lerp(1, 0.15, (p - 0.84) / 0.16);
+
+                    heroCar.style.transform = `translate3d(${xVw}vw, ${yVh}vh, 0) scale(${scale})`;
+                    heroCar.style.opacity = opacity.toFixed(3);
+                }
+
+                // Bottom Car: emerges small from right palace road -> curves forward toward near-left foreground
+                if (footerTrack && footerCar) {
+                    const rect = footerTrack.getBoundingClientRect();
+                    const totalSpan = Math.max(1, footerTrack.offsetHeight);
+                    const p = clamp((vh - rect.top) / totalSpan, 0, 1);
+
+                    // Quadratic road path from right distance toward near-left foreground:
+                    // P0 (+32vw, -10vh) -> P1 (+4vw, +1vh) -> P2 (-12vw, +1vh)
+                    const xVw = quadBezier(32, 4, -12, p);
+                    const yVh = quadBezier(-10, 1, 1, p);
+                    const scale = lerp(0.18, 0.94, Math.pow(p, 1.02));
+                    const opacity = lerp(0.75, 1, clamp(p * 1.6, 0, 1));
+
+                    footerCar.style.transform = `translate3d(${xVw}vw, ${yVh}vh, 0) scale(${scale})`;
+                    footerCar.style.opacity = opacity.toFixed(3);
+                }
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    ticking = true;
+                    window.requestAnimationFrame(updateCars);
+                }
+            }
+
+            updateCars();
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll, { passive: true });
         })();
 
         // Gentle Synthesized Wedding Chime / Ambient Loop (Zero external audio dependencies)

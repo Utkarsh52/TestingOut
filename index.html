@@ -3,66 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ===================================================================
-         PLACEHOLDER: Website Page Title
-         Edit the <title> tag below to update the browser tab title.
-    ==================================================================== -->
-    <title>#NiUturn | Niharika & Utkarsh — Taking a New Turn in Life</title>
+    <title>Niraalii &amp; Uttkarsh — Wedding Invitation</title>
+    <meta name="description" content="Join us in celebrating the wedding of Niraalii &amp; Uttkarsh at Rambagh, Jaipur.">
+    <meta property="og:title" content="Niraalii &amp; Uttkarsh — Wedding Invitation">
+    <meta property="og:description" content="Join us in celebrating the wedding of Niraalii &amp; Uttkarsh at Rambagh, Jaipur.">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Cormorant Garamond (Serif), Plus Jakarta Sans (Body), Great Vibes (Script) -->
+    <!-- Google Fonts matching City 2 – Grand Heritage: Aboreto, Cormorant, Cormorant Upright, Gotu, Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Cormorant+Upright:wght@400;500;600;700&family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Gotu&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Tailwind Configuration for Wedding Card Theme Palette & Typography -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cream: {
-                            50: '#FDFBF7',
-                            100: '#FAF5EC',
-                            200: '#F3E9D7',
-                            300: '#E8D8BC',
-                        },
-                        gold: {
-                            300: '#E6C770',
-                            400: '#D4AF37',
-                            500: '#B89024',
-                            600: '#947115',
-                        },
-                        terracotta: {
-                            400: '#C96E54',
-                            500: '#B4563C',
-                            600: '#96422B',
-                            700: '#78321F',
-                        },
-                        sage: {
-                            100: '#EBF0EC',
-                            400: '#7C9082',
-                            500: '#5F7466',
-                            600: '#495A4F',
-                        },
-                        espresso: {
-                            800: '#362924',
-                            900: '#231A16',
-                        }
+                        skyheritage: '#7B8EAA',
+                        twilight: '#2C3F54',
+                        twilightdeep: '#213142',
+                        champagne: '#F3ECBA',
+                        celadon: '#DCDDA6',
+                        celadonsoft: '#DADCA3',
+                        emeraldheritage: '#45A086',
+                        lavenderlink: '#E6D3FF',
+                        blushcream: '#FBEDE2',
+                        duskrose: '#5A3A44',
+                        duskplum: '#442A33',
+                        sagecanvas: '#ECEFD9',
+                        sagewash: '#E2E6CB',
+                        olivemoss: '#696B36',
+                        ivorycard: '#FAF4E8',
                     },
                     fontFamily: {
-                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        script: ['"Great Vibes"', 'cursive'],
-                    },
-                    boxShadow: {
-                        'card': '0 20px 50px -12px rgba(54, 41, 36, 0.12), 0 0 1px 1px rgba(212, 175, 55, 0.25)',
-                        'gold-glow': '0 10px 30px -5px rgba(212, 175, 55, 0.3)',
+                        aboreto: ['"Aboreto"', 'serif'],
+                        cormorant: ['"Cormorant"', 'Georgia', 'serif'],
+                        upright: ['"Cormorant Upright"', 'Georgia', 'serif'],
+                        gotu: ['"Gotu"', 'sans-serif'],
+                        manrope: ['"Manrope"', 'sans-serif'],
                     }
                 }
             }
@@ -70,1485 +50,924 @@
     </script>
 
     <style>
-        /* Custom Wedding Card Texture & Ornate Styling */
-        body {
-            background-color: #FAF5EC;
-            color: #231A16;
-            background-image: 
-                radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
-                radial-gradient(circle at 85% 80%, rgba(180, 86, 60, 0.07) 0%, transparent 45%);
+        html, body {
+            background-color: #7B8EAA;
+            color: #F3ECBA;
             overflow-x: hidden;
+            font-family: 'Cormorant', Georgia, serif;
         }
 
-        /* Subtle paper grain pattern overlay */
-        .paper-texture {
-            background-image: radial-gradient(rgba(184, 144, 36, 0.11) 1px, transparent 0);
-            background-size: 28px 28px;
+        /* Woven Cane / Rattan Arch Border (Signature City-2 Event Card Frame) */
+        .cane-border-card {
+            border-radius: 180px;
+            padding: 16px;
+            background-color: #B9935B;
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(122, 84, 38, 0.34) 0px,
+                    rgba(122, 84, 38, 0.34) 3px,
+                    transparent 3px,
+                    transparent 9px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    rgba(243, 224, 182, 0.42) 0px,
+                    rgba(243, 224, 182, 0.42) 3px,
+                    transparent 3px,
+                    transparent 9px
+                ),
+                linear-gradient(145deg, #D2AF76 0%, #9E7541 55%, #C9A368 100%);
+            box-shadow: 0 0 22px 0 rgba(0, 0, 0, 0.72), inset 0 1px 2px rgba(255, 245, 220, 0.5);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Double Gold Frame for the Main Invitation Card */
-        .wedding-frame {
-            position: relative;
-            border: 1px solid rgba(212, 175, 55, 0.45);
-        }
-        .wedding-frame::before {
-            content: '';
-            position: absolute;
-            inset: 8px;
-            border: 1.5px solid rgba(212, 175, 55, 0.65);
-            pointer-events: none;
-            border-radius: inherit;
+        .cane-border-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 245, 220, 0.55);
         }
 
-        /* Vintage Highway / Milestone Sign Badge */
-        .highway-shield {
-            background: linear-gradient(145deg, #231A16 0%, #362924 100%);
-            border: 2px solid #D4AF37;
-            box-shadow: 0 6px 20px rgba(35, 26, 22, 0.2), inset 0 0 0 2px rgba(212, 175, 55, 0.2);
+        .cane-inner-arch {
+            border-radius: 166px;
+            background: radial-gradient(circle at 50% 35%, #FFFDF7 0%, #FAF3E3 72%, #F3E9D2 100%);
+            box-shadow: inset 0 0 18px rgba(139, 102, 52, 0.22);
+            border: 1.5px solid rgba(176, 137, 82, 0.55);
         }
 
-        /* Animated Dashed Road Line */
-        .road-line-vertical {
-            background-image: linear-gradient(to bottom, #D4AF37 55%, transparent 45%);
-            background-position: center;
-            background-size: 3px 22px;
-            background-repeat: repeat-y;
+        /* Double-Ring Circular Medallion CTA (Ellipse 1 & Ellipse 2) */
+        .medallion-outer {
+            border: 9px solid currentColor;
+            border-radius: 9999px;
+            padding: 10px;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .medallion-inner {
+            border: 2px solid currentColor;
+            border-radius: 9999px;
+        }
+        .medallion-link:hover .medallion-outer {
+            transform: scale(1.03);
         }
 
-        /* Floating Petals / Sparkles Animation */
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(2deg); }
+        /* Ornate Portrait Picture Frame */
+        .ornate-portrait-frame {
+            padding: 14px;
+            border-radius: 26px;
+            background: linear-gradient(135deg, #E8D5A7 0%, #B89352 45%, #F4E6C1 70%, #9E783B 100%);
+            box-shadow: 0 24px 48px rgba(24, 12, 16, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.6);
         }
-        .animate-float {
-            animation: floatSlow 5s ease-in-out infinite;
+        .ornate-portrait-mat {
+            padding: 10px;
+            border-radius: 18px;
+            background: #3D252C;
+            border: 1px solid rgba(243, 236, 186, 0.45);
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Floating Lantern Glow Animation */
+        @keyframes lanternFloat {
+            0%, 100% { transform: translateY(0px); opacity: 0.85; }
+            50% { transform: translateY(-10px); opacity: 1; }
         }
-        ::-webkit-scrollbar-track {
-            background: #FAF5EC;
+        .lantern-float {
+            animation: lanternFloat 5.5s ease-in-out infinite;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #D4AF37;
-            border-radius: 4px;
+        .lantern-float-delayed {
+            animation: lanternFloat 6.8s ease-in-out 1.4s infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .lantern-float, .lantern-float-delayed, .cane-border-card, .medallion-outer {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Subtle Scalloped Section Breaker Pattern */
+        .heritage-scallop-top {
+            background-image: radial-gradient(circle at 24px 0px, transparent 18px, currentColor 19px);
+            background-size: 48px 24px;
+            background-repeat: repeat-x;
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-gold-400 selection:text-espresso-900 paper-texture">
+<body class="antialiased selection:bg-champagne selection:text-twilightdeep">
 
-    <!-- ===================================================================
-         TOAST NOTIFICATION CONTAINER (Replaces alert() / confirm())
-    ==================================================================== -->
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+    <!-- Subtle Toast Container for Dummy Hyperlink Feedback (Never uses window.alert) -->
+    <div id="toast-root" class="fixed bottom-5 right-5 z-50 pointer-events-none flex flex-col gap-2 max-w-xs w-full px-4 sm:px-0"></div>
 
-    <!-- ===================================================================
-         STICKY NAVIGATION BAR WITH ROUTE PROGRESS
-    ==================================================================== -->
-    <header class="sticky top-0 z-40 backdrop-blur-md bg-cream-50/90 border-b border-gold-400/30 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <!-- Brand / Hashtag Logo -->
-            <a href="#hero" class="flex items-center gap-2.5 group">
-                <div class="w-9 h-9 rounded-full bg-terracotta-500 text-cream-50 flex items-center justify-center border border-gold-400 shadow-sm group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-route text-sm text-gold-300"></i>
-                </div>
-                <div>
-                    <span class="font-serif font-bold text-xl tracking-wide text-espresso-900">#NiUturn</span>
-                    <span class="hidden sm:inline-block text-[11px] uppercase tracking-widest text-terracotta-600 font-semibold ml-1.5 px-2 py-0.5 bg-terracotta-500/10 rounded-full">NH-Forever</span>
-                </div>
-            </a>
+    <!-- Floating Music Toggle Button (Matches City-2 Fixed Music Trigger) -->
+    <button
+        id="music-toggle"
+        type="button"
+        aria-label="Toggle wedding music"
+        aria-pressed="false"
+        onclick="toggleMusic()"
+        class="fixed top-4 right-4 z-40 w-11 h-11 rounded-full bg-twilightdeep/80 backdrop-blur-md border border-champagne/60 text-champagne flex items-center justify-center shadow-lg hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne transition-transform"
+        title="Play / Pause Wedding Music"
+    >
+        <svg id="music-icon-off" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+        <svg id="music-icon-on" class="w-5 h-5 hidden animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3" fill="currentColor"></circle>
+            <circle cx="18" cy="16" r="3" fill="currentColor"></circle>
+        </svg>
+    </button>
 
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-espresso-800">
-                <a href="#hero" class="hover:text-terracotta-500 transition-colors">Invitation</a>
-                <a href="#countdown-section" class="hover:text-terracotta-500 transition-colors">Mile Zero</a>
-                <a href="#our-story" class="hover:text-terracotta-500 transition-colors">How Paths Crossed</a>
-                <a href="#route-ahead" class="hover:text-terracotta-500 transition-colors">The Route Ahead</a>
-                <a href="#travel-stay" class="hover:text-terracotta-500 transition-colors">Pit Stops</a>
-                <a href="#rsvp" class="px-4 py-2 rounded-full bg-terracotta-500 text-cream-50 hover:bg-terracotta-600 transition-all shadow-sm font-semibold flex items-center gap-1.5">
-                    <i class="fa-solid fa-ticket text-gold-300 text-xs"></i>
-                    <span>RSVP</span>
-                </a>
-            </nav>
+    <main class="w-full">
 
-            <!-- Action Controls: Chime Audio & Quick Placeholder Editor -->
-            <div class="flex items-center gap-2">
-                <button id="chime-btn" onclick="playWeddingChime()" title="Play Auspicious Chime" class="p-2.5 rounded-full bg-cream-200/80 hover:bg-gold-400/20 text-espresso-800 border border-gold-400/40 transition-all text-xs flex items-center gap-1.5">
-                    <i class="fa-solid fa-music text-terracotta-500"></i>
-                    <span class="hidden sm:inline font-medium">Chime</span>
-                </button>
-                <button onclick="toggleCustomizeModal()" title="Customize Couple & Event Placeholders" class="p-2.5 rounded-full bg-gold-400/20 hover:bg-gold-400/30 text-espresso-900 border border-gold-500/40 transition-all text-xs flex items-center gap-1.5 font-medium">
-                    <i class="fa-solid fa-pen-nib text-gold-600"></i>
-                    <span class="hidden lg:inline">Edit Placeholders</span>
-                </button>
-                <!-- Mobile Menu Toggle -->
-                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-full bg-cream-200 text-espresso-900 border border-gold-400/40" aria-label="Open Menu">
-                    <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
-                </button>
+        <!-- ===============================================================
+             SECTION 1 (PART A): HERO — TWILIGHT SKY, LANTERNS, NAMES & CAR
+        ================================================================ -->
+        <section class="relative w-full min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-between overflow-hidden bg-skyheritage">
+            <!-- Heritage Sky & Palace Backdrop -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#6F829E] via-[#536885] to-[#2C3F54]">
+                <img
+                    src="./src/assets/images/hero_heritage_sky_1794854787681.jpg"
+                    alt="Twilight Jaipur heritage palace skyline with glowing lanterns"
+                    referrerPolicy="no-referrer"
+                    class="w-full h-full object-cover object-center opacity-85 mix-blend-normal"
+                    onerror="this.style.display='none'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1E2B3A]/45 via-[#243447]/30 to-[#283B4E]"></div>
             </div>
-        </div>
 
-        <!-- Mobile Dropdown Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-gold-400/30 px-6 py-4 space-y-3 shadow-lg">
-            <a href="#hero" onclick="toggleMobileMenu()" class="block py-2 text-espresso-800 font-medium border-b border-gold-400/15">1. The Invitation Card</a>
-            <a href="#countdown-section" onclick="toggleMobileMenu()" class="block py-2 text-espresso-800 font-medium border-b border-gold-400/15">2. Countdown Odometer</a>
-            <a href="#our-story" onclick="toggleMobileMenu()" class="block py-2 text-espresso-800 font-medium border-b border-gold-400/15">3. How Our Paths Crossed</a>
-            <a href="#route-ahead" onclick="toggleMobileMenu()" class="block py-2 text-espresso-800 font-medium border-b border-gold-400/15">4. The Route Ahead (Events)</a>
-            <a href="#travel-stay" onclick="toggleMobileMenu()" class="block py-2 text-espresso-800 font-medium border-b border-gold-400/15">5. Travel & Stay Pit Stops</a>
-            <a href="#rsvp" onclick="toggleMobileMenu()" class="block py-2.5 text-center rounded-xl bg-terracotta-500 text-cream-50 font-semibold mt-2">Reserve Your Seat (RSVP)</a>
-        </div>
-    </header>
+            <!-- Floating Glowing Sky Lanterns (SVG Accent Overlay) -->
+            <div class="pointer-events-none absolute inset-x-0 top-10 max-w-5xl mx-auto flex justify-between px-6 sm:px-14 opacity-85">
+                <svg class="w-7 h-10 lantern-float text-champagne" viewBox="0 0 32 44" fill="none">
+                    <ellipse cx="16" cy="18" rx="11" ry="15" fill="url(#lanternGlow1)" />
+                    <path d="M9 30h14l-2 5H11l-2-5z" fill="#F3ECBA" fill-opacity="0.7" />
+                    <defs>
+                        <radialGradient id="lanternGlow1" cx="50%" cy="55%" r="55%">
+                            <stop offset="0%" stop-color="#FFF6CC" />
+                            <stop offset="55%" stop-color="#F6B966" stop-opacity="0.85" />
+                            <stop offset="100%" stop-color="#E68843" stop-opacity="0.15" />
+                        </radialGradient>
+                    </defs>
+                </svg>
+                <svg class="w-6 h-9 lantern-float-delayed mt-8 text-champagne" viewBox="0 0 32 44" fill="none">
+                    <ellipse cx="16" cy="18" rx="10" ry="14" fill="url(#lanternGlow2)" />
+                    <path d="M10 29h12l-1.5 4h-9L10 29z" fill="#F3ECBA" fill-opacity="0.65" />
+                    <defs>
+                        <radialGradient id="lanternGlow2" cx="50%" cy="55%" r="55%">
+                            <stop offset="0%" stop-color="#FFF6CC" />
+                            <stop offset="55%" stop-color="#F6B966" stop-opacity="0.8" />
+                            <stop offset="100%" stop-color="#E68843" stop-opacity="0.1" />
+                        </radialGradient>
+                    </defs>
+                </svg>
+                <svg class="w-8 h-11 lantern-float mt-2 hidden sm:block text-champagne" viewBox="0 0 32 44" fill="none">
+                    <ellipse cx="16" cy="18" rx="11" ry="15" fill="url(#lanternGlow3)" />
+                    <path d="M9 30h14l-2 5H11l-2-5z" fill="#F3ECBA" fill-opacity="0.7" />
+                    <defs>
+                        <radialGradient id="lanternGlow3" cx="50%" cy="55%" r="55%">
+                            <stop offset="0%" stop-color="#FFF6CC" />
+                            <stop offset="55%" stop-color="#F6B966" stop-opacity="0.85" />
+                            <stop offset="100%" stop-color="#E68843" stop-opacity="0.15" />
+                        </radialGradient>
+                    </defs>
+                </svg>
+            </div>
 
-    <!-- ===================================================================
-         1. HERO SECTION: THE WEDDING INVITATION CARD (#NiUturn)
-    ==================================================================== -->
-    <section id="hero" class="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-            
-            <!-- Main Arch & Gold Framed Wedding Invitation Card -->
-            <div class="wedding-frame bg-gradient-to-b from-cream-50 via-cream-100 to-cream-50 rounded-3xl sm:rounded-[2.5rem] shadow-card p-6 sm:p-12 md:p-16 text-center relative overflow-hidden">
-                
-                <!-- Decorative Corner SVG Filigree (Top Left) -->
-                <svg class="w-16 h-16 sm:w-24 sm:h-24 text-gold-400/60 absolute top-4 left-4 pointer-events-none" viewBox="0 0 100 100" fill="none">
-                    <path d="M5 95V25C5 13.954 13.954 5 25 5H95" stroke="currentColor" stroke-width="2"/>
-                    <path d="M12 80V30C12 20.059 20.059 12 30 12H80" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/>
-                    <circle cx="25" cy="25" r="4" fill="currentColor"/>
-                </svg>
-                <!-- Decorative Corner SVG Filigree (Top Right) -->
-                <svg class="w-16 h-16 sm:w-24 sm:h-24 text-gold-400/60 absolute top-4 right-4 pointer-events-none transform scale-x-[-1]" viewBox="0 0 100 100" fill="none">
-                    <path d="M5 95V25C5 13.954 13.954 5 25 5H95" stroke="currentColor" stroke-width="2"/>
-                    <path d="M12 80V30C12 20.059 20.059 12 30 12H80" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/>
-                    <circle cx="25" cy="25" r="4" fill="currentColor"/>
-                </svg>
-                <!-- Decorative Corner SVG Filigree (Bottom Left) -->
-                <svg class="w-16 h-16 sm:w-24 sm:h-24 text-gold-400/60 absolute bottom-4 left-4 pointer-events-none transform scale-y-[-1]" viewBox="0 0 100 100" fill="none">
-                    <path d="M5 95V25C5 13.954 13.954 5 25 5H95" stroke="currentColor" stroke-width="2"/>
-                    <circle cx="25" cy="25" r="4" fill="currentColor"/>
-                </svg>
-                <!-- Decorative Corner SVG Filigree (Bottom Right) -->
-                <svg class="w-16 h-16 sm:w-24 sm:h-24 text-gold-400/60 absolute bottom-4 right-4 pointer-events-none transform scale-[-1]" viewBox="0 0 100 100" fill="none">
-                    <path d="M5 95V25C5 13.954 13.954 5 25 5H95" stroke="currentColor" stroke-width="2"/>
-                    <circle cx="25" cy="25" r="4" fill="currentColor"/>
-                </svg>
-
-                <!-- Auspicious Header / Blessing Placeholder -->
-                <div class="inline-flex items-center gap-2 text-terracotta-600 font-serif italic text-sm sm:text-base tracking-widest mb-4">
-                    <span>✦</span>
-                    <span id="display-blessing">॥ श्री गणेशाय नमः • With the Blessings of Our Families ॥</span>
-                    <span>✦</span>
+            <!-- Monumental Couple Names Header -->
+            <div class="relative z-10 w-full max-w-5xl mx-auto px-4 pt-16 sm:pt-20 pb-6 text-center flex flex-col items-center">
+                <h1 class="font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem);">
+                    Niraalii
+                </h1>
+                <div class="my-2 sm:my-3 flex items-center justify-center gap-5 w-full max-w-xs">
+                    <span class="h-[1px] flex-1 bg-champagne/55"></span>
+                    <span class="font-aboreto uppercase text-champagne tracking-[0.26em] drop-shadow-[0_2px_12px_rgba(18,28,39,0.8)]" style="font-size: clamp(1.35rem, 3vw, 2.5rem);">
+                        Weds
+                    </span>
+                    <span class="h-[1px] flex-1 bg-champagne/55"></span>
                 </div>
+                <p class="font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem);">
+                    Uttkarsh
+                </p>
+            </div>
 
-                <!-- Bespoke Merging Paths & Road Sign Emblem -->
-                <div class="my-3 flex flex-col items-center justify-center">
-                    <div class="relative inline-flex items-center justify-center animate-float">
-                        <!-- Custom Diamond Road Sign Motif -->
-                        <div class="w-20 h-20 sm:w-24 sm:h-24 rotate-45 rounded-2xl bg-gradient-to-br from-gold-300 via-gold-400 to-gold-500 p-1 shadow-gold-glow flex items-center justify-center">
-                            <div class="w-full h-full border-2 border-espresso-900/80 rounded-xl flex items-center justify-center bg-cream-50/95">
-                                <!-- Merging Two Paths Into One Arrow SVG (Un-rotated inside diamond) -->
-                                <svg class="-rotate-45 w-11 h-11 sm:w-12 sm:h-12 text-terracotta-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Left path (N) and Right path (U) merging upward -->
-                                    <path d="M18 52C18 40 32 36 32 22V12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-                                    <path d="M46 52C46 40 32 36 32 22V12" stroke="#B89024" stroke-width="4" stroke-linecap="round"/>
-                                    <path d="M23 20L32 10L41 20" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <circle cx="18" cy="52" r="3.5" fill="currentColor"/>
-                                    <circle cx="46" cy="52" r="3.5" fill="#B89024"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highway Shield Badge: #NiUturn -->
-                    <div class="mt-6 inline-flex flex-col items-center">
-                        <div class="highway-shield text-cream-50 px-6 py-2 rounded-full inline-flex items-center gap-3">
-                            <span class="text-xs uppercase tracking-[0.25em] text-gold-300 font-semibold">Route</span>
-                            <span class="h-3.5 w-[1px] bg-gold-400/50"></span>
-                            <h1 id="display-hashtag" class="font-serif font-bold text-2xl sm:text-3xl tracking-wider text-gold-300">NiUturn</h1>
-                            <button onclick="copyHashtag()" title="Copy Wedding Hashtag" class="text-xs bg-gold-400/20 hover:bg-gold-400/40 text-gold-300 px-2.5 py-1 rounded-full transition-colors flex items-center gap-1">
-                                <i class="fa-regular fa-copy"></i>
-                                <span>#NiUturn</span>
-                            </button>
-                        </div>
-                        <p id="display-tagline" class="mt-3 font-serif italic text-xl sm:text-2xl text-terracotta-600 font-medium">
-                            “Taking a New Turn in Life — Together Forever”
-                        </p>
-                    </div>
+            <!-- Foreground Vintage Wedding Car Artwork -->
+            <div class="relative z-10 w-full max-w-3xl mx-auto px-4 pb-8 sm:pb-12">
+                <div class="relative rounded-t-[140px] rounded-b-3xl overflow-hidden border border-champagne/35 shadow-[0_24px_60px_rgba(15,24,34,0.65)] bg-twilightdeep">
+                    <img
+                        src="./src/assets/images/hero_vintage_car_1794854788490.jpg"
+                        alt="Vintage Indian wedding car adorned with marigold and jasmine garlands"
+                        referrerPolicy="no-referrer"
+                        class="w-full h-56 sm:h-80 md:h-[360px] object-cover object-center"
+                        onerror="this.style.display='none'"
+                    />
+                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#283B4E]/60 via-transparent to-transparent"></div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Ornamental Divider -->
-                <div class="flex items-center justify-center gap-4 my-6">
-                    <span class="h-[1px] w-16 sm:w-28 bg-gradient-to-r from-transparent to-gold-400"></span>
-                    <i class="fa-solid fa-compass text-gold-500 text-sm"></i>
-                    <span class="h-[1px] w-16 sm:w-28 bg-gradient-to-l from-transparent to-gold-400"></span>
-                </div>
+        <!-- ===============================================================
+             SECTION 1 (PART B): GANESHA INVOCATION, INVITE & 6 ARCH EVENTS
+        ================================================================ -->
+        <section class="relative w-full bg-gradient-to-b from-[#283B4E] via-[#24384B] to-[#1F3142] text-champagne py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
+            <!-- Subtle Mughal Architectural Arch Linework Backdrop -->
+            <div class="pointer-events-none absolute inset-x-0 top-0 flex justify-center opacity-[0.08]">
+                <svg class="w-[920px] max-w-none h-[540px]" viewBox="0 0 920 540" fill="none" stroke="#F3ECBA" stroke-width="1.2">
+                    <path d="M60 540V230C60 140 240 120 460 30C680 120 860 140 860 230V540" />
+                    <path d="M110 540V245C110 170 265 150 460 72C655 150 810 170 810 245V540" />
+                    <circle cx="460" cy="115" r="24" />
+                </svg>
+            </div>
 
-                <!-- Invitation Wording -->
-                <p class="text-xs sm:text-sm uppercase tracking-[0.22em] text-espresso-800/80 max-w-xl mx-auto leading-relaxed">
-                    Two individual journeys, countless miles of memories, now merging onto one scenic highway of love
+            <div class="relative z-10 max-w-5xl mx-auto text-center">
+                <!-- Sacred Sanskrit Invocation & Ganesha Motif -->
+                <p class="font-gotu text-champagne text-lg sm:text-xl tracking-wide mb-4">
+                    ॐ श्री गणेशाय नम
                 </p>
 
-                <!-- ===========================================================
-                     PLACEHOLDER: COUPLE'S NAMES & PARENTS DETAILS
-                ============================================================ -->
-                <div class="my-8 sm:my-10 space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-11 items-center gap-4">
-                        <!-- Bride Name & Bio Placeholder -->
-                        <div class="md:col-span-5 text-center md:text-right">
-                            <h2 id="display-bride" class="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-espresso-900 tracking-tight">
-                                Niharika
-                            </h2>
-                            <p id="display-bride-parents" class="text-xs sm:text-sm text-espresso-800/75 mt-1 font-medium">
-                                D/o Mrs. Sunita &amp; Mr. Rajesh Sharma
-                            </p>
-                            <span class="inline-block mt-1.5 text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-terracotta-500/10 text-terracotta-600 font-semibold">
-                                The "Ni" in #NiUturn
-                            </span>
-                        </div>
-
-                        <!-- Ampersand / Intersection Badge -->
-                        <div class="md:col-span-1 flex justify-center my-2 md:my-0">
-                            <div class="w-12 h-12 rounded-full bg-gold-400/20 border border-gold-500/50 flex items-center justify-center font-script text-3xl text-terracotta-600 shadow-inner">
-                                &amp;
-                            </div>
-                        </div>
-
-                        <!-- Groom Name & Bio Placeholder -->
-                        <div class="md:col-span-5 text-center md:text-left">
-                            <h2 id="display-groom" class="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-espresso-900 tracking-tight">
-                                Utkarsh
-                            </h2>
-                            <p id="display-groom-parents" class="text-xs sm:text-sm text-espresso-800/75 mt-1 font-medium">
-                                S/o Mrs. Meera &amp; Mr. Vikram Verma
-                            </p>
-                            <span class="inline-block mt-1.5 text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-sage-500/15 text-sage-600 font-semibold">
-                                The "U" in #NiUturn
-                            </span>
-                        </div>
-                    </div>
+                <!-- Ornate Line-Art Lord Ganesha Emblem SVG -->
+                <div class="flex justify-center mb-10">
+                    <svg class="w-24 h-24 sm:w-28 sm:h-28 text-champagne" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Halo arch -->
+                        <path d="M22 86C14 66 20 34 60 16C100 34 106 66 98 86" stroke-opacity="0.45" stroke-dasharray="3 4"/>
+                        <!-- Crown (Mukut) -->
+                        <path d="M46 34L60 16L74 34" />
+                        <path d="M42 40H78" />
+                        <path d="M48 28H72" />
+                        <circle cx="60" cy="13" r="2" fill="currentColor" />
+                        <!-- Forehead Tilak -->
+                        <path d="M55 44C57 47 63 47 65 44" />
+                        <circle cx="60" cy="49" r="1.6" fill="currentColor" />
+                        <!-- Ears -->
+                        <path d="M42 44C26 42 20 56 26 70C31 78 40 74 44 68" />
+                        <path d="M78 44C94 42 100 56 94 70C89 78 80 74 76 68" />
+                        <!-- Eyes & Trunk -->
+                        <path d="M48 53C50 51 53 51 55 53" />
+                        <path d="M65 53C67 51 70 51 72 53" />
+                        <path d="M57 58C56 70 54 84 62 91C68 96 76 92 74 85C72 81 67 82 67 86" />
+                        <path d="M63 58C64 68 62 77 58 83" />
+                        <!-- Lotus Base -->
+                        <path d="M36 99C46 93 74 93 84 99" />
+                        <path d="M44 104C52 100 68 100 76 104" stroke-opacity="0.7" />
+                    </svg>
                 </div>
 
-                <!-- Wedding Date & Destination Banner inside the Card -->
-                <div class="max-w-2xl mx-auto bg-cream-200/60 border border-gold-400/50 rounded-2xl p-5 sm:p-6 shadow-inner">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center divide-y sm:divide-y-0 sm:divide-x divide-gold-400/40">
-                        <!-- Date Placeholder -->
-                        <div class="pt-2 sm:pt-0">
-                            <span class="text-[11px] uppercase tracking-widest text-terracotta-600 font-bold block">Departure Date</span>
-                            <p id="display-date-text" class="font-serif font-bold text-xl sm:text-2xl text-espresso-900 mt-0.5">
-                                February 14, 2027
-                            </p>
-                        </div>
-                        <!-- Muhurat / Time Placeholder -->
-                        <div class="pt-3 sm:pt-0 px-2">
-                            <span class="text-[11px] uppercase tracking-widest text-terracotta-600 font-bold block">Auspicious Turn</span>
-                            <p id="display-time-text" class="font-serif font-bold text-xl sm:text-2xl text-espresso-900 mt-0.5">
-                                7:30 PM Onwards
-                            </p>
-                        </div>
-                        <!-- Destination Placeholder -->
-                        <div class="pt-3 sm:pt-0 pl-2">
-                            <span class="text-[11px] uppercase tracking-widest text-terracotta-600 font-bold block">Destination</span>
-                            <p id="display-city-text" class="font-serif font-bold text-xl sm:text-2xl text-espresso-900 mt-0.5">
-                                Udaipur, Rajasthan
-                            </p>
-                        </div>
-                    </div>
+                <!-- Heavenly Blessings Block -->
+                <div class="space-y-2 max-w-xl mx-auto mb-12 text-champagne">
+                    <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90">
+                        With the heavenly blessings of
+                    </p>
+                    <p class="font-cormorant text-xl sm:text-2xl font-medium tracking-wide">
+                        Smt. Lata Devi &amp; Sm. Kamal Kapoor
+                    </p>
+                    <p class="font-cormorant text-champagne/70 tracking-widest py-0.5">——</p>
+                    <p class="font-cormorant text-xl sm:text-2xl font-medium tracking-wide">
+                        Mrs. Reena &amp; Mr. Rajiv Kapoor
+                    </p>
                 </div>
 
-                <!-- Hero CTA Buttons -->
-                <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-                    <a href="#route-ahead" class="px-7 py-3.5 rounded-full bg-espresso-900 text-gold-300 hover:bg-espresso-800 transition-all font-medium text-sm tracking-wide shadow-md flex items-center gap-2">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                        <span>Explore The Route Ahead</span>
-                    </a>
-                    <a href="#rsvp" class="px-7 py-3.5 rounded-full bg-terracotta-500 text-cream-50 hover:bg-terracotta-600 transition-all font-medium text-sm tracking-wide shadow-md flex items-center gap-2">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>Confirm Your Presence</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         2. LIVE COUNTDOWN TIMER ("ODOMETER TO MILE ZERO")
-    ==================================================================== -->
-    <section id="countdown-section" class="py-10 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-            <div class="bg-espresso-900 text-cream-50 rounded-3xl p-6 sm:p-10 border-2 border-gold-400 shadow-card relative overflow-hidden">
-                <!-- Background decorative highway lines -->
-                <div class="absolute inset-0 opacity-10 pointer-events-none flex justify-between px-12">
-                    <div class="h-full w-1 border-l-2 border-dashed border-gold-300"></div>
-                    <div class="h-full w-1 border-r-2 border-dashed border-gold-300"></div>
-                </div>
-
-                <div class="relative z-10 text-center">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/15 border border-gold-400/40 text-gold-300 text-xs uppercase tracking-[0.2em] mb-3">
-                        <i class="fa-solid fa-gauge-high"></i>
-                        <span>Live Wedding Odometer • No U-Turns Allowed</span>
-                    </div>
-                    <h2 class="font-serif text-2xl sm:text-4xl font-semibold text-cream-50">
-                        Counting Down to Our Biggest Turn
+                <!-- INVITE Title -->
+                <div class="mb-10 space-y-3">
+                    <h2 class="font-aboreto uppercase text-champagne tracking-[0.28em]" style="font-size: clamp(1.75rem, 3vw, 2.25rem);">
+                        Invite
                     </h2>
-                    <p id="countdown-status-note" class="text-xs sm:text-sm text-cream-200/75 mt-1">
-                        Until Niharika &amp; Utkarsh merge paths at <span id="display-venue-short" class="text-gold-300 font-medium">The Royal Heritage Haveli, Udaipur</span>
-                    </p>
-
-                    <!-- 4 Milestone Odometer Cards -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 mt-7 max-w-2xl mx-auto">
-                        <!-- Days -->
-                        <div class="bg-espresso-800/90 border border-gold-400/40 rounded-2xl p-4 sm:p-5 shadow-inner">
-                            <span id="cd-days" class="font-serif font-bold text-4xl sm:text-5xl text-gold-300 block tabular-nums">00</span>
-                            <span class="text-[11px] uppercase tracking-[0.2em] text-cream-200/70 mt-1 block">Days</span>
-                        </div>
-                        <!-- Hours -->
-                        <div class="bg-espresso-800/90 border border-gold-400/40 rounded-2xl p-4 sm:p-5 shadow-inner">
-                            <span id="cd-hours" class="font-serif font-bold text-4xl sm:text-5xl text-gold-300 block tabular-nums">00</span>
-                            <span class="text-[11px] uppercase tracking-[0.2em] text-cream-200/70 mt-1 block">Hours</span>
-                        </div>
-                        <!-- Minutes -->
-                        <div class="bg-espresso-800/90 border border-gold-400/40 rounded-2xl p-4 sm:p-5 shadow-inner">
-                            <span id="cd-minutes" class="font-serif font-bold text-4xl sm:text-5xl text-gold-300 block tabular-nums">00</span>
-                            <span class="text-[11px] uppercase tracking-[0.2em] text-cream-200/70 mt-1 block">Minutes</span>
-                        </div>
-                        <!-- Seconds -->
-                        <div class="bg-espresso-800/90 border border-gold-400/40 rounded-2xl p-4 sm:p-5 shadow-inner">
-                            <span id="cd-seconds" class="font-serif font-bold text-4xl sm:text-5xl text-terracotta-400 block tabular-nums">00</span>
-                            <span class="text-[11px] uppercase tracking-[0.2em] text-cream-200/70 mt-1 block">Seconds</span>
-                        </div>
-                    </div>
-
-                    <!-- Save the Date (.ICS Calendar Download) -->
-                    <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-                        <button onclick="downloadCalendarInvite('Full Wedding Celebration (#NiUturn)', '2027-02-14T19:30:00', 'The Royal Heritage Haveli, Udaipur')" class="px-5 py-2.5 rounded-full bg-gold-400 hover:bg-gold-300 text-espresso-900 font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 shadow-sm">
-                            <i class="fa-regular fa-calendar-check"></i>
-                            <span>Save Complete Route to Calendar (.ics)</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         3. "HOW OUR PATHS CROSSED" — STORY MILESTONE TIMELINE
-    ==================================================================== -->
-    <section id="our-story" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section Header -->
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sage-500/15 text-sage-600 text-xs font-bold uppercase tracking-widest">
-                    <i class="fa-solid fa-signs-post"></i>
-                    <span>The Journey So Far</span>
-                </span>
-                <h2 class="font-serif font-bold text-3xl sm:text-5xl text-espresso-900 mt-3">
-                    How Our Paths Crossed
-                </h2>
-                <p class="text-espresso-800/75 text-sm sm:text-base mt-2">
-                    Every great road trip has unexpected detours, scenic stops, and the moment you realize you never want to travel solo again.
-                </p>
-            </div>
-
-            <!-- Timeline Container with Central Dashed Highway Line -->
-            <div class="relative">
-                <!-- Vertical Road Line (Desktop Center, Mobile Left) -->
-                <div class="road-line-vertical absolute left-5 md:left-1/2 top-2 bottom-2 w-1 -translate-x-1/2"></div>
-
-                <!-- MILESTONE 1 -->
-                <div class="relative grid grid-cols-1 md:grid-cols-12 gap-6 items-center mb-12">
-                    <div class="md:col-span-5 md:text-right pl-14 md:pl-0">
-                        <div class="bg-cream-50 border border-gold-400/50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <span class="inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded bg-terracotta-500/10 text-terracotta-600 mb-2">
-                                <!-- PLACEHOLDER: Milestone 1 Date -->
-                                Mile 01 • October 2023
-                            </span>
-                            <h3 class="font-serif font-bold text-2xl text-espresso-900">
-                                The Unexpected Intersection
-                            </h3>
-                            <p class="text-sm text-espresso-800/80 mt-2 leading-relaxed">
-                                <!-- PLACEHOLDER: Milestone 1 Story Text -->
-                                What started as a chance meeting over filter coffee at a mutual friend’s get-together turned into a four-hour conversation about travel, music, and midnight street food runs.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Center Marker Badge -->
-                    <div class="md:col-span-2 flex md:justify-center absolute left-5 md:static -translate-x-1/2 md:translate-x-0 top-6">
-                        <div class="w-11 h-11 rounded-full bg-espresso-900 text-gold-300 border-2 border-gold-400 flex items-center justify-center shadow-md z-10 font-serif font-bold text-sm">
-                            01
-                        </div>
-                    </div>
-                    <div class="md:col-span-5 hidden md:block"></div>
-                </div>
-
-                <!-- MILESTONE 2 -->
-                <div class="relative grid grid-cols-1 md:grid-cols-12 gap-6 items-center mb-12">
-                    <div class="md:col-span-5 hidden md:block"></div>
-                    <!-- Center Marker Badge -->
-                    <div class="md:col-span-2 flex md:justify-center absolute left-5 md:static -translate-x-1/2 md:translate-x-0 top-6">
-                        <div class="w-11 h-11 rounded-full bg-terracotta-500 text-cream-50 border-2 border-gold-400 flex items-center justify-center shadow-md z-10 font-serif font-bold text-sm">
-                            02
-                        </div>
-                    </div>
-                    <div class="md:col-span-5 pl-14 md:pl-0">
-                        <div class="bg-cream-50 border border-gold-400/50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <span class="inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded bg-sage-500/15 text-sage-600 mb-2">
-                                <!-- PLACEHOLDER: Milestone 2 Date -->
-                                Mile 02 • Monsoon 2024
-                            </span>
-                            <h3 class="font-serif font-bold text-2xl text-espresso-900">
-                                Picking Up Speed &amp; Long Drives
-                            </h3>
-                            <p class="text-sm text-espresso-800/80 mt-2 leading-relaxed">
-                                <!-- PLACEHOLDER: Milestone 2 Story Text -->
-                                From navigating wrong turns on weekend road trips to becoming each other’s favorite co-passenger and playlist curator, we knew our compasses pointed in the same direction.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MILESTONE 3 -->
-                <div class="relative grid grid-cols-1 md:grid-cols-12 gap-6 items-center mb-12">
-                    <div class="md:col-span-5 md:text-right pl-14 md:pl-0">
-                        <div class="bg-cream-50 border border-gold-400/50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <span class="inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded bg-gold-400/20 text-gold-600 mb-2">
-                                <!-- PLACEHOLDER: Milestone 3 Date -->
-                                Mile 03 • August 2026
-                            </span>
-                            <h3 class="font-serif font-bold text-2xl text-espresso-900">
-                                The Scenic Overlook Proposal
-                            </h3>
-                            <p class="text-sm text-espresso-800/80 mt-2 leading-relaxed">
-                                <!-- PLACEHOLDER: Milestone 3 Story Text -->
-                                Under a golden sunset in the hills, Utkarsh asked Niharika to take the biggest turn of their lives together—and with happy tears, she said "Yes, no U-turns!"
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Center Marker Badge -->
-                    <div class="md:col-span-2 flex md:justify-center absolute left-5 md:static -translate-x-1/2 md:translate-x-0 top-6">
-                        <div class="w-11 h-11 rounded-full bg-sage-500 text-cream-50 border-2 border-gold-400 flex items-center justify-center shadow-md z-10 font-serif font-bold text-sm">
-                            03
-                        </div>
-                    </div>
-                    <div class="md:col-span-5 hidden md:block"></div>
-                </div>
-
-                <!-- MILESTONE 4 (THE WEDDING) -->
-                <div class="relative grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                    <div class="md:col-span-5 hidden md:block"></div>
-                    <!-- Center Marker Badge -->
-                    <div class="md:col-span-2 flex md:justify-center absolute left-5 md:static -translate-x-1/2 md:translate-x-0 top-6">
-                        <div class="w-12 h-12 rounded-full bg-gold-400 text-espresso-900 border-2 border-espresso-900 flex items-center justify-center shadow-gold-glow z-10">
-                            <i class="fa-solid fa-heart text-terracotta-600"></i>
-                        </div>
-                    </div>
-                    <div class="md:col-span-5 pl-14 md:pl-0">
-                        <div class="bg-gradient-to-br from-espresso-900 to-espresso-800 text-cream-50 border-2 border-gold-400 rounded-2xl p-6 shadow-md">
-                            <span class="inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded bg-gold-400 text-espresso-900 mb-2">
-                                Mile Forever • #NiUturn
-                            </span>
-                            <h3 class="font-serif font-bold text-2xl text-gold-300">
-                                Taking a New Turn in Life
-                            </h3>
-                            <p class="text-sm text-cream-100/85 mt-2 leading-relaxed">
-                                Surrounded by our dearest family and friends, we embark on our forever highway. Your blessings are the fuel for our journey ahead!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         4. "THE ROUTE AHEAD" — WEDDING EVENTS SCHEDULE
-         (Haldi/Mehendi, Sangeet, The Wedding, Reception)
-    ==================================================================== -->
-    <section id="route-ahead" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-cream-200/45 border-y border-gold-400/30">
-        <div class="max-w-6xl mx-auto">
-            <!-- Section Header -->
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-terracotta-500/15 text-terracotta-600 text-xs font-bold uppercase tracking-widest">
-                    <i class="fa-solid fa-route"></i>
-                    <span>Celebration Itinerary</span>
-                </span>
-                <h2 class="font-serif font-bold text-3xl sm:text-5xl text-espresso-900 mt-3">
-                    The Route Ahead
-                </h2>
-                <p class="text-espresso-800/75 text-sm sm:text-base mt-2">
-                    Four celebratory stops along our wedding highway. Follow the signs and join us at every milestone!
-                </p>
-            </div>
-
-            <!-- 4 Wedding Event Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- =======================================================
-                     EVENT CARD 1: HALDI & MEHENDI
-                ======================================================== -->
-                <div class="wedding-frame bg-cream-50 rounded-3xl p-6 sm:p-8 shadow-card flex flex-col justify-between relative group hover:-translate-y-1 transition-all duration-300">
-                    <div>
-                        <!-- Top Highway Stop Badge -->
-                        <div class="flex items-center justify-between gap-2 mb-5">
-                            <span class="px-3.5 py-1 rounded-full bg-gold-400/25 border border-gold-500/40 text-espresso-900 text-xs font-bold uppercase tracking-widest">
-                                Stop 01 • Day One
-                            </span>
-                            <span class="text-xs font-medium text-sage-600 bg-sage-100 px-3 py-1 rounded-full">
-                                <i class="fa-solid fa-sun text-gold-500 mr-1"></i> Marigold &amp; Henna
-                            </span>
-                        </div>
-
-                        <!-- Event Title & Subtitle -->
-                        <h3 class="font-serif font-bold text-3xl text-espresso-900">
-                            Haldi &amp; Mehendi Carnival
-                        </h3>
-                        <p class="font-serif italic text-terracotta-600 text-lg mt-0.5">
-                            “Sunlit Hues, Henna Trails &amp; Joyful Detours”
-                        </p>
-                        <p class="text-sm text-espresso-800/75 mt-3 leading-relaxed">
-                            An afternoon drenched in turmeric blessings, intricate mehendi designs, folk dhol beats, and refreshing coolers by the courtyard.
-                        </p>
-
-                        <!-- Date / Time / Venue Placeholders -->
-                        <div class="mt-6 space-y-2.5 bg-cream-100/90 p-4 rounded-2xl border border-gold-400/30 text-sm">
-                            <div class="flex items-start gap-3">
-                                <i class="fa-regular fa-calendar text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Date:</span>
-                                    <!-- PLACEHOLDER: Haldi/Mehendi Date -->
-                                    <span class="text-espresso-800 ml-1">Saturday, February 13, 2027</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-regular fa-clock text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Time:</span>
-                                    <!-- PLACEHOLDER: Haldi/Mehendi Time -->
-                                    <span class="text-espresso-800 ml-1">11:00 AM – 3:30 PM</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-solid fa-location-dot text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Venue:</span>
-                                    <!-- PLACEHOLDER: Haldi/Mehendi Venue -->
-                                    <span class="text-espresso-800 ml-1">Surya Bagh Courtyard, The Royal Heritage Haveli, Udaipur</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-solid fa-shirt text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Dress Code:</span>
-                                    <span class="text-espresso-800 ml-1">Mustard Yellow, Lime Green &amp; Floral Prints</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Actions -->
-                    <div class="mt-6 pt-4 border-t border-gold-400/25 flex items-center justify-between gap-3">
-                        <button onclick="openVenueModal('Haldi & Mehendi Carnival', 'Surya Bagh Courtyard, The Royal Heritage Haveli, Udaipur', 'Saturday, Feb 13, 2027 • 11:00 AM', 'Follow NH-27 Lake Road towards Pichola Gate; valet parking at East Arch.')" class="text-xs font-semibold uppercase tracking-wider text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1.5">
-                            <i class="fa-solid fa-diamond-turn-right text-sm"></i>
-                            <span>Route Directions</span>
-                        </button>
-                        <button onclick="downloadCalendarInvite('Haldi & Mehendi - #NiUturn', '2027-02-13T11:00:00', 'Surya Bagh Courtyard, The Royal Heritage Haveli, Udaipur')" class="px-3.5 py-1.5 rounded-full bg-cream-200 hover:bg-gold-400/30 text-espresso-900 text-xs font-medium transition-colors">
-                            + Add Stop to Calendar
-                        </button>
-                    </div>
-                </div>
-
-                <!-- =======================================================
-                     EVENT CARD 2: SANGEET NIGHT
-                ======================================================== -->
-                <div class="wedding-frame bg-cream-50 rounded-3xl p-6 sm:p-8 shadow-card flex flex-col justify-between relative group hover:-translate-y-1 transition-all duration-300">
-                    <div>
-                        <!-- Top Highway Stop Badge -->
-                        <div class="flex items-center justify-between gap-2 mb-5">
-                            <span class="px-3.5 py-1 rounded-full bg-espresso-900 text-gold-300 text-xs font-bold uppercase tracking-widest">
-                                Stop 02 • Night One
-                            </span>
-                            <span class="text-xs font-medium text-terracotta-600 bg-terracotta-500/10 px-3 py-1 rounded-full">
-                                <i class="fa-solid fa-compact-disc mr-1"></i> Glitz &amp; Groove
-                            </span>
-                        </div>
-
-                        <!-- Event Title & Subtitle -->
-                        <h3 class="font-serif font-bold text-3xl text-espresso-900">
-                            Sangeet &amp; Ring Ceremony
-                        </h3>
-                        <p class="font-serif italic text-terracotta-600 text-lg mt-0.5">
-                            “High Octane Beats &amp; Starlit Celebrations”
-                        </p>
-                        <p class="text-sm text-espresso-800/75 mt-3 leading-relaxed">
-                            Fasten your seatbelts for an evening of choreographed family face-offs, ring exchange, and non-stop Bollywood anthems under the stars.
-                        </p>
-
-                        <!-- Date / Time / Venue Placeholders -->
-                        <div class="mt-6 space-y-2.5 bg-cream-100/90 p-4 rounded-2xl border border-gold-400/30 text-sm">
-                            <div class="flex items-start gap-3">
-                                <i class="fa-regular fa-calendar text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Date:</span>
-                                    <!-- PLACEHOLDER: Sangeet Date -->
-                                    <span class="text-espresso-800 ml-1">Saturday, February 13, 2027</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-regular fa-clock text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Time:</span>
-                                    <!-- PLACEHOLDER: Sangeet Time -->
-                                    <span class="text-espresso-800 ml-1">7:30 PM Onwards</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-solid fa-location-dot text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Venue:</span>
-                                    <!-- PLACEHOLDER: Sangeet Venue -->
-                                    <span class="text-espresso-800 ml-1">Sheesh Mahal Ballroom, The Royal Heritage Haveli</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-solid fa-shirt text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Dress Code:</span>
-                                    <span class="text-espresso-800 ml-1">Indo-Western Glam, Metallics &amp; Midnight Shimmer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Actions -->
-                    <div class="mt-6 pt-4 border-t border-gold-400/25 flex items-center justify-between gap-3">
-                        <button onclick="openVenueModal('Sangeet & Ring Ceremony', 'Sheesh Mahal Ballroom, The Royal Heritage Haveli', 'Saturday, Feb 13, 2027 • 7:30 PM', 'Enter via the Grand Mirror Foyer; golf carts available from guest suites.')" class="text-xs font-semibold uppercase tracking-wider text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1.5">
-                            <i class="fa-solid fa-diamond-turn-right text-sm"></i>
-                            <span>Route Directions</span>
-                        </button>
-                        <button onclick="downloadCalendarInvite('Sangeet Night - #NiUturn', '2027-02-13T19:30:00', 'Sheesh Mahal Ballroom, The Royal Heritage Haveli')" class="px-3.5 py-1.5 rounded-full bg-cream-200 hover:bg-gold-400/30 text-espresso-900 text-xs font-medium transition-colors">
-                            + Add Stop to Calendar
-                        </button>
-                    </div>
-                </div>
-
-                <!-- =======================================================
-                     EVENT CARD 3: THE WEDDING (SHUBH MUHURAT)
-                ======================================================== -->
-                <div class="wedding-frame bg-gradient-to-b from-cream-50 to-cream-100 rounded-3xl p-6 sm:p-8 shadow-card flex flex-col justify-between relative group hover:-translate-y-1 transition-all duration-300 ring-2 ring-gold-400/60">
-                    <div>
-                        <!-- Top Highway Stop Badge -->
-                        <div class="flex items-center justify-between gap-2 mb-5">
-                            <span class="px-3.5 py-1 rounded-full bg-terracotta-500 text-cream-50 text-xs font-bold uppercase tracking-widest">
-                                Stop 03 • The Main Turn
-                            </span>
-                            <span class="text-xs font-bold text-gold-600 bg-gold-400/20 px-3 py-1 rounded-full">
-                                <i class="fa-solid fa-fire-flame-curved mr-1"></i> Shubh Vivah
-                            </span>
-                        </div>
-
-                        <!-- Event Title & Subtitle -->
-                        <h3 class="font-serif font-bold text-3xl text-espresso-900">
-                            Baraat, Varmala &amp; Pheras
-                        </h3>
-                        <p class="font-serif italic text-terracotta-600 text-lg mt-0.5">
-                            “The Ultimate #NiUturn — Merging Paths Forever”
-                        </p>
-                        <p class="text-sm text-espresso-800/75 mt-3 leading-relaxed">
-                            The royal Baraat procession arrives at sunset, followed by Varmala by the lakeside mandap and sacred সাত (Seven) Pheras under a canopy of mogra and stars.
-                        </p>
-
-                        <!-- Date / Time / Venue Placeholders -->
-                        <div class="mt-6 space-y-2.5 bg-cream-50 p-4 rounded-2xl border border-gold-400/50 text-sm">
-                            <div class="flex items-start gap-3">
-                                <i class="fa-regular fa-calendar text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Date:</span>
-                                    <!-- PLACEHOLDER: Wedding Date -->
-                                    <span id="card-wedding-date" class="text-espresso-800 ml-1">Sunday, February 14, 2027</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-regular fa-clock text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Timings:</span>
-                                    <!-- PLACEHOLDER: Wedding Time -->
-                                    <span class="text-espresso-800 ml-1">Baraat: 5:30 PM • Varmala: 7:30 PM • Pheras: 9:15 PM</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-solid fa-location-dot text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Venue:</span>
-                                    <!-- PLACEHOLDER: Wedding Venue -->
-                                    <span id="card-wedding-venue" class="text-espresso-800 ml-1">Chandni Promenade &amp; Lake Mandap, The Royal Heritage Haveli</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-solid fa-shirt text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Dress Code:</span>
-                                    <span class="text-espresso-800 ml-1">Traditional Royal Heritage — Ivory, Gold, Crimson &amp; Pastel Silk</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Actions -->
-                    <div class="mt-6 pt-4 border-t border-gold-400/25 flex items-center justify-between gap-3">
-                        <button onclick="openVenueModal('The Wedding Ceremony (#NiUturn)', 'Chandni Promenade & Lake Mandap, The Royal Heritage Haveli', 'Sunday, Feb 14, 2027 • 5:30 PM Onwards', 'Baraat assembles at the Heritage Clocktower Gate at 5:15 PM sharp.')" class="text-xs font-semibold uppercase tracking-wider text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1.5">
-                            <i class="fa-solid fa-diamond-turn-right text-sm"></i>
-                            <span>Route Directions</span>
-                        </button>
-                        <button onclick="downloadCalendarInvite('The Wedding Ceremony - #NiUturn', '2027-02-14T17:30:00', 'Chandni Promenade, The Royal Heritage Haveli, Udaipur')" class="px-3.5 py-1.5 rounded-full bg-terracotta-500 text-cream-50 hover:bg-terracotta-600 text-xs font-medium transition-colors">
-                            + Add Stop to Calendar
-                        </button>
-                    </div>
-                </div>
-
-                <!-- =======================================================
-                     EVENT CARD 4: GRAND RECEPTION
-                ======================================================== -->
-                <div class="wedding-frame bg-cream-50 rounded-3xl p-6 sm:p-8 shadow-card flex flex-col justify-between relative group hover:-translate-y-1 transition-all duration-300">
-                    <div>
-                        <!-- Top Highway Stop Badge -->
-                        <div class="flex items-center justify-between gap-2 mb-5">
-                            <span class="px-3.5 py-1 rounded-full bg-sage-500 text-cream-50 text-xs font-bold uppercase tracking-widest">
-                                Stop 04 • The New Horizon
-                            </span>
-                            <span class="text-xs font-medium text-espresso-800 bg-gold-400/20 px-3 py-1 rounded-full">
-                                <i class="fa-solid fa-champagne-glasses text-gold-600 mr-1"></i> Royal Banquet
-                            </span>
-                        </div>
-
-                        <!-- Event Title & Subtitle -->
-                        <h3 class="font-serif font-bold text-3xl text-espresso-900">
-                            The Grand Reception
-                        </h3>
-                        <p class="font-serif italic text-terracotta-600 text-lg mt-0.5">
-                            “Toasting to the Miles Ahead as Mr. &amp; Mrs.”
-                        </p>
-                        <p class="text-sm text-espresso-800/75 mt-3 leading-relaxed">
-                            Celebrate the newlyweds with live sufi &amp; jazz melodies, heartfelt toasts, and a royal multi-cuisine feast overlooking the illuminated palace gardens.
-                        </p>
-
-                        <!-- Date / Time / Venue Placeholders -->
-                        <div class="mt-6 space-y-2.5 bg-cream-100/90 p-4 rounded-2xl border border-gold-400/30 text-sm">
-                            <div class="flex items-start gap-3">
-                                <i class="fa-regular fa-calendar text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Date:</span>
-                                    <!-- PLACEHOLDER: Reception Date -->
-                                    <span class="text-espresso-800 ml-1">Monday, February 15, 2027</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-regular fa-clock text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Time:</span>
-                                    <!-- PLACEHOLDER: Reception Time -->
-                                    <span class="text-espresso-800 ml-1">8:00 PM Onwards</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-solid fa-location-dot text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Venue:</span>
-                                    <!-- PLACEHOLDER: Reception Venue -->
-                                    <span class="text-espresso-800 ml-1">Darbar Lawns, The Royal Heritage Haveli, Udaipur</span>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fa-solid fa-shirt text-terracotta-500 mt-1 w-4 text-center"></i>
-                                <div>
-                                    <span class="font-semibold text-espresso-900">Dress Code:</span>
-                                    <span class="text-espresso-800 ml-1">Black-Tie Bandhgala, Evening Gowns &amp; Regal Sarees</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Actions -->
-                    <div class="mt-6 pt-4 border-t border-gold-400/25 flex items-center justify-between gap-3">
-                        <button onclick="openVenueModal('The Grand Reception', 'Darbar Lawns, The Royal Heritage Haveli, Udaipur', 'Monday, Feb 15, 2027 • 8:00 PM', 'South Lawn entrance; chauffeur & airport transfer desk available on-site.')" class="text-xs font-semibold uppercase tracking-wider text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1.5">
-                            <i class="fa-solid fa-diamond-turn-right text-sm"></i>
-                            <span>Route Directions</span>
-                        </button>
-                        <button onclick="downloadCalendarInvite('Grand Reception - #NiUturn', '2027-02-15T20:00:00', 'Darbar Lawns, The Royal Heritage Haveli, Udaipur')" class="px-3.5 py-1.5 rounded-full bg-cream-200 hover:bg-gold-400/30 text-espresso-900 text-xs font-medium transition-colors">
-                            + Add Stop to Calendar
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         TRAVEL & ACCOMMODATION PIT STOPS (FOR OUTSTATION GUESTS)
-    ==================================================================== -->
-    <section id="travel-stay" class="py-14 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-cream-50 border border-gold-400/50 rounded-3xl p-6 sm:p-10 shadow-sm">
-                <div class="text-center max-w-xl mx-auto mb-8">
-                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600">Guest Navigation Guide</span>
-                    <h3 class="font-serif font-bold text-3xl text-espresso-900 mt-1">Travel &amp; Pit Stops</h3>
-                    <p class="text-xs sm:text-sm text-espresso-800/75 mt-1">
-                        Everything you need for a smooth arrival at our wedding destination.
+                    <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90">
+                        You to join us in the wedding celebrations of
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                    <!-- Airport Info Placeholder -->
-                    <div class="p-5 rounded-2xl bg-cream-100/70 border border-gold-400/30">
-                        <div class="w-10 h-10 rounded-full bg-gold-400/20 text-gold-600 flex items-center justify-center mx-auto mb-3">
-                            <i class="fa-solid fa-plane-arrival"></i>
+                <!-- Couple Names Showcase -->
+                <div class="mb-10 flex flex-col items-center">
+                    <div class="font-upright text-champagne leading-tight tracking-wide" style="font-size: clamp(3rem, 7vw, 4.75rem);">
+                        <span>Niraalii</span>
+                        <span class="mx-3 sm:mx-5 font-cormorant italic font-normal text-champagne/85" style="font-size: clamp(2.25rem, 5vw, 3.5rem);">&amp;</span>
+                        <span>Uttkarsh</span>
+                    </div>
+                </div>
+
+                <!-- Daughter of Block -->
+                <div class="space-y-1.5 mb-14 sm:mb-16">
+                    <p class="font-cormorant italic text-base sm:text-lg text-champagne/85">Daughter of</p>
+                    <p class="font-cormorant text-xl sm:text-2xl font-medium text-champagne">
+                        Mrs. Shalini &amp; Mr. Aakash Mittal,
+                    </p>
+                    <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90 pt-3">
+                        On the following events
+                    </p>
+                </div>
+
+                <!-- 6 Cane-Bordered Arch Event Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 max-w-5xl mx-auto">
+
+                    <!-- Card 1: Mehendi -->
+                    <div class="flex flex-col items-center">
+                        <div class="cane-border-card w-full max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                                <!-- Top-Left Botanical Corner -->
+                                <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+                                <!-- Bottom-Right Botanical Corner -->
+                                <svg class="pointer-events-none absolute bottom-4 right-5 w-16 h-16 text-emeraldheritage/30 rotate-180" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+
+                                <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Mehendi</h3>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 9th 2026</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
+                            </div>
                         </div>
-                        <h4 class="font-serif font-bold text-xl text-espresso-900">By Air</h4>
-                        <p class="text-xs text-espresso-800/80 mt-1.5 leading-relaxed">
-                            <!-- PLACEHOLDER: Airport Details -->
-                            Maharana Pratap Airport (UDR) is 40 mins (24 km) from the venue. Airport shuttle transfers will run with "#NiUturn" placards.
-                        </p>
+                        <a href="#route-mehendi" onclick="handleDummyLink(event, 'Directions to Mehendi at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                            See the route
+                        </a>
                     </div>
 
-                    <!-- Rail/Road Info Placeholder -->
-                    <div class="p-5 rounded-2xl bg-cream-100/70 border border-gold-400/30">
-                        <div class="w-10 h-10 rounded-full bg-terracotta-500/15 text-terracotta-600 flex items-center justify-center mx-auto mb-3">
-                            <i class="fa-solid fa-car-side"></i>
+                    <!-- Card 2: Haldi -->
+                    <div class="flex flex-col items-center">
+                        <div class="cane-border-card w-full max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                                <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+                                <svg class="pointer-events-none absolute bottom-4 right-5 w-16 h-16 text-emeraldheritage/30 rotate-180" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+
+                                <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Haldi</h3>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 10th 2026</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
+                            </div>
                         </div>
-                        <h4 class="font-serif font-bold text-xl text-espresso-900">By Rail &amp; Highway</h4>
-                        <p class="text-xs text-espresso-800/80 mt-1.5 leading-relaxed">
-                            <!-- PLACEHOLDER: Train/Highway Details -->
-                            Udaipur City Station is 20 mins away. Driving in? Take NH-48 scenic expressway; complimentary valet parking awaits.
-                        </p>
+                        <a href="#route-haldi" onclick="handleDummyLink(event, 'Directions to Haldi at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                            See the route
+                        </a>
                     </div>
 
-                    <!-- Hospitality Desk Info Placeholder -->
-                    <div class="p-5 rounded-2xl bg-cream-100/70 border border-gold-400/30">
-                        <div class="w-10 h-10 rounded-full bg-sage-500/15 text-sage-600 flex items-center justify-center mx-auto mb-3">
-                            <i class="fa-solid fa-bell-concierge"></i>
+                    <!-- Card 3: Cocktail -->
+                    <div class="flex flex-col items-center">
+                        <div class="cane-border-card w-full max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                                <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+                                <svg class="pointer-events-none absolute bottom-4 right-5 w-16 h-16 text-emeraldheritage/30 rotate-180" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+
+                                <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Cocktail</h3>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 10th 2026</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
+                            </div>
                         </div>
-                        <h4 class="font-serif font-bold text-xl text-espresso-900">Hospitality Helpdesk</h4>
-                        <p class="text-xs text-espresso-800/80 mt-1.5 leading-relaxed">
-                            <!-- PLACEHOLDER: Contact Details -->
-                            Check-in begins Feb 13 at 10:00 AM. Need help with itinerary or rooms? Call Wedding Concierge: <strong class="text-espresso-900">+91 98765 43210</strong>
-                        </p>
+                        <a href="#route-cocktail" onclick="handleDummyLink(event, 'Directions to Cocktail at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                            See the route
+                        </a>
                     </div>
+
+                    <!-- Card 4: Engagement -->
+                    <div class="flex flex-col items-center">
+                        <div class="cane-border-card w-full max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                                <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+                                <svg class="pointer-events-none absolute bottom-4 right-5 w-16 h-16 text-emeraldheritage/30 rotate-180" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+
+                                <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Engagement</h3>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 11th 2026</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
+                            </div>
+                        </div>
+                        <a href="#route-engagement" onclick="handleDummyLink(event, 'Directions to Engagement at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                            See the route
+                        </a>
+                    </div>
+
+                    <!-- Card 5: Shaadi -->
+                    <div class="flex flex-col items-center">
+                        <div class="cane-border-card w-full max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                                <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+                                <svg class="pointer-events-none absolute bottom-4 right-5 w-16 h-16 text-emeraldheritage/30 rotate-180" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+
+                                <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Shaadi</h3>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 12th 2026</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
+                            </div>
+                        </div>
+                        <a href="#route-shaadi" onclick="handleDummyLink(event, 'Directions to Shaadi at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                            See the route
+                        </a>
+                    </div>
+
+                    <!-- Card 6: Reception -->
+                    <div class="flex flex-col items-center">
+                        <div class="cane-border-card w-full max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                                <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+                                <svg class="pointer-events-none absolute bottom-4 right-5 w-16 h-16 text-emeraldheritage/30 rotate-180" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
+                                    <path d="M12 44C14 26 26 14 44 12" />
+                                    <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <path d="M32 18C30 11 35 6 41 8C42 14 37 19 32 18Z" fill="currentColor" fill-opacity="0.14"/>
+                                    <circle cx="17" cy="34" r="3" fill="currentColor" fill-opacity="0.2"/>
+                                </svg>
+
+                                <h3 class="font-aboreto text-[30px] leading-tight text-emeraldheritage mb-4">Reception</h3>
+                                <p class="font-cormorant font-semibold text-lg text-emeraldheritage">Friday, March 17th 2026</p>
+                                <p class="font-manrope text-[14px] font-medium text-emeraldheritage/90 mt-2">Rambagh, Jaipur</p>
+                                <p class="font-manrope text-[14px] text-emeraldheritage/85 mt-1">6pm Onwards</p>
+                            </div>
+                        </div>
+                        <a href="#route-reception" onclick="handleDummyLink(event, 'Directions to Reception at Rambagh, Jaipur')" class="mt-4 font-manrope font-bold text-[14px] text-lavenderlink hover:text-champagne underline underline-offset-4 transition-colors whitespace-nowrap">
+                            See the route
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Circular Double-Ring Location CTA Medallion -->
+                <div class="mt-20 flex justify-center">
+                    <a href="#open-map" onclick="handleDummyLink(event, 'Venue map: Rambagh Palace, Jaipur')" class="medallion-link group inline-block text-celadon focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne rounded-full">
+                        <div class="medallion-outer w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+                            <div class="medallion-inner w-full h-full flex flex-col items-center justify-center px-6 text-center">
+                                <span class="font-cormorant italic text-4xl sm:text-5xl text-celadon leading-none">
+                                    See the<br>route
+                                </span>
+                                <span class="font-manrope text-xs sm:text-sm tracking-wide text-celadonsoft/90 mt-4 underline underline-offset-4">
+                                    Click to open the map
+                                </span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
+        </section>
+
+        <!-- ===============================================================
+             SECTION BREAKER 1: VINTAGE CAR TRANSITION
+        ================================================================ -->
+        <div class="relative bg-gradient-to-b from-[#1F3142] to-[#563740] py-10 px-4 flex flex-col items-center justify-center overflow-hidden">
+            <div class="flex items-center gap-4 w-full max-w-3xl">
+                <span class="h-[1px] flex-1 bg-champagne/30"></span>
+                <!-- Illustrated Vintage Wedding Car Silhouette SVG -->
+                <svg class="w-40 h-20 text-champagne/90" viewBox="0 0 180 86" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 58H156" stroke-opacity="0.4" />
+                    <path d="M30 58V44C30 39 36 35 44 35H58L74 20H116L134 35H146C153 35 158 40 158 46V58" />
+                    <path d="M68 35L79 24H112L126 35" />
+                    <path d="M95 24V35" />
+                    <!-- Garland on hood -->
+                    <path d="M132 37C138 43 148 43 153 38" stroke="#F6B966" stroke-width="2" />
+                    <!-- Wheels -->
+                    <circle cx="52" cy="58" r="11" fill="#2A3E52" />
+                    <circle cx="52" cy="58" r="5" />
+                    <circle cx="136" cy="58" r="11" fill="#2A3E52" />
+                    <circle cx="136" cy="58" r="5" />
+                    <!-- Trailing ribbons -->
+                    <path d="M28 48C18 46 12 52 6 49" stroke-dasharray="2 3" />
+                </svg>
+                <span class="h-[1px] flex-1 bg-champagne/30"></span>
+            </div>
         </div>
-    </section>
 
-    <!-- ===================================================================
-         5. INTERACTIVE RSVP FORM & "GUESTBOOK MILESTONES"
-    ==================================================================== -->
-    <section id="rsvp" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- ===============================================================
+             SECTION 2: MEET THE BRIDE AND GROOM, FRAME GALLERY & RSVP
+        ================================================================ -->
+        <section class="relative w-full bg-gradient-to-b from-[#563740] via-[#66414B] to-[#4A2F37] text-blushcream py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
+            <div class="max-w-4xl mx-auto text-center">
 
-                <!-- Left Column: Interactive RSVP Form -->
-                <div class="lg:col-span-7 wedding-frame bg-cream-50 rounded-3xl p-6 sm:p-10 shadow-card">
-                    <div class="mb-6">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta-500/10 text-terracotta-600 text-xs font-bold uppercase tracking-widest">
-                            <i class="fa-solid fa-ticket"></i>
-                            <span>RSVP • Boarding Pass</span>
-                        </span>
-                        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-espresso-900 mt-2">
-                            Join Our New Turn in Life
-                        </h2>
-                        <p class="text-xs sm:text-sm text-espresso-800/75 mt-1">
-                            Kindly RSVP by <strong class="text-terracotta-600">January 25, 2027</strong> so we can reserve your seat on the #NiUturn celebration route.
-                        </p>
-                    </div>
-
-                    <form id="rsvp-form" onsubmit="handleRsvpSubmit(event)" class="space-y-5">
-                        <!-- Guest Full Name & Phone/Email -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label for="guest-name" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">Full Name *</label>
-                                <input type="text" id="guest-name" required placeholder="e.g., Rohan & Ananya Kapoor" class="w-full px-4 py-3 rounded-xl bg-cream-100/80 border border-gold-400/50 focus:outline-none focus:ring-2 focus:ring-terracotta-500 text-sm text-espresso-900">
-                            </div>
-                            <div>
-                                <label for="guest-contact" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">Phone / WhatsApp *</label>
-                                <input type="text" id="guest-contact" required placeholder="e.g., +91 98200 XXXXX" class="w-full px-4 py-3 rounded-xl bg-cream-100/80 border border-gold-400/50 focus:outline-none focus:ring-2 focus:ring-terracotta-500 text-sm text-espresso-900">
-                            </div>
-                        </div>
-
-                        <!-- Will you be attending? & Number of Guests -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label for="guest-attending" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">Will You Join Us? *</label>
-                                <select id="guest-attending" onchange="toggleEventsSelection()" class="w-full px-4 py-3 rounded-xl bg-cream-100/80 border border-gold-400/50 focus:outline-none focus:ring-2 focus:ring-terracotta-500 text-sm text-espresso-900">
-                                    <option value="yes">Joyfully Riding Along! (Yes)</option>
-                                    <option value="no">Sending Blessings From Afar (No)</option>
-                                </select>
-                            </div>
-                            <div id="guest-count-wrapper">
-                                <label for="guest-count" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">Number of Co-Passengers</label>
-                                <select id="guest-count" class="w-full px-4 py-3 rounded-xl bg-cream-100/80 border border-gold-400/50 focus:outline-none focus:ring-2 focus:ring-terracotta-500 text-sm text-espresso-900">
-                                    <option value="1">1 Guest (Solo Traveler)</option>
-                                    <option value="2" selected>2 Guests (Couple)</option>
-                                    <option value="3">3 Guests (Family)</option>
-                                    <option value="4">4+ Guests (Full Crew)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Events Attending Checkboxes -->
-                        <div id="events-checkbox-group">
-                            <label class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-2">Which Stops Will You Attend?</label>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                                <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream-100/90 border border-gold-400/40 cursor-pointer hover:bg-gold-400/15">
-                                    <input type="checkbox" name="rsvp-events" value="Haldi & Mehendi" checked class="accent-terracotta-500 w-4 h-4">
-                                    <span class="font-medium text-espresso-900">Stop 01: Haldi &amp; Mehendi</span>
-                                </label>
-                                <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream-100/90 border border-gold-400/40 cursor-pointer hover:bg-gold-400/15">
-                                    <input type="checkbox" name="rsvp-events" value="Sangeet Night" checked class="accent-terracotta-500 w-4 h-4">
-                                    <span class="font-medium text-espresso-900">Stop 02: Sangeet Night</span>
-                                </label>
-                                <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream-100/90 border border-gold-400/40 cursor-pointer hover:bg-gold-400/15">
-                                    <input type="checkbox" name="rsvp-events" value="The Wedding" checked class="accent-terracotta-500 w-4 h-4">
-                                    <span class="font-medium text-espresso-900">Stop 03: The Wedding</span>
-                                </label>
-                                <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream-100/90 border border-gold-400/40 cursor-pointer hover:bg-gold-400/15">
-                                    <input type="checkbox" name="rsvp-events" value="Grand Reception" checked class="accent-terracotta-500 w-4 h-4">
-                                    <span class="font-medium text-espresso-900">Stop 04: Grand Reception</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Song Request for Sangeet / Roadtrip -->
-                        <div>
-                            <label for="guest-song" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">Song for Our Sangeet / Road-Trip Playlist</label>
-                            <input type="text" id="guest-song" placeholder="e.g., Kesariya / Gallan Goodiyaan / Ilahi" class="w-full px-4 py-3 rounded-xl bg-cream-100/80 border border-gold-400/50 focus:outline-none focus:ring-2 focus:ring-terracotta-500 text-sm text-espresso-900">
-                        </div>
-
-                        <!-- Blessing / Message for the Couple -->
-                        <div>
-                            <label for="guest-message" class="block text-xs font-bold uppercase tracking-wider text-espresso-800 mb-1.5">Blessings &amp; Advice for Our New Turn</label>
-                            <textarea id="guest-message" rows="3" placeholder="Write a warm note or marriage road-trip tip for Niharika & Utkarsh..." class="w-full px-4 py-3 rounded-xl bg-cream-100/80 border border-gold-400/50 focus:outline-none focus:ring-2 focus:ring-terracotta-500 text-sm text-espresso-900"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full py-4 rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-cream-50 font-semibold text-sm uppercase tracking-wider shadow-md transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-stamp text-gold-300"></i>
-                            <span>Generate My #NiUturn Boarding Pass</span>
-                        </button>
-                    </form>
+                <!-- Editorial Stacked Heading -->
+                <div class="mb-10">
+                    <p class="font-cormorant italic text-2xl sm:text-3xl text-blushcream/90 tracking-wide">
+                        meet the
+                    </p>
+                    <h2 class="font-aboreto uppercase text-blushcream tracking-[0.12em] mt-1" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+                        bride and groom
+                    </h2>
                 </div>
 
-                <!-- Right Column: Live Boarding Pass Preview & Guest Wishes Wall -->
-                <div class="lg:col-span-5 space-y-6">
-                    
-                    <!-- Dynamic Confirmed Boarding Pass Card (Shows after RSVP or Default Sample) -->
-                    <div id="boarding-pass-card" class="bg-espresso-900 text-cream-50 rounded-3xl p-6 border-2 border-gold-400 shadow-card relative overflow-hidden">
-                        <div class="flex items-center justify-between border-b border-gold-400/30 pb-4">
-                            <div>
-                                <span class="text-[10px] uppercase tracking-[0.25em] text-gold-300 block">Official Wedding Route Pass</span>
-                                <h3 class="font-serif font-bold text-2xl text-cream-50">#NiUturn Express</h3>
-                            </div>
-                            <div class="w-10 h-10 rounded-xl bg-gold-400 text-espresso-900 flex items-center justify-center font-bold">
-                                <i class="fa-solid fa-route"></i>
-                            </div>
-                        </div>
+                <!-- Heartfelt Roka & Gratitude Note -->
+                <p class="font-cormorant text-xl sm:text-2xl leading-relaxed text-blushcream/95 max-w-2xl mx-auto mb-14">
+                    We are both so delighted that you are able to join us in celebrating what we hope will be one of the happiest days of our lives. The affection shown to us by so many people since our roka has been incredibly moving, and has touched us both deeply. We would like to take this opportunity to thank everyone most sincerely for their kindness. We are looking forward to see you at the wedding.
+                </p>
 
-                        <div class="py-4 grid grid-cols-2 gap-4 text-xs border-b border-dashed border-gold-400/40">
-                            <div>
-                                <span class="text-cream-200/60 uppercase block">Passenger(s)</span>
-                                <p id="pass-guest-name" class="font-semibold text-sm text-gold-300 mt-0.5">Your Name Here</p>
-                            </div>
-                            <div>
-                                <span class="text-cream-200/60 uppercase block">Status</span>
-                                <p id="pass-status" class="font-semibold text-sm text-emerald-400 mt-0.5">Awaiting RSVP</p>
-                            </div>
-                            <div>
-                                <span class="text-cream-200/60 uppercase block">Seats Reserved</span>
-                                <p id="pass-seats" class="font-semibold text-sm text-cream-50 mt-0.5">2 VIP Seats</p>
-                            </div>
-                            <div>
-                                <span class="text-cream-200/60 uppercase block">Destination</span>
-                                <p id="pass-dest" class="font-semibold text-sm text-cream-50 mt-0.5">Udaipur • Feb 2027</p>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 flex items-center justify-between text-[11px] text-cream-200/75">
-                            <span id="pass-events-summary">All 4 Celebration Stops Included</span>
-                            <span class="font-mono text-gold-300">PASS #NIU-2027</span>
-                        </div>
-                    </div>
-
-                    <!-- Live Guestbook Wishes Wall -->
-                    <div class="bg-cream-50 border border-gold-400/50 rounded-3xl p-6 shadow-sm">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-serif font-bold text-2xl text-espresso-900">
-                                Milestone Wishes Wall
-                            </h3>
-                            <span id="wishes-count-badge" class="text-xs px-2.5 py-0.5 rounded-full bg-gold-400/20 text-espresso-800 font-semibold">
-                                2 Notes
-                            </span>
-                        </div>
-                        <div id="wishes-list" class="space-y-3 max-h-80 overflow-y-auto pr-1">
-                            <!-- Default Sample Wish 1 -->
-                            <div class="p-3.5 rounded-2xl bg-cream-100/90 border border-gold-400/30">
-                                <div class="flex items-center justify-between text-xs">
-                                    <span class="font-bold text-espresso-900">Aarav &amp; Priya Mehta</span>
-                                    <span class="text-terracotta-600 font-medium">Attending (2)</span>
-                                </div>
-                                <p class="text-xs text-espresso-800/80 mt-1 italic">
-                                    “So thrilled to witness this new turn! Counting down the days to dance at the Sangeet. #NiUturn for life!”
-                                </p>
-                            </div>
-                            <!-- Default Sample Wish 2 -->
-                            <div class="p-3.5 rounded-2xl bg-cream-100/90 border border-gold-400/30">
-                                <div class="flex items-center justify-between text-xs">
-                                    <span class="font-bold text-espresso-900">Kabir Malhotra</span>
-                                    <span class="text-terracotta-600 font-medium">Attending (1)</span>
-                                </div>
-                                <p class="text-xs text-espresso-800/80 mt-1 italic">
-                                    “Best wedding hashtag ever! Wishing Niharika and Utkarsh a lifetime of scenic drives and zero speed bumps.”
+                <!-- Ornate Framed Couple Photoshoot Carousel -->
+                <div class="relative max-w-md mx-auto mb-16">
+                    <div class="ornate-portrait-frame">
+                        <div class="ornate-portrait-mat relative overflow-hidden">
+                            <div id="gallery-viewport" class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-duskplum">
+                                <img
+                                    id="gallery-img-0"
+                                    src="./src/assets/images/couple_portrait_one_1794854789919.jpg"
+                                    alt="Niraalii and Uttkarsh pre-wedding portrait beneath Jaipur sandstone arches"
+                                    referrerPolicy="no-referrer"
+                                    class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 opacity-100"
+                                    onerror="this.style.display='none'"
+                                />
+                                <img
+                                    id="gallery-img-1"
+                                    src="./src/assets/images/couple_portrait_two_1794854788998.jpg"
+                                    alt="Niraalii and Uttkarsh smiling on a sandstone balcony with bougainvillea and lanterns"
+                                    referrerPolicy="no-referrer"
+                                    class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 opacity-0 pointer-events-none"
+                                    onerror="this.style.display='none'"
+                                />
+                                <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent"></div>
+                                <p id="gallery-caption" class="absolute bottom-3 inset-x-4 font-cormorant italic text-lg text-blushcream">
+                                    Niraalii &amp; Uttkarsh — Palace Courtyard
                                 </p>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Carousel Arrows -->
+                    <div class="mt-6 flex items-center justify-center gap-6">
+                        <button
+                            type="button"
+                            onclick="prevPhoto()"
+                            aria-label="Previous couple portrait"
+                            class="w-11 h-11 rounded-full border border-blushcream/45 text-blushcream flex items-center justify-center hover:bg-blushcream/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blushcream transition-colors"
+                        >
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6"/>
+                            </svg>
+                        </button>
+                        <div id="gallery-dots" class="flex items-center gap-2.5">
+                            <button type="button" onclick="setPhoto(0)" aria-label="Show portrait 1" class="w-2.5 h-2.5 rounded-full bg-blushcream transition-opacity"></button>
+                            <button type="button" onclick="setPhoto(1)" aria-label="Show portrait 2" class="w-2.5 h-2.5 rounded-full bg-blushcream/40 transition-opacity"></button>
+                        </div>
+                        <button
+                            type="button"
+                            onclick="nextPhoto()"
+                            aria-label="Next couple portrait"
+                            class="w-11 h-11 rounded-full border border-blushcream/45 text-blushcream flex items-center justify-center hover:bg-blushcream/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blushcream transition-colors"
+                        >
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
+
+                <!-- Circular Double-Ring RSVP Medallion CTA -->
+                <div class="flex justify-center">
+                    <a href="#rsvp-whatsapp" onclick="handleDummyLink(event, 'RSVP via WhatsApp for Niraalii & Uttkarsh')" class="medallion-link group inline-block text-blushcream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blushcream rounded-full">
+                        <div class="medallion-outer w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center">
+                            <div class="medallion-inner w-full h-full flex flex-col items-center justify-center px-6 text-center">
+                                <span class="font-cormorant italic text-5xl sm:text-[64px] leading-[0.95] text-blushcream">
+                                    Please<br>rsvp
+                                </span>
+                                <span class="font-manrope text-xs sm:text-sm tracking-wide text-blushcream/85 mt-5 underline underline-offset-4">
+                                    Click to message on WhatsApp
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================================
+             SECTION BREAKER 2: VINTAGE CAR TRANSITION TO GARDEN
+        ================================================================ -->
+        <div class="relative bg-gradient-to-b from-[#4A2F37] to-[#ECEFD9] py-10 px-4 flex items-center justify-center overflow-hidden">
+            <div class="flex items-center gap-4 w-full max-w-3xl">
+                <span class="h-[1px] flex-1 bg-olivemoss/35"></span>
+                <svg class="w-36 h-20 text-olivemoss" viewBox="0 0 180 86" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M24 58H156" stroke-opacity="0.4" />
+                    <path d="M36 58V46C36 40 42 36 50 36H64L80 22H118L134 36H144C150 36 154 41 154 46V58" fill="#FAF4E8" fill-opacity="0.85" />
+                    <path d="M74 36L84 26H114L126 36" />
+                    <circle cx="56" cy="58" r="10" fill="#ECEFD9" />
+                    <circle cx="56" cy="58" r="4.5" />
+                    <circle cx="134" cy="58" r="10" fill="#ECEFD9" />
+                    <circle cx="134" cy="58" r="4.5" />
+                </svg>
+                <span class="h-[1px] flex-1 bg-olivemoss/35"></span>
             </div>
         </div>
-    </section>
 
-    <!-- ===================================================================
-         FOOTER: #NiUturn SIGN-OFF
-    ==================================================================== -->
-    <footer class="bg-espresso-900 text-cream-100 py-14 px-4 sm:px-6 lg:px-8 border-t-2 border-gold-400">
-        <div class="max-w-4xl mx-auto text-center space-y-5">
-            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl rotate-45 bg-gold-400 text-espresso-900 shadow-gold-glow mb-2">
-                <i class="fa-solid fa-heart -rotate-45 text-xl text-terracotta-600"></i>
+        <!-- ===============================================================
+             SECTION 3: THINGS TO KNOW & FOLLOW THE ACTION (INSTAGRAM)
+        ================================================================ -->
+        <section class="relative w-full bg-gradient-to-b from-sagecanvas to-sagewash text-olivemoss py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
+            <div class="max-w-5xl mx-auto text-center">
+
+                <!-- Heading & Subtitle -->
+                <h2 class="font-aboreto uppercase text-olivemoss tracking-[0.12em] mb-5" style="font-size: clamp(2rem, 4.5vw, 3.25rem);">
+                    Things to know
+                </h2>
+                <p class="font-cormorant text-xl sm:text-2xl leading-relaxed text-olivemoss/90 max-w-2xl mx-auto mb-16">
+                    To help you feel at ease and enjoy every moment of the celebrations, we’ve gathered a few thoughtful details we’d love for you to know before the big day.
+                </p>
+
+                <!-- 4 Illustrated Details Grid (Hashtag, Weather, Staff, Parking) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 mb-20">
+
+                    <!-- Hashtag -->
+                    <div class="flex flex-col items-center text-center px-2">
+                        <div class="w-24 h-24 mb-5 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-olivemoss" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="14" y="22" width="52" height="38" rx="8" fill="#FAF4E8" />
+                                <path d="M28 22L33 14H47L52 22" fill="#FAF4E8" />
+                                <circle cx="40" cy="41" r="11" />
+                                <circle cx="40" cy="41" r="6" stroke-dasharray="2 2" />
+                                <circle cx="57" cy="30" r="2.2" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <h3 class="font-aboreto text-[20px] text-olivemoss mb-2.5">Hashtag</h3>
+                        <p class="font-cormorant text-lg leading-snug text-olivemoss/90">
+                            While posting photos on social media please use the hashtag - <span class="font-semibold">#niraaliiuttkarsh</span>
+                        </p>
+                    </div>
+
+                    <!-- Weather -->
+                    <div class="flex flex-col items-center text-center px-2">
+                        <div class="w-24 h-24 mb-5 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-olivemoss" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="40" cy="36" r="13" fill="#FAF4E8" />
+                                <path d="M40 14V18M40 54V58M18 36H22M58 36H62M24.5 20.5L27.5 23.5M52.5 48.5L55.5 51.5M55.5 20.5L52.5 23.5M27.5 48.5L24.5 51.5" />
+                                <path d="M24 58C20 58 17 55 17 51C17 47.5 19.6 44.6 23 44.1C24.5 39.4 28.9 36 34 36C39.6 36 44.3 40 45.3 45.3C48.5 45.8 51 48.6 51 52C51 55.3 48.3 58 45 58H24Z" fill="#FAF4E8" />
+                            </svg>
+                        </div>
+                        <h3 class="font-aboreto text-[20px] text-olivemoss mb-2.5">Weather</h3>
+                        <p class="font-cormorant text-lg leading-snug text-olivemoss/90">
+                            It will be mostly sunny with temperature reaching up to 28 degrees at the venue
+                        </p>
+                    </div>
+
+                    <!-- Staff -->
+                    <div class="flex flex-col items-center text-center px-2">
+                        <div class="w-24 h-24 mb-5 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-olivemoss" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 62V26C22 22 25 18 40 14C55 18 58 22 58 26V62" fill="#FAF4E8" />
+                                <path d="M16 62H64" />
+                                <path d="M33 62V46C33 42 36 39 40 39C44 39 47 42 47 46V62" />
+                                <path d="M30 28H34M46 28H50M30 35H34M46 35H50" />
+                                <path d="M40 14V9" />
+                                <circle cx="40" cy="8" r="1.5" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <h3 class="font-aboreto text-[20px] text-olivemoss mb-2.5">Staff</h3>
+                        <p class="font-cormorant text-lg leading-snug text-olivemoss/90">
+                            We recommend the nearby hotel called Bhola Bhawan near the venue for the staff members
+                        </p>
+                    </div>
+
+                    <!-- Parking -->
+                    <div class="flex flex-col items-center text-center px-2">
+                        <div class="w-24 h-24 mb-5 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-olivemoss" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 52H66" />
+                                <path d="M18 52V42C18 39 21 36 26 36H32L39 26H53L60 36H63C66 36 68 38 68 41V52" fill="#FAF4E8" />
+                                <circle cx="28" cy="52" r="6" fill="#ECEFD9" />
+                                <circle cx="56" cy="52" r="6" fill="#ECEFD9" />
+                                <path d="M36 36L41 29H51L56 36" />
+                            </svg>
+                        </div>
+                        <h3 class="font-aboreto text-[20px] text-olivemoss mb-2.5">Parking</h3>
+                        <p class="font-cormorant text-lg leading-snug text-olivemoss/90">
+                            Valet parking for all our guests will be available at the venue
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Circular Double-Ring Instagram Medallion CTA -->
+                <div class="flex justify-center">
+                    <a href="#instagram" onclick="handleDummyLink(event, 'Instagram feed for #niraaliiuttkarsh')" class="medallion-link group inline-block text-olivemoss focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olivemoss rounded-full">
+                        <div class="medallion-outer w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+                            <div class="medallion-inner w-full h-full flex flex-col items-center justify-center px-6 text-center">
+                                <span class="font-cormorant italic text-4xl sm:text-5xl text-olivemoss leading-none">
+                                    Follow<br>the action
+                                </span>
+                                <span class="font-manrope text-xs sm:text-sm tracking-wide text-olivemoss/85 mt-4 underline underline-offset-4">
+                                    Click to open our Instagram page
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===============================================================
+             FOOTER: THE COUNTDOWN BEGINS + TWILIGHT PALACE DRIVE-AWAY
+        ================================================================ -->
+        <footer class="relative w-full min-h-[78vh] flex flex-col items-center justify-between overflow-hidden bg-twilight text-champagne">
+            <!-- Twilight Palace Drive-Away Artwork -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#3B516B] via-[#2C3F54] to-[#1B2736]">
+                <img
+                    src="./src/assets/images/footer_sunset_car_1794854788608.jpg"
+                    alt="Vintage wedding car driving down a lantern-lit palace avenue at twilight"
+                    referrerPolicy="no-referrer"
+                    class="w-full h-full object-cover object-center opacity-85"
+                    onerror="this.style.display='none'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-b from-[#1D2B3B]/80 via-[#1D2B3B]/35 to-[#16202C]/75"></div>
             </div>
 
-            <h2 class="font-serif font-bold text-3xl sm:text-5xl text-gold-300 tracking-wide">
-                #NiUturn
-            </h2>
-            <p class="font-serif italic text-xl text-cream-200">
-                <span id="footer-couple-names">Niharika &amp; Utkarsh</span> — Taking a New Turn in Life
-            </p>
-            <p class="text-xs uppercase tracking-[0.25em] text-cream-200/60 max-w-md mx-auto">
-                Snap &amp; share your favorite moments from the wedding using our official hashtag <strong class="text-gold-300">#NiUturn</strong>
-            </p>
+            <!-- Countdown Content -->
+            <div class="relative z-10 max-w-4xl mx-auto px-4 pt-16 sm:pt-20 pb-8 text-center">
+                <h2 class="font-aboreto uppercase text-champagne tracking-[0.12em] drop-shadow-[0_3px_16px_rgba(15,24,34,0.85)]" style="font-size: clamp(1.75rem, 4.2vw, 2.5rem);">
+                    The countdown begins
+                </h2>
 
-            <div class="pt-6 border-t border-gold-400/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream-200/60">
-                <span>Crafted with love for #NiUturn Wedding Celebrations</span>
-                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-gold-300 hover:underline flex items-center gap-1.5">
-                    <span>Back to Mile Zero (Top)</span>
-                    <i class="fa-solid fa-arrow-up"></i>
-                </button>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===================================================================
-         MODAL 1: ROUTE DIRECTIONS & VENUE DETAILS MODAL
-    ==================================================================== -->
-    <div id="venue-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-espresso-900/70 backdrop-blur-sm p-4">
-        <div class="bg-cream-50 border-2 border-gold-400 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
-            <button onclick="closeVenueModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-cream-200 hover:bg-terracotta-500 hover:text-cream-50 text-espresso-900 flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <span class="text-[11px] font-bold uppercase tracking-widest text-terracotta-600 block">Route &amp; Venue Guide</span>
-            <h3 id="modal-event-title" class="font-serif font-bold text-2xl sm:text-3xl text-espresso-900 mt-1">Event Name</h3>
-            <p id="modal-event-time" class="text-xs font-semibold text-gold-600 mt-1"></p>
-
-            <div class="mt-5 p-4 rounded-2xl bg-cream-100 border border-gold-400/40 space-y-3 text-sm">
-                <div>
-                    <span class="text-xs uppercase tracking-wider text-espresso-800/60 block">Location</span>
-                    <p id="modal-event-venue" class="font-semibold text-espresso-900"></p>
-                </div>
-                <div>
-                    <span class="text-xs uppercase tracking-wider text-espresso-800/60 block">Highway &amp; Gate Note</span>
-                    <p id="modal-event-note" class="text-espresso-800/85 text-xs leading-relaxed"></p>
+                <div
+                    id="countdown-display"
+                    class="mt-5 font-aboreto text-champagne tracking-[0.14em] tabular-nums drop-shadow-[0_4px_18px_rgba(15,24,34,0.9)]"
+                    style="font-size: clamp(2.25rem, 6vw, 4.25rem);"
+                >
+                    00:00:00:00
                 </div>
             </div>
 
-            <div class="mt-6 flex items-center justify-end gap-3">
-                <button onclick="closeVenueModal()" class="px-5 py-2.5 rounded-full bg-espresso-900 text-gold-300 text-xs font-semibold uppercase tracking-wider">
-                    Got It, See You There!
-                </button>
+            <!-- Subtle Clean Couple Footer Sign-Off (No Watermark, No Pricing) -->
+            <div class="relative z-10 w-full py-6 px-4 text-center">
+                <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90 tracking-wide">
+                    Niraalii &amp; Uttkarsh · Rambagh, Jaipur
+                </p>
             </div>
-        </div>
-    </div>
+        </footer>
 
-    <!-- ===================================================================
-         MODAL 2: LIVE PLACEHOLDER CUSTOMIZER (Edit Names, Date & City Live)
-    ==================================================================== -->
-    <div id="customize-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-espresso-900/70 backdrop-blur-sm p-4">
-        <div class="bg-cream-50 border-2 border-gold-400 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-            <button onclick="toggleCustomizeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-cream-200 hover:bg-terracotta-500 hover:text-cream-50 text-espresso-900 flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="flex items-center gap-2 text-terracotta-600 text-xs font-bold uppercase tracking-widest">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <span>Live Card Customizer</span>
-            </div>
-            <h3 class="font-serif font-bold text-2xl sm:text-3xl text-espresso-900 mt-1">
-                Customize Card Placeholders
-            </h3>
-            <p class="text-xs text-espresso-800/75 mt-1">
-                Preview your own names, wedding date, and venue live on the card right now.
-            </p>
+    </main>
 
-            <form onsubmit="applyCustomPlaceholders(event)" class="mt-5 space-y-4 text-sm">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-espresso-800 mb-1">Bride's Name</label>
-                        <input type="text" id="input-bride" value="Niharika" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-gold-400/50">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-espresso-800 mb-1">Groom's Name</label>
-                        <input type="text" id="input-groom" value="Utkarsh" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-gold-400/50">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-espresso-800 mb-1">Bride's Parents</label>
-                        <input type="text" id="input-bride-parents" value="D/o Mrs. Sunita & Mr. Rajesh Sharma" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-gold-400/50 text-xs">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-espresso-800 mb-1">Groom's Parents</label>
-                        <input type="text" id="input-groom-parents" value="S/o Mrs. Meera & Mr. Vikram Verma" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-gold-400/50 text-xs">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-espresso-800 mb-1">Wedding Date &amp; Time</label>
-                        <input type="datetime-local" id="input-wedding-datetime" value="2027-02-14T19:30" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-gold-400/50 text-xs">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-espresso-800 mb-1">Destination City</label>
-                        <input type="text" id="input-city" value="Udaipur, Rajasthan" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-gold-400/50">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold uppercase text-espresso-800 mb-1">Main Venue Name</label>
-                    <input type="text" id="input-venue" value="The Royal Heritage Haveli, Udaipur" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-100 border border-gold-400/50">
-                </div>
-
-                <div class="pt-3 flex items-center justify-end gap-3">
-                    <button type="button" onclick="toggleCustomizeModal()" class="px-4 py-2.5 rounded-xl bg-cream-200 text-espresso-800 text-xs font-semibold">
-                        Cancel
-                    </button>
-                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-terracotta-500 text-cream-50 text-xs font-semibold uppercase tracking-wider shadow">
-                        Update Invitation Live
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- ===================================================================
-         JAVASCRIPT LOGIC: COUNTDOWN, RSVP, CLIPBOARD, ICS & AUDIO CHIME
-    ==================================================================== -->
     <script>
-        // -----------------------------------------------------------------
-        // 1. STATE & TARGET WEDDING DATE CONFIGURATION
-        //Change `targetWeddingDate` below to set your default countdown date
-        // -----------------------------------------------------------------
-        let targetWeddingDate = new Date('2027-02-14T19:30:00').getTime();
-        let wishesCount = 2;
-
-        // -----------------------------------------------------------------
-        // 2. CUSTOM TOAST MESSAGE HELPER (No alert() or confirm())
-        // -----------------------------------------------------------------
-        function showToast(title, message, iconClass = 'fa-solid fa-check-circle text-gold-300') {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'pointer-events-auto bg-espresso-900 text-cream-50 border-2 border-gold-400 rounded-2xl p-4 shadow-xl flex items-start gap-3 transition-all duration-300 transform translate-y-2 opacity-0';
-            toast.innerHTML = `
-                <i class="${iconClass} text-lg mt-0.5"></i>
-                <div class="flex-1 text-xs">
-                    <p class="font-serif font-bold text-base text-gold-300">${title}</p>
-                    <p class="text-cream-100/85 mt-0.5 leading-relaxed">${message}</p>
-                </div>
-            `;
-            container.appendChild(toast);
-
-            requestAnimationFrame(() => {
-                toast.classList.remove('translate-y-2', 'opacity-0');
-            });
-
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => toast.remove(), 300);
-            }, 4000);
+        // Dummy hyperlink handler (keeps all links as non-navigating dummy links without alert())
+        function handleDummyLink(e, label) {
+            e.preventDefault();
+            showToast(label);
         }
 
-        // -----------------------------------------------------------------
-        // 3. LIVE COUNTDOWN TIMER
-        // -----------------------------------------------------------------
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetWeddingDate - now;
+        function showToast(message) {
+            const root = document.getElementById('toast-root');
+            if (!root) return;
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto rounded-xl bg-twilightdeep/95 text-champagne border border-champagne/40 px-4 py-3 shadow-xl font-manrope text-xs tracking-wide transition-all duration-200';
+            toast.textContent = message;
+            root.innerHTML = '';
+            root.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(6px)';
+                setTimeout(() => toast.remove(), 200);
+            }, 2600);
+        }
 
-            const daysEl = document.getElementById('cd-days');
-            const hoursEl = document.getElementById('cd-hours');
-            const minsEl = document.getElementById('cd-minutes');
-            const secsEl = document.getElementById('cd-seconds');
+        // Couple Gallery Carousel
+        const coupleCaptions = [
+            'Niraalii & Uttkarsh — Palace Courtyard',
+            'Niraalii & Uttkarsh — Evening Lanterns'
+        ];
+        let currentPhotoIndex = 0;
 
-            if (distance <= 0) {
-                daysEl.textContent = '00';
-                hoursEl.textContent = '00';
-                minsEl.textContent = '00';
-                secsEl.textContent = '00';
-                document.getElementById('countdown-status-note').textContent = 'We Have Officially Taken Our New Turn in Life! #NiUturn';
+        function setPhoto(index) {
+            currentPhotoIndex = (index + coupleCaptions.length) % coupleCaptions.length;
+            const caption = document.getElementById('gallery-caption');
+            const dots = document.querySelectorAll('#gallery-dots button');
+
+            coupleCaptions.forEach((_, i) => {
+                const img = document.getElementById(`gallery-img-${i}`);
+                if (!img) return;
+                if (i === currentPhotoIndex) {
+                    img.classList.remove('opacity-0', 'pointer-events-none');
+                    img.classList.add('opacity-100');
+                } else {
+                    img.classList.remove('opacity-100');
+                    img.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            if (caption) caption.textContent = coupleCaptions[currentPhotoIndex];
+            dots.forEach((dot, i) => {
+                dot.className = i === currentPhotoIndex
+                    ? 'w-2.5 h-2.5 rounded-full bg-blushcream transition-opacity'
+                    : 'w-2.5 h-2.5 rounded-full bg-blushcream/40 transition-opacity';
+            });
+        }
+
+        function prevPhoto() { setPhoto(currentPhotoIndex - 1); }
+        function nextPhoto() { setPhoto(currentPhotoIndex + 1); }
+
+        // Countdown Timer (matches City-2 00:00:00:00 format for March 9, 2026)
+        (function initCountdown() {
+            const target = new Date('2026-03-09T18:00:00+05:30').getTime();
+            const el = document.getElementById('countdown-display');
+            function tick() {
+                if (!el) return;
+                const diff = Math.max(0, target - Date.now());
+                const days = String(Math.floor(diff / 86400000)).padStart(2, '0');
+                const hours = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+                const mins = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+                const secs = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+                el.textContent = `${days}:${hours}:${mins}:${secs}`;
+            }
+            tick();
+            setInterval(tick, 1000);
+        })();
+
+        // Gentle Synthesized Wedding Chime / Ambient Loop (Zero external audio dependencies)
+        let audioCtx = null;
+        let musicInterval = null;
+        let isPlaying = false;
+
+        function playGentleNote(freq, duration) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.06, audioCtx.currentTime + 0.08);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        }
+
+        function toggleMusic() {
+            const btn = document.getElementById('music-toggle');
+            const iconOff = document.getElementById('music-icon-off');
+            const iconOn = document.getElementById('music-icon-on');
+
+            if (isPlaying) {
+                isPlaying = false;
+                if (musicInterval) clearInterval(musicInterval);
+                musicInterval = null;
+                btn.setAttribute('aria-pressed', 'false');
+                iconOff.classList.remove('hidden');
+                iconOn.classList.add('hidden');
+                showToast('Music paused');
                 return;
             }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            daysEl.textContent = String(days).padStart(2, '0');
-            hoursEl.textContent = String(hours).padStart(2, '0');
-            minsEl.textContent = String(minutes).padStart(2, '0');
-            secsEl.textContent = String(seconds).padStart(2, '0');
-        }
-
-        // -----------------------------------------------------------------
-        // 4. COPY HASHTAG (#NiUturn) USING document.execCommand('copy')
-        // -----------------------------------------------------------------
-        function copyHashtag() {
-            const tempInput = document.createElement('textarea');
-            tempInput.value = '#NiUturn';
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            try {
-                document.execCommand('copy');
-                showToast('Hashtag Copied!', '#NiUturn is ready to paste on your Instagram & wedding photos.');
-            } catch (err) {
-                showToast('Hashtag: #NiUturn', 'Use #NiUturn to tag all wedding memories!');
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextClass) {
+                showToast('Audio not supported in this browser');
+                return;
             }
-            document.body.removeChild(tempInput);
+            if (!audioCtx) audioCtx = new AudioContextClass();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            // Yaman-inspired warm wedding chime sequence
+            const notes = [293.66, 329.63, 369.99, 440.0, 493.88, 554.37, 587.33, 440.0];
+            let step = 0;
+            playGentleNote(notes[step % notes.length], 1.4);
+            musicInterval = setInterval(() => {
+                step++;
+                playGentleNote(notes[step % notes.length], 1.4);
+            }, 900);
+
+            isPlaying = true;
+            btn.setAttribute('aria-pressed', 'true');
+            iconOff.classList.add('hidden');
+            iconOn.classList.remove('hidden');
+            showToast('Playing gentle wedding melody');
         }
-
-        // -----------------------------------------------------------------
-        // 5. WEB AUDIO API AUSPICIOUS WEDDING CHIME (Zero External URLs)
-        // -----------------------------------------------------------------
-        function playWeddingChime() {
-            try {
-                const AudioCtx = window.AudioContext || window.webkitAudioContext;
-                const ctx = new AudioCtx();
-                // Gentle major pentatonic harp/sitar arpeggio notes (C5, E5, G5, B5, C6)
-                const notes = [523.25, 659.25, 783.99, 987.77, 1046.50];
-                notes.forEach((freq, index) => {
-                    const osc = ctx.createOscillator();
-                    const gain = ctx.createGain();
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(freq, ctx.currentTime + index * 0.14);
-
-                    gain.gain.setValueAtTime(0.001, ctx.currentTime + index * 0.14);
-                    gain.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime + index * 0.14 + 0.04);
-                    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + index * 0.14 + 1.4);
-
-                    osc.connect(gain);
-                    gain.connect(ctx.destination);
-
-                    osc.start(ctx.currentTime + index * 0.14);
-                    osc.stop(ctx.currentTime + index * 0.14 + 1.45);
-                });
-                showToast('Shubh Muhurat Chime', 'Welcome to #NiUturn — Taking a New Turn in Life!', 'fa-solid fa-music text-gold-300');
-            } catch (e) {
-                showToast('Audio Note', 'Tap anywhere to enable browser sound.');
-            }
-        }
-
-        // -----------------------------------------------------------------
-        // 6. DOWNLOAD CALENDAR INVITE (.ICS GENERATOR)
-        // -----------------------------------------------------------------
-        function downloadCalendarInvite(eventTitle, isoStart, locationText) {
-            const startDate = new Date(isoStart);
-            const endDate = new Date(startDate.getTime() + 4 * 60 * 60 * 1000); // 4 hours duration
-
-            const formatICSDate = (date) => {
-                return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-            };
-
-            const icsContent = [
-                'BEGIN:VCALENDAR',
-                'VERSION:2.0',
-                'PRODID:-//NiUturn Wedding//EN',
-                'BEGIN:VEVENT',
-                `SUMMARY:${eventTitle}`,
-                `DTSTART:${formatICSDate(startDate)}`,
-                `DTEND:${formatICSDate(endDate)}`,
-                `LOCATION:${locationText}`,
-                'DESCRIPTION:Join us as we take a new turn in life! Official Wedding Hashtag: #NiUturn',
-                'END:VEVENT',
-                'END:VCALENDAR'
-            ].join('\r\n');
-
-            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = `${eventTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.ics`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            showToast('Added to Calendar!', `${eventTitle} (.ics) has been downloaded.`);
-        }
-
-        // -----------------------------------------------------------------
-        // 7. RSVP FORM HANDLING & BOARDING PASS GENERATOR
-        // -----------------------------------------------------------------
-        function toggleEventsSelection() {
-            const attending = document.getElementById('guest-attending').value;
-            const eventsGroup = document.getElementById('events-checkbox-group');
-            const countWrapper = document.getElementById('guest-count-wrapper');
-            if (attending === 'no') {
-                eventsGroup.classList.add('opacity-40', 'pointer-events-none');
-                countWrapper.classList.add('opacity-40', 'pointer-events-none');
-            } else {
-                eventsGroup.classList.remove('opacity-40', 'pointer-events-none');
-                countWrapper.classList.remove('opacity-40', 'pointer-events-none');
-            }
-        }
-
-        function handleRsvpSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById('guest-name').value.trim();
-            const attending = document.getElementById('guest-attending').value;
-            const count = document.getElementById('guest-count').value;
-            const song = document.getElementById('guest-song').value.trim();
-            const message = document.getElementById('guest-message').value.trim();
-
-            const checkedEvents = Array.from(document.querySelectorAll('input[name="rsvp-events"]:checked')).map(cb => cb.value);
-
-            // Update Boarding Pass Preview
-            document.getElementById('pass-guest-name').textContent = name;
-            if (attending === 'yes') {
-                document.getElementById('pass-status').textContent = 'Confirmed On Board ✓';
-                document.getElementById('pass-status').className = 'font-semibold text-sm text-emerald-400 mt-0.5';
-                document.getElementById('pass-seats').textContent = `${count} VIP Seat(s)`;
-                document.getElementById('pass-events-summary').textContent = checkedEvents.length > 0
-                    ? `Stops: ${checkedEvents.join(' • ')}`
-                    : 'All Celebration Stops';
-            } else {
-                document.getElementById('pass-status').textContent = 'Blessings From Afar ♥';
-                document.getElementById('pass-status').className = 'font-semibold text-sm text-gold-300 mt-0.5';
-                document.getElementById('pass-seats').textContent = 'Virtual Presence';
-                document.getElementById('pass-events-summary').textContent = 'Warm wishes received by the couple';
-            }
-
-            // Add Blessing to the Live Guestbook Wall if provided
-            const wishesList = document.getElementById('wishes-list');
-            const wishItem = document.createElement('div');
-            wishItem.className = 'p-3.5 rounded-2xl bg-gold-400/15 border border-gold-400/50 transition-all';
-            
-            const safeName = document.createElement('span');
-            safeName.textContent = name;
-            const safeMessage = document.createElement('p');
-            safeMessage.textContent = message
-                ? `“${message}”`
-                : (attending === 'yes' ? '“Excited to celebrate #NiUturn with you both!”' : '“Sending our warmest love and blessings for your new turn in life!”');
-
-            wishItem.innerHTML = `
-                <div class="flex items-center justify-between text-xs">
-                    <span class="font-bold text-espresso-900">${safeName.innerHTML}</span>
-                    <span class="text-terracotta-600 font-semibold">${attending === 'yes' ? `Attending (${count})` : 'Sent Wishes'}</span>
-                </div>
-                <p class="text-xs text-espresso-800/85 mt-1 italic">${safeMessage.innerHTML}</p>
-                ${song ? `<p class="text-[11px] text-sage-600 font-medium mt-1"><i class="fa-solid fa-music mr-1"></i>Requested Track: ${song.replace(/</g, '&lt;')}</p>` : ''}
-            `;
-            wishesList.prepend(wishItem);
-
-            wishesCount++;
-            document.getElementById('wishes-count-badge').textContent = `${wishesCount} Notes`;
-
-            playWeddingChime();
-            showToast('RSVP Boarding Pass Issued!', `Thank you, ${name}! Your response has been recorded on the #NiUturn route.`);
-            document.getElementById('rsvp-form').reset();
-            toggleEventsSelection();
-        }
-
-        // -----------------------------------------------------------------
-        // 8. VENUE DIRECTIONS & PLACEHOLDER CUSTOMIZER MODALS
-        // -----------------------------------------------------------------
-        function openVenueModal(title, venue, time, note) {
-            document.getElementById('modal-event-title').textContent = title;
-            document.getElementById('modal-event-venue').textContent = venue;
-            document.getElementById('modal-event-time').textContent = time;
-            document.getElementById('modal-event-note').textContent = note;
-            const modal = document.getElementById('venue-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeVenueModal() {
-            const modal = document.getElementById('venue-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
-        function toggleCustomizeModal() {
-            const modal = document.getElementById('customize-modal');
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            } else {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
-        }
-
-        function applyCustomPlaceholders(event) {
-            event.preventDefault();
-            const bride = document.getElementById('input-bride').value.trim() || 'Niharika';
-            const groom = document.getElementById('input-groom').value.trim() || 'Utkarsh';
-            const brideParents = document.getElementById('input-bride-parents').value.trim();
-            const groomParents = document.getElementById('input-groom-parents').value.trim();
-            const dateVal = document.getElementById('input-wedding-datetime').value;
-            const city = document.getElementById('input-city').value.trim() || 'Udaipur, Rajasthan';
-            const venue = document.getElementById('input-venue').value.trim() || 'The Royal Heritage Haveli';
-
-            document.getElementById('display-bride').textContent = bride;
-            document.getElementById('display-groom').textContent = groom;
-            document.getElementById('display-bride-parents').textContent = brideParents;
-            document.getElementById('display-groom-parents').textContent = groomParents;
-            document.getElementById('display-city-text').textContent = city;
-            document.getElementById('display-venue-short').textContent = venue;
-            document.getElementById('card-wedding-venue').textContent = venue;
-            document.getElementById('footer-couple-names').textContent = `${bride} & ${groom}`;
-            document.getElementById('pass-dest').textContent = city;
-
-            if (dateVal) {
-                const parsed = new Date(dateVal);
-                if (!isNaN(parsed.getTime())) {
-                    targetWeddingDate = parsed.getTime();
-                    const formattedDate = parsed.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                    const formattedTime = parsed.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-                    document.getElementById('display-date-text').textContent = formattedDate;
-                    document.getElementById('display-time-text').textContent = `${formattedTime} Onwards`;
-                    document.getElementById('card-wedding-date').textContent = formattedDate;
-                    updateCountdown();
-                }
-            }
-
-            toggleCustomizeModal();
-            showToast('Invitation Updated!', `Now showing ${bride} & ${groom}'s #NiUturn Wedding Card.`);
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('mobile-menu-icon');
-            menu.classList.toggle('hidden');
-            icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars' : 'fa-solid fa-xmark';
-        }
-
-        // Start Countdown on Window Load
-        window.onload = function () {
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-        };
     </script>
 </body>
 </html>

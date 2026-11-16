@@ -179,10 +179,50 @@
             animation: lanternFloat 6.8s ease-in-out 1.4s infinite;
         }
 
+        /* Hero Couple Names: Rise & Float Into Place Like Sky Lanterns */
+        @keyframes heroLanternRise {
+            0% {
+                transform: translate3d(0, 44px, 0) scale(0.97);
+                opacity: 0;
+            }
+            45% {
+                opacity: 0.92;
+            }
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes heroLanternBob {
+            0%, 100% { transform: translateY(0px); opacity: 0.94; }
+            50% { transform: translateY(-7px); opacity: 1; }
+        }
+        .hero-lantern-rise {
+            animation: heroLanternRise 2.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        .hero-lantern-bob {
+            animation: heroLanternBob 6.2s ease-in-out 2.1s infinite;
+        }
+
+        /* Hero Car: Gentle Default Roll-In Glide On Initial Page Load */
+        @keyframes heroCarCreep {
+            0% {
+                transform: translate3d(-9vw, 1.4vh, 0) scale(1.05);
+            }
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+        }
+        .hero-car-creep {
+            animation: heroCarCreep 2.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            .lantern-float, .lantern-float-delayed, .cane-border-card, .medallion-outer {
+            .lantern-float, .lantern-float-delayed, .hero-lantern-rise, .hero-lantern-bob, .hero-car-creep, .cane-border-card, .medallion-outer {
                 animation: none !important;
                 transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
             }
         }
 
@@ -202,6 +242,16 @@
         .car-scroll-layer {
             will-change: transform, opacity;
             transform-origin: center center;
+        }
+
+        /* On narrow portrait phones, anchor the landscape palace road to the lower scene
+           and feather its sky edge cleanly into the twilight sky backdrop so neither
+           the archway nor cobblestones appear excessively zoomed in. */
+        @media (max-width: 639px) {
+            .road-mobile-feather {
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.85) 22%, #000 38%);
+                mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.85) 22%, #000 38%);
+            }
         }
     </style>
 </head>
@@ -237,18 +287,18 @@
         <!-- ===============================================================
              SECTION 1 (PART A): HERO — TWILIGHT SKY, LANTERNS, NAMES & SCROLL CAR
         ================================================================ -->
-        <div id="hero-scroll-track" class="relative w-full h-[175vh] bg-skyheritage">
+        <div id="hero-scroll-track" class="relative w-full h-[195vh] sm:h-[175vh] bg-skyheritage">
             <section class="sticky top-0 w-full h-screen flex flex-col items-center justify-between overflow-hidden bg-skyheritage">
                 <!-- Heritage Sky & Cobblestone Palace Road Backdrop -->
-                <div class="absolute inset-0 bg-gradient-to-b from-[#6F829E] via-[#41536B] to-[#233245]">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#495C76] via-[#34465D] to-[#1D2B3D]">
                     <img
                         src="./src/assets/images/hero_palace_road_1794855675093.jpg"
                         alt="Twilight Delhi heritage palace courtyard road with glowing lanterns"
                         referrerPolicy="no-referrer"
-                        class="w-full h-full object-cover object-bottom"
+                        class="road-mobile-feather absolute inset-x-0 bottom-0 w-full h-[58vh] sm:h-full object-cover object-[66%_bottom] sm:object-bottom"
                         onerror="this.style.display='none'"
                     />
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1A2636]/70 via-[#1E2C3E]/20 to-[#1B293B]/35"></div>
+                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1A2636]/65 via-[#1E2C3E]/15 to-[#1B293B]/35"></div>
                 </div>
 
                 <!-- Floating Glowing Sky Lanterns (SVG Accent Overlay) -->
@@ -288,38 +338,40 @@
                     </svg>
                 </div>
 
-                <!-- Monumental Couple Names Header -->
-                <div class="relative z-10 w-full max-w-5xl mx-auto px-4 pt-14 sm:pt-18 pb-4 text-center flex flex-col items-center">
-                    <h1 class="font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem);">
+                <!-- Monumental Couple Names Header (Floats Up Into Place Like Sky Lanterns) -->
+                <div class="relative z-10 w-full max-w-5xl mx-auto px-10 sm:px-4 pt-16 sm:pt-18 pb-4 text-center flex flex-col items-center hero-lantern-bob">
+                    <h1 class="hero-lantern-rise font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem); animation-delay: 0.08s;">
                         Niraalii
                     </h1>
-                    <div class="my-2 sm:my-3 flex items-center justify-center gap-5 w-full max-w-xs">
+                    <div class="hero-lantern-rise my-2 sm:my-3 flex items-center justify-center gap-5 w-full max-w-xs" style="animation-delay: 0.28s;">
                         <span class="h-[1px] flex-1 bg-champagne/55"></span>
                         <span class="font-aboreto uppercase text-champagne tracking-[0.26em] drop-shadow-[0_2px_12px_rgba(18,28,39,0.8)]" style="font-size: clamp(1.35rem, 3vw, 2.5rem);">
                             Weds
                         </span>
                         <span class="h-[1px] flex-1 bg-champagne/55"></span>
                     </div>
-                    <p class="font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem);">
+                    <p class="hero-lantern-rise font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem); animation-delay: 0.45s;">
                         Uttkarsh
                     </p>
                 </div>
 
-                <!-- Scroll-Animated Transparent Vintage Wedding Car (Enters Left -> Drives Right Into Palace Road) -->
-                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[4vh] sm:pb-[6vh] pointer-events-none">
+                <!-- Scroll-Animated Transparent Vintage Wedding Car (Glides Slightly On Load -> Drives Right Into Palace Road On Scroll) -->
+                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[6vh] sm:pb-[6vh] pointer-events-none">
                     <div
                         id="hero-car-wrap"
-                        class="car-scroll-layer w-[280px] sm:w-[440px] md:w-[540px]"
-                        style="transform: translate3d(-54vw, 6vh, 0) scale(1.22);"
+                        class="car-scroll-layer w-[320px] sm:w-[440px] md:w-[540px]"
+                        style="transform: translate3d(-34vw, 4vh, 0) scale(1.16);"
                     >
-                        <img
-                            src="./src/assets/images/hero_car_transparent.png"
-                            alt="Night-lit midnight emerald vintage wedding convertible with mysterious couple silhouette"
-                            referrerPolicy="no-referrer"
-                            class="relative z-10 w-full h-auto object-contain drop-shadow-[0_14px_24px_rgba(10,16,26,0.55)]"
-                            onerror="this.style.display='none'"
-                        />
-                        <div class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/75 blur-md"></div>
+                        <div class="hero-car-creep">
+                            <img
+                                src="./src/assets/images/hero_car_transparent.png"
+                                alt="Night-lit midnight emerald vintage wedding convertible with mysterious couple silhouette"
+                                referrerPolicy="no-referrer"
+                                class="relative z-10 w-full h-auto object-contain drop-shadow-[0_14px_24px_rgba(10,16,26,0.55)]"
+                                onerror="this.style.display='none'"
+                            />
+                            <div class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/75 blur-md"></div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -855,7 +907,7 @@
         <!-- ===============================================================
              FOOTER: THE COUNTDOWN BEGINS + SCROLLING CAR (RIGHT -> LEFT)
         ================================================================ -->
-        <div id="footer-scroll-track" class="relative w-full h-[175vh] bg-twilight">
+        <div id="footer-scroll-track" class="relative w-full h-[195vh] sm:h-[175vh] bg-twilight">
             <footer class="sticky top-0 w-full h-screen flex flex-col items-center justify-between overflow-hidden bg-twilight text-champagne">
                 <!-- Stationary Twilight Palace Road Backdrop -->
                 <div class="absolute inset-0 bg-gradient-to-b from-[#3B516B] via-[#2C3F54] to-[#1B2736]">
@@ -863,22 +915,22 @@
                         src="./src/assets/images/hero_palace_road_1794855675093.jpg"
                         alt="Twilight Delhi heritage palace cobblestone road with lanterns"
                         referrerPolicy="no-referrer"
-                        class="w-full h-full object-cover object-bottom brightness-90"
+                        class="road-mobile-feather absolute inset-x-0 bottom-0 w-full h-[58vh] sm:h-full object-cover object-[66%_bottom] sm:object-bottom brightness-90"
                         onerror="this.style.display='none'"
                     />
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#16202C]/85 via-[#1B2838]/30 to-[#16202C]/55"></div>
+                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#16202C]/85 via-[#1B2838]/25 to-[#16202C]/55"></div>
                 </div>
 
                 <!-- Countdown Content -->
-                <div class="relative z-10 max-w-4xl mx-auto px-4 pt-12 sm:pt-16 pb-2 text-center">
-                    <h2 class="font-aboreto uppercase text-champagne tracking-[0.12em] drop-shadow-[0_3px_16px_rgba(15,24,34,0.85)]" style="font-size: clamp(1.75rem, 4.2vw, 2.5rem);">
+                <div class="relative z-10 max-w-4xl mx-auto px-12 sm:px-4 pt-16 pb-2 text-center">
+                    <h2 class="font-aboreto uppercase text-champagne tracking-[0.12em] drop-shadow-[0_3px_16px_rgba(15,24,34,0.85)]" style="font-size: clamp(1.35rem, 4.2vw, 2.5rem);">
                         The countdown begins
                     </h2>
 
                     <div
                         id="countdown-display"
                         class="mt-3 font-aboreto text-champagne tracking-[0.14em] tabular-nums drop-shadow-[0_4px_18px_rgba(15,24,34,0.9)]"
-                        style="font-size: clamp(2.25rem, 6vw, 4.25rem);"
+                        style="font-size: clamp(2.15rem, 6vw, 4.25rem);"
                     >
                         00:00:00:00
                     </div>
@@ -888,11 +940,11 @@
                 </div>
 
                 <!-- Scroll-Animated Transparent Footer Car (Enters Right -> Drives Forward Near Left) -->
-                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[3vh] sm:pb-[5vh] pointer-events-none">
+                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[5vh] sm:pb-[5vh] pointer-events-none">
                     <div
                         id="footer-car-wrap"
-                        class="car-scroll-layer w-[280px] sm:w-[440px] md:w-[540px]"
-                        style="transform: translate3d(34vw, -12vh, 0) scale(0.16); opacity: 0.75;"
+                        class="car-scroll-layer w-[320px] sm:w-[440px] md:w-[540px]"
+                        style="transform: translate3d(24vw, -12vh, 0) scale(0.42); opacity: 0.85;"
                     >
                         <img
                             src="./src/assets/images/footer_car_transparent.png"
@@ -1023,36 +1075,54 @@
             function updateCars() {
                 ticking = false;
                 const vh = window.innerHeight || 800;
+                const vw = window.innerWidth || 1200;
+                const isMobile = vw < 640;
 
-                // Top Car: sweeps from outside left -> curves along cobblestone road -> shrinks into right palace archway
+                // Top Car: sweeps from outside left -> curves along cobblestone road -> drives toward right palace archway
                 if (heroTrack && heroCar) {
                     const rect = heroTrack.getBoundingClientRect();
                     const scrollable = Math.max(1, heroTrack.offsetHeight - vh);
                     const p = clamp(-rect.top / scrollable, 0, 1);
 
-                    // Quadratic road path matching the cobblestone curve:
-                    // P0 (-54vw, +6vh) -> P1 (-4vw, +4vh) -> P2 (+21vw, -14vh)
-                    const xVw = quadBezier(-54, -4, 21, p);
-                    const yVh = quadBezier(6, 4, -14, p);
-                    const scale = lerp(1.22, 0.2, Math.pow(p, 0.92));
-                    const opacity = p < 0.84 ? 1 : lerp(1, 0.15, (p - 0.84) / 0.16);
+                    let xVw, yVh, scale, opacity;
+                    if (isMobile) {
+                        // Mobile portrait path: keep car clearly legible across full road into visible right palace gate
+                        xVw = quadBezier(-34, -1, 16, p);
+                        yVh = quadBezier(4, 1, -13, p);
+                        scale = lerp(1.16, 0.46, Math.pow(p, 0.9));
+                        opacity = p < 0.88 ? 1 : lerp(1, 0.4, (p - 0.88) / 0.12);
+                    } else {
+                        // Desktop wide path: P0 (-44vw, +6vh) -> P1 (-2vw, +4vh) -> P2 (+21vw, -14vh)
+                        xVw = quadBezier(-44, -2, 21, p);
+                        yVh = quadBezier(6, 4, -14, p);
+                        scale = lerp(1.22, 0.2, Math.pow(p, 0.92));
+                        opacity = p < 0.84 ? 1 : lerp(1, 0.15, (p - 0.84) / 0.16);
+                    }
 
                     heroCar.style.transform = `translate3d(${xVw}vw, ${yVh}vh, 0) scale(${scale})`;
                     heroCar.style.opacity = opacity.toFixed(3);
                 }
 
-                // Bottom Car: emerges small from right palace road -> curves forward toward near-left foreground
+                // Bottom Car: emerges from right palace archway -> drives forward prominently toward near-left foreground
                 if (footerTrack && footerCar) {
                     const rect = footerTrack.getBoundingClientRect();
                     const totalSpan = Math.max(1, footerTrack.offsetHeight);
                     const p = clamp((vh - rect.top) / totalSpan, 0, 1);
 
-                    // Quadratic road path from right distance toward near-left foreground:
-                    // P0 (+32vw, -10vh) -> P1 (+4vw, +1vh) -> P2 (-12vw, +1vh)
-                    const xVw = quadBezier(32, 4, -12, p);
-                    const yVh = quadBezier(-10, 1, 1, p);
-                    const scale = lerp(0.18, 0.94, Math.pow(p, 1.02));
-                    const opacity = lerp(0.75, 1, clamp(p * 1.6, 0, 1));
+                    let xVw, yVh, scale, opacity;
+                    if (isMobile) {
+                        // Mobile portrait path: clearly visible roadster driving forward from right archway to foreground
+                        xVw = quadBezier(20, 4, -5, p);
+                        yVh = quadBezier(-13, -3, 1, p);
+                        scale = lerp(0.42, 1.06, Math.pow(p, 0.95));
+                        opacity = lerp(0.82, 1, clamp(p * 1.8, 0, 1));
+                    } else {
+                        // Desktop wide path: P0 (+32vw, -10vh) -> P1 (+4vw, +1vh) -> P2 (-12vw, +1vh)
+                        xVw = quadBezier(32, 4, -12, p);
+                        yVh = quadBezier(-10, 1, 1, p);
+                        scale = lerp(0.18, 0.94, Math.pow(p, 1.02));
+                        opacity = lerp(0.75, 1, clamp(p * 1.6, 0, 1));
+                    }
 
                     footerCar.style.transform = `translate3d(${xVw}vw, ${yVh}vh, 0) scale(${scale})`;
                     footerCar.style.opacity = opacity.toFixed(3);

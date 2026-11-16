@@ -179,14 +179,14 @@
             animation: lanternFloat 6.8s ease-in-out 1.4s infinite;
         }
 
-        /* Hero Couple Names: Rise & Float Into Place Like Sky Lanterns */
+        /* Hero Couple Names & Foreground Lanterns: Rise Upward Into Sky */
         @keyframes heroLanternRise {
             0% {
-                transform: translate3d(0, 44px, 0) scale(0.97);
+                transform: translate3d(0, 54px, 0) scale(0.96);
                 opacity: 0;
             }
             45% {
-                opacity: 0.92;
+                opacity: 0.94;
             }
             100% {
                 transform: translate3d(0, 0, 0) scale(1);
@@ -197,11 +197,25 @@
             0%, 100% { transform: translateY(0px); opacity: 0.94; }
             50% { transform: translateY(-7px); opacity: 1; }
         }
+        @keyframes lanternDriftA {
+            0%, 100% { transform: translate3d(0, 0px, 0) rotate(-3deg); }
+            50% { transform: translate3d(3px, -11px, 0) rotate(2deg); }
+        }
+        @keyframes lanternDriftB {
+            0%, 100% { transform: translate3d(0, 0px, 0) rotate(3deg); }
+            50% { transform: translate3d(-4px, -9px, 0) rotate(-2deg); }
+        }
         .hero-lantern-rise {
-            animation: heroLanternRise 2.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation: heroLanternRise 2.2s cubic-bezier(0.22, 1, 0.36, 1) both;
         }
         .hero-lantern-bob {
-            animation: heroLanternBob 6.2s ease-in-out 2.1s infinite;
+            animation: heroLanternBob 6.2s ease-in-out 2.2s infinite;
+        }
+        .lantern-drift-a {
+            animation: lanternDriftA 5.8s ease-in-out 2.1s infinite;
+        }
+        .lantern-drift-b {
+            animation: lanternDriftB 6.8s ease-in-out 2.4s infinite;
         }
 
         /* Hero Car: Gentle Default Roll-In Glide On Initial Page Load */
@@ -218,7 +232,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .lantern-float, .lantern-float-delayed, .hero-lantern-rise, .hero-lantern-bob, .hero-car-creep, .cane-border-card, .medallion-outer {
+            .lantern-float, .lantern-float-delayed, .hero-lantern-rise, .hero-lantern-bob, .lantern-drift-a, .lantern-drift-b, .hero-car-creep, .cane-border-card, .medallion-outer {
                 animation: none !important;
                 transition: none !important;
                 opacity: 1 !important;
@@ -301,41 +315,63 @@
                     <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1A2636]/65 via-[#1E2C3E]/15 to-[#1B293B]/35"></div>
                 </div>
 
-                <!-- Floating Glowing Sky Lanterns (SVG Accent Overlay) -->
-                <div class="pointer-events-none absolute inset-x-0 top-10 max-w-5xl mx-auto flex justify-between px-6 sm:px-14 opacity-85">
-                    <svg class="w-7 h-10 lantern-float text-champagne" viewBox="0 0 32 44" fill="none">
-                        <ellipse cx="16" cy="18" rx="11" ry="15" fill="url(#lanternGlow1)" />
-                        <path d="M9 30h14l-2 5H11l-2-5z" fill="#F3ECBA" fill-opacity="0.7" />
-                        <defs>
-                            <radialGradient id="lanternGlow1" cx="50%" cy="55%" r="55%">
-                                <stop offset="0%" stop-color="#FFF6CC" />
-                                <stop offset="55%" stop-color="#F6B966" stop-opacity="0.85" />
-                                <stop offset="100%" stop-color="#E68843" stop-opacity="0.15" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
-                    <svg class="w-6 h-9 lantern-float-delayed mt-8 text-champagne" viewBox="0 0 32 44" fill="none">
-                        <ellipse cx="16" cy="18" rx="10" ry="14" fill="url(#lanternGlow2)" />
-                        <path d="M10 29h12l-1.5 4h-9L10 29z" fill="#F3ECBA" fill-opacity="0.65" />
-                        <defs>
-                            <radialGradient id="lanternGlow2" cx="50%" cy="55%" r="55%">
-                                <stop offset="0%" stop-color="#FFF6CC" />
-                                <stop offset="55%" stop-color="#F6B966" stop-opacity="0.8" />
-                                <stop offset="100%" stop-color="#E68843" stop-opacity="0.1" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
-                    <svg class="w-8 h-11 lantern-float mt-2 hidden sm:block text-champagne" viewBox="0 0 32 44" fill="none">
-                        <ellipse cx="16" cy="18" rx="11" ry="15" fill="url(#lanternGlow3)" />
-                        <path d="M9 30h14l-2 5H11l-2-5z" fill="#F3ECBA" fill-opacity="0.7" />
-                        <defs>
-                            <radialGradient id="lanternGlow3" cx="50%" cy="55%" r="55%">
-                                <stop offset="0%" stop-color="#FFF6CC" />
-                                <stop offset="55%" stop-color="#F6B966" stop-opacity="0.85" />
-                                <stop offset="100%" stop-color="#E68843" stop-opacity="0.15" />
-                            </radialGradient>
-                        </defs>
-                    </svg>
+                <!-- Dynamic Animated Sky Lantern PNGs (Top Layer Rising & Floating Above Palace Sky) -->
+                <div class="pointer-events-none absolute inset-0 z-20 overflow-hidden">
+                    <!-- Top-Left Foreground Saffron Lantern -->
+                    <div class="hero-lantern-rise absolute left-[3%] sm:left-[7%] top-[9%] sm:top-[8%] w-12 sm:w-20 md:w-24" style="animation-delay: 0.12s;">
+                        <img
+                            src="./src/assets/images/lantern_saffron.png"
+                            alt=""
+                            aria-hidden="true"
+                            referrerPolicy="no-referrer"
+                            class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_16px_rgba(246,185,102,0.45)]"
+                            onerror="this.style.display='none'"
+                        />
+                    </div>
+                    <!-- Upper-Left Mid Crimson Lantern -->
+                    <div class="hero-lantern-rise absolute left-[13%] sm:left-[20%] top-[33%] sm:top-[24%] w-8 sm:w-12 md:w-14 opacity-90" style="animation-delay: 0.36s;">
+                        <img
+                            src="./src/assets/images/lantern_crimson.png"
+                            alt=""
+                            aria-hidden="true"
+                            referrerPolicy="no-referrer"
+                            class="lantern-drift-b w-full h-auto object-contain drop-shadow-[0_0_12px_rgba(235,120,76,0.42)]"
+                            onerror="this.style.display='none'"
+                        />
+                    </div>
+                    <!-- Top-Right Foreground Honey-Ochre Lantern -->
+                    <div class="hero-lantern-rise absolute right-[4%] sm:right-[8%] top-[14%] sm:top-[11%] w-12 sm:w-20 md:w-24" style="animation-delay: 0.22s;">
+                        <img
+                            src="./src/assets/images/lantern_ochre.png"
+                            alt=""
+                            aria-hidden="true"
+                            referrerPolicy="no-referrer"
+                            class="lantern-drift-b w-full h-auto object-contain drop-shadow-[0_0_16px_rgba(246,195,112,0.45)]"
+                            onerror="this.style.display='none'"
+                        />
+                    </div>
+                    <!-- Mid-Right Accent Crimson Lantern -->
+                    <div class="hero-lantern-rise absolute right-[12%] sm:right-[19%] top-[36%] sm:top-[30%] w-9 sm:w-14 md:w-16" style="animation-delay: 0.48s;">
+                        <img
+                            src="./src/assets/images/lantern_crimson.png"
+                            alt=""
+                            aria-hidden="true"
+                            referrerPolicy="no-referrer"
+                            class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_14px_rgba(235,120,76,0.45)]"
+                            onerror="this.style.display='none'"
+                        />
+                    </div>
+                    <!-- Lower-Left Floating Accent Saffron Lantern -->
+                    <div class="hero-lantern-rise absolute left-[6%] sm:left-[12%] top-[44%] sm:top-[39%] w-7 sm:w-11 md:w-12 opacity-85" style="animation-delay: 0.6s;">
+                        <img
+                            src="./src/assets/images/lantern_saffron.png"
+                            alt=""
+                            aria-hidden="true"
+                            referrerPolicy="no-referrer"
+                            class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_10px_rgba(246,185,102,0.38)]"
+                            onerror="this.style.display='none'"
+                        />
+                    </div>
                 </div>
 
                 <!-- Monumental Couple Names Header (Floats Up Into Place Like Sky Lanterns) -->

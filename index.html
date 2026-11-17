@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Niraalii &amp; Uttkarsh — Wedding Invitation (11th Feb 2027, Delhi)</title>
     <meta name="description" content="Join us in Delhi on 11th February 2027 to celebrate the wedding of Niraalii &amp; Uttkarsh. View wedding events, venue routes, and the countdown.">
     <link rel="canonical" href="https://ais-pre-4xxqiiuoertrl4ejyi7dgx-440349468220.asia-southeast1.run.app/">
@@ -256,15 +256,20 @@
         .car-scroll-layer {
             will-change: transform, opacity;
             transform-origin: center center;
+            backface-visibility: hidden;
         }
 
-        /* On narrow portrait phones, anchor the landscape palace road to the lower scene
-           and feather its sky edge cleanly into the twilight sky backdrop so neither
-           the archway nor cobblestones appear excessively zoomed in. */
+        .hero-lantern-rise, .hero-car-creep, .lantern-drift-a, .lantern-drift-b {
+            backface-visibility: hidden;
+        }
+
+        /* On narrow 20:9 portrait phones, anchor the landscape palace road to the lower 64%
+           and feather its sky edge cleanly into the twilight sky backdrop so the archway,
+           palace domes, and cobblestones stay balanced in a tall 20:9 frame. */
         @media (max-width: 639px) {
             .road-mobile-feather {
-                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.85) 22%, #000 38%);
-                mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.85) 22%, #000 38%);
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.82) 18%, #000 34%);
+                mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.82) 18%, #000 34%);
             }
         }
     </style>
@@ -301,15 +306,15 @@
         <!-- ===============================================================
              SECTION 1 (PART A): HERO — TWILIGHT SKY, LANTERNS, NAMES & SCROLL CAR
         ================================================================ -->
-        <div id="hero-scroll-track" class="relative w-full h-[195vh] sm:h-[175vh] bg-skyheritage">
-            <section class="sticky top-0 w-full h-screen flex flex-col items-center justify-between overflow-hidden bg-skyheritage">
+        <div id="hero-scroll-track" class="relative w-full h-[185vh] supports-[height:100dvh]:h-[185dvh] sm:h-[175vh] bg-skyheritage">
+            <section class="sticky top-0 w-full h-screen supports-[height:100dvh]:h-[100dvh] flex flex-col items-center justify-between overflow-hidden bg-skyheritage">
                 <!-- Heritage Sky & Cobblestone Palace Road Backdrop -->
                 <div class="absolute inset-0 bg-gradient-to-b from-[#495C76] via-[#34465D] to-[#1D2B3D]">
                     <img
                         src="./src/assets/images/hero_palace_road_1794855675093.jpg"
                         alt="Twilight Delhi heritage palace courtyard road with glowing lanterns"
                         referrerPolicy="no-referrer"
-                        class="road-mobile-feather absolute inset-x-0 bottom-0 w-full h-[58vh] sm:h-full object-cover object-[66%_bottom] sm:object-bottom"
+                        class="road-mobile-feather absolute inset-x-0 bottom-0 w-full h-[64vh] supports-[height:100dvh]:h-[64dvh] sm:h-full object-cover object-[66%_bottom] sm:object-bottom"
                         onerror="this.style.display='none'"
                     />
                     <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1A2636]/65 via-[#1E2C3E]/15 to-[#1B293B]/35"></div>
@@ -318,92 +323,92 @@
                 <!-- Dynamic Animated Sky Lantern PNGs (Top Layer Rising & Floating Above Palace Sky) -->
                 <div class="pointer-events-none absolute inset-0 z-20 overflow-hidden">
                     <!-- Top-Left Foreground Saffron Lantern -->
-                    <div class="hero-lantern-rise absolute left-[3%] sm:left-[7%] top-[9%] sm:top-[8%] w-12 sm:w-20 md:w-24" style="animation-delay: 0.12s;">
+                    <div class="hero-lantern-rise absolute left-[3%] sm:left-[7%] top-[7%] sm:top-[8%] w-11 sm:w-20 md:w-24" style="animation-delay: 0.12s;">
                         <img
                             src="./src/assets/images/lantern_saffron.png"
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
-                            class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_16px_rgba(246,185,102,0.45)]"
+                            class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_12px_rgba(246,185,102,0.42)]"
                             onerror="this.style.display='none'"
                         />
                     </div>
                     <!-- Upper-Left Mid Crimson Lantern -->
-                    <div class="hero-lantern-rise absolute left-[13%] sm:left-[20%] top-[33%] sm:top-[24%] w-8 sm:w-12 md:w-14 opacity-90" style="animation-delay: 0.36s;">
+                    <div class="hero-lantern-rise absolute left-[12%] sm:left-[20%] top-[33%] sm:top-[24%] w-8 sm:w-12 md:w-14 opacity-90" style="animation-delay: 0.36s;">
                         <img
                             src="./src/assets/images/lantern_crimson.png"
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
-                            class="lantern-drift-b w-full h-auto object-contain drop-shadow-[0_0_12px_rgba(235,120,76,0.42)]"
+                            class="lantern-drift-b w-full h-auto object-contain drop-shadow-[0_0_10px_rgba(235,120,76,0.4)]"
                             onerror="this.style.display='none'"
                         />
                     </div>
                     <!-- Top-Right Foreground Honey-Ochre Lantern -->
-                    <div class="hero-lantern-rise absolute right-[4%] sm:right-[8%] top-[14%] sm:top-[11%] w-12 sm:w-20 md:w-24" style="animation-delay: 0.22s;">
+                    <div class="hero-lantern-rise absolute right-[4%] sm:right-[8%] top-[27%] sm:top-[11%] w-11 sm:w-20 md:w-24" style="animation-delay: 0.22s;">
                         <img
                             src="./src/assets/images/lantern_ochre.png"
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
-                            class="lantern-drift-b w-full h-auto object-contain drop-shadow-[0_0_16px_rgba(246,195,112,0.45)]"
+                            class="lantern-drift-b w-full h-auto object-contain drop-shadow-[0_0_12px_rgba(246,195,112,0.42)]"
                             onerror="this.style.display='none'"
                         />
                     </div>
                     <!-- Mid-Right Accent Crimson Lantern -->
-                    <div class="hero-lantern-rise absolute right-[12%] sm:right-[19%] top-[36%] sm:top-[30%] w-9 sm:w-14 md:w-16" style="animation-delay: 0.48s;">
+                    <div class="hero-lantern-rise absolute right-[15%] sm:right-[19%] top-[38%] sm:top-[30%] w-8 sm:w-14 md:w-16" style="animation-delay: 0.48s;">
                         <img
                             src="./src/assets/images/lantern_crimson.png"
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
-                            class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_14px_rgba(235,120,76,0.45)]"
+                            class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_12px_rgba(235,120,76,0.42)]"
                             onerror="this.style.display='none'"
                         />
                     </div>
                     <!-- Lower-Left Floating Accent Saffron Lantern -->
-                    <div class="hero-lantern-rise absolute left-[6%] sm:left-[12%] top-[44%] sm:top-[39%] w-7 sm:w-11 md:w-12 opacity-85" style="animation-delay: 0.6s;">
+                    <div class="hero-lantern-rise absolute left-[7%] sm:left-[12%] top-[43%] sm:top-[39%] w-7 sm:w-11 md:w-12 opacity-85" style="animation-delay: 0.6s;">
                         <img
                             src="./src/assets/images/lantern_saffron.png"
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
-                            class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_10px_rgba(246,185,102,0.38)]"
+                            class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_10px_rgba(246,185,102,0.36)]"
                             onerror="this.style.display='none'"
                         />
                     </div>
                 </div>
 
                 <!-- Monumental Couple Names Header (Floats Up Into Place Like Sky Lanterns) -->
-                <div class="relative z-10 w-full max-w-5xl mx-auto px-10 sm:px-4 pt-16 sm:pt-18 pb-4 text-center flex flex-col items-center hero-lantern-bob">
-                    <h1 class="hero-lantern-rise font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem); animation-delay: 0.08s;">
+                <div class="relative z-10 w-full max-w-5xl mx-auto px-11 sm:px-4 pt-[8.5vh] supports-[height:100dvh]:pt-[8.5dvh] sm:pt-18 pb-4 text-center flex flex-col items-center hero-lantern-bob">
+                    <h1 class="hero-lantern-rise font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.55rem, 8.2vw, 6.25rem); animation-delay: 0.08s;">
                         Niraalii
                     </h1>
-                    <div class="hero-lantern-rise my-2 sm:my-3 flex items-center justify-center gap-5 w-full max-w-xs" style="animation-delay: 0.28s;">
+                    <div class="hero-lantern-rise my-2 sm:my-3 flex items-center justify-center gap-4 sm:gap-5 w-full max-w-[230px] sm:max-w-xs" style="animation-delay: 0.28s;">
                         <span class="h-[1px] flex-1 bg-champagne/55"></span>
-                        <span class="font-aboreto uppercase text-champagne tracking-[0.26em] drop-shadow-[0_2px_12px_rgba(18,28,39,0.8)]" style="font-size: clamp(1.35rem, 3vw, 2.5rem);">
+                        <span class="font-aboreto uppercase text-champagne tracking-[0.26em] drop-shadow-[0_2px_12px_rgba(18,28,39,0.8)]" style="font-size: clamp(1.25rem, 3vw, 2.5rem);">
                             Weds
                         </span>
                         <span class="h-[1px] flex-1 bg-champagne/55"></span>
                     </div>
-                    <p class="hero-lantern-rise font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.85rem, 8.2vw, 6.25rem); animation-delay: 0.45s;">
+                    <p class="hero-lantern-rise font-aboreto uppercase text-champagne tracking-[0.08em] leading-[1.04] drop-shadow-[0_4px_22px_rgba(18,28,39,0.75)]" style="font-size: clamp(2.55rem, 8.2vw, 6.25rem); animation-delay: 0.45s;">
                         Uttkarsh
                     </p>
                 </div>
 
                 <!-- Scroll-Animated Transparent Vintage Wedding Car (Glides Slightly On Load -> Drives Right Into Palace Road On Scroll) -->
-                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[6vh] sm:pb-[6vh] pointer-events-none">
+                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:pb-[6vh] pointer-events-none">
                     <div
                         id="hero-car-wrap"
-                        class="car-scroll-layer w-[320px] sm:w-[440px] md:w-[540px]"
-                        style="transform: translate3d(-34vw, 4vh, 0) scale(1.16);"
+                        class="car-scroll-layer w-[76vw] max-w-[330px] sm:max-w-none sm:w-[440px] md:w-[540px]"
+                        style="transform: translate3d(-32vw, 3vh, 0) scale(1.14);"
                     >
                         <div class="hero-car-creep">
                             <img
                                 src="./src/assets/images/hero_car_transparent.png"
                                 alt="Night-lit midnight emerald vintage wedding convertible with mysterious couple silhouette"
                                 referrerPolicy="no-referrer"
-                                class="relative z-10 w-full h-auto object-contain drop-shadow-[0_14px_24px_rgba(10,16,26,0.55)]"
+                                class="relative z-10 w-full h-auto object-contain drop-shadow-[0_10px_18px_rgba(10,16,26,0.5)]"
                                 onerror="this.style.display='none'"
                             />
                             <div class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/75 blur-md"></div>
@@ -477,10 +482,10 @@
                 </div>
 
                 <!-- Couple Names Showcase -->
-                <div class="mb-10 flex flex-col items-center">
-                    <div class="font-upright text-champagne leading-tight tracking-wide" style="font-size: clamp(3rem, 7vw, 4.75rem);">
+                <div class="mb-8 sm:mb-10 flex flex-col items-center">
+                    <div class="font-upright text-champagne leading-tight tracking-wide whitespace-nowrap" style="font-size: clamp(2.35rem, 6.8vw, 4.75rem);">
                         <span>Niraalii</span>
-                        <span class="mx-3 sm:mx-5 font-cormorant italic font-normal text-champagne/85" style="font-size: clamp(2.25rem, 5vw, 3.5rem);">&amp;</span>
+                        <span class="mx-2 sm:mx-5 font-cormorant italic font-normal text-champagne/85" style="font-size: clamp(1.85rem, 5vw, 3.5rem);">&amp;</span>
                         <span>Uttkarsh</span>
                     </div>
                 </div>
@@ -505,8 +510,8 @@
 
                     <!-- Card 1: Mehendi -->
                     <div class="flex flex-col items-center">
-                        <div class="cane-border-card w-full max-w-[304px]">
-                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                        <div class="cane-border-card w-full max-w-[276px] sm:max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-10 sm:py-14 flex flex-col items-center justify-center text-center min-h-[304px] sm:min-h-[374px] overflow-hidden">
                                 <!-- Top-Left Botanical Corner -->
                                 <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
                                     <path d="M12 44C14 26 26 14 44 12" />
@@ -535,8 +540,8 @@
 
                     <!-- Card 2: Haldi -->
                     <div class="flex flex-col items-center">
-                        <div class="cane-border-card w-full max-w-[304px]">
-                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                        <div class="cane-border-card w-full max-w-[276px] sm:max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-10 sm:py-14 flex flex-col items-center justify-center text-center min-h-[304px] sm:min-h-[374px] overflow-hidden">
                                 <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
                                     <path d="M12 44C14 26 26 14 44 12" />
                                     <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
@@ -563,8 +568,8 @@
 
                     <!-- Card 3: Cocktail -->
                     <div class="flex flex-col items-center">
-                        <div class="cane-border-card w-full max-w-[304px]">
-                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                        <div class="cane-border-card w-full max-w-[276px] sm:max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-10 sm:py-14 flex flex-col items-center justify-center text-center min-h-[304px] sm:min-h-[374px] overflow-hidden">
                                 <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
                                     <path d="M12 44C14 26 26 14 44 12" />
                                     <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
@@ -591,8 +596,8 @@
 
                     <!-- Card 4: Engagement -->
                     <div class="flex flex-col items-center">
-                        <div class="cane-border-card w-full max-w-[304px]">
-                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                        <div class="cane-border-card w-full max-w-[276px] sm:max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-10 sm:py-14 flex flex-col items-center justify-center text-center min-h-[304px] sm:min-h-[374px] overflow-hidden">
                                 <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
                                     <path d="M12 44C14 26 26 14 44 12" />
                                     <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
@@ -619,8 +624,8 @@
 
                     <!-- Card 5: Shaadi -->
                     <div class="flex flex-col items-center">
-                        <div class="cane-border-card w-full max-w-[304px]">
-                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                        <div class="cane-border-card w-full max-w-[276px] sm:max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-10 sm:py-14 flex flex-col items-center justify-center text-center min-h-[304px] sm:min-h-[374px] overflow-hidden">
                                 <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
                                     <path d="M12 44C14 26 26 14 44 12" />
                                     <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
@@ -647,8 +652,8 @@
 
                     <!-- Card 6: Reception -->
                     <div class="flex flex-col items-center">
-                        <div class="cane-border-card w-full max-w-[304px]">
-                            <div class="cane-inner-arch relative px-6 py-14 flex flex-col items-center justify-center text-center min-h-[374px] overflow-hidden">
+                        <div class="cane-border-card w-full max-w-[276px] sm:max-w-[304px]">
+                            <div class="cane-inner-arch relative px-6 py-10 sm:py-14 flex flex-col items-center justify-center text-center min-h-[304px] sm:min-h-[374px] overflow-hidden">
                                 <svg class="pointer-events-none absolute top-4 left-5 w-16 h-16 text-emeraldheritage/30" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4">
                                     <path d="M12 44C14 26 26 14 44 12" />
                                     <path d="M22 24C16 20 15 13 21 10C26 13 26 20 22 24Z" fill="currentColor" fill-opacity="0.14"/>
@@ -676,14 +681,14 @@
                 </div>
 
                 <!-- Circular Double-Ring Location CTA Medallion -->
-                <div class="mt-20 flex justify-center">
+                <div class="mt-14 sm:mt-20 flex justify-center">
                     <a href="#open-map" onclick="handleDummyLink(event, 'Venue map: Delhi')" class="medallion-link group inline-block text-celadon focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne rounded-full">
-                        <div class="medallion-outer w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+                        <div class="medallion-outer w-56 h-56 sm:w-72 sm:h-72 flex items-center justify-center">
                             <div class="medallion-inner w-full h-full flex flex-col items-center justify-center px-6 text-center">
                                 <span class="font-cormorant italic text-4xl sm:text-5xl text-celadon leading-none">
                                     See the<br>route
                                 </span>
-                                <span class="font-manrope text-xs sm:text-sm tracking-wide text-celadonsoft/90 mt-4 underline underline-offset-4">
+                                <span class="font-manrope text-xs sm:text-sm tracking-wide text-celadonsoft/90 mt-3 sm:mt-4 underline underline-offset-4">
                                     Click to open the map
                                 </span>
                             </div>
@@ -801,12 +806,12 @@
                 <!-- Circular Double-Ring RSVP Medallion CTA -->
                 <div class="flex justify-center">
                     <a href="#rsvp-whatsapp" onclick="handleDummyLink(event, 'RSVP via WhatsApp for Niraalii & Uttkarsh')" class="medallion-link group inline-block text-blushcream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blushcream rounded-full">
-                        <div class="medallion-outer w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center">
+                        <div class="medallion-outer w-60 h-60 sm:w-80 sm:h-80 flex items-center justify-center">
                             <div class="medallion-inner w-full h-full flex flex-col items-center justify-center px-6 text-center">
-                                <span class="font-cormorant italic text-5xl sm:text-[64px] leading-[0.95] text-blushcream">
+                                <span class="font-cormorant italic text-4xl sm:text-[64px] leading-[0.95] text-blushcream">
                                     Please<br>rsvp
                                 </span>
-                                <span class="font-manrope text-xs sm:text-sm tracking-wide text-blushcream/85 mt-5 underline underline-offset-4">
+                                <span class="font-manrope text-xs sm:text-sm tracking-wide text-blushcream/85 mt-4 sm:mt-5 underline underline-offset-4">
                                     Click to message on WhatsApp
                                 </span>
                             </div>
@@ -943,23 +948,23 @@
         <!-- ===============================================================
              FOOTER: THE COUNTDOWN BEGINS + SCROLLING CAR (RIGHT -> LEFT)
         ================================================================ -->
-        <div id="footer-scroll-track" class="relative w-full h-[195vh] sm:h-[175vh] bg-twilight">
-            <footer class="sticky top-0 w-full h-screen flex flex-col items-center justify-between overflow-hidden bg-twilight text-champagne">
+        <div id="footer-scroll-track" class="relative w-full h-[185vh] supports-[height:100dvh]:h-[185dvh] sm:h-[175vh] bg-twilight">
+            <footer class="sticky top-0 w-full h-screen supports-[height:100dvh]:h-[100dvh] flex flex-col items-center justify-between overflow-hidden bg-twilight text-champagne">
                 <!-- Stationary Twilight Palace Road Backdrop -->
                 <div class="absolute inset-0 bg-gradient-to-b from-[#3B516B] via-[#2C3F54] to-[#1B2736]">
                     <img
                         src="./src/assets/images/hero_palace_road_1794855675093.jpg"
                         alt="Twilight Delhi heritage palace cobblestone road with lanterns"
                         referrerPolicy="no-referrer"
-                        class="road-mobile-feather absolute inset-x-0 bottom-0 w-full h-[58vh] sm:h-full object-cover object-[66%_bottom] sm:object-bottom brightness-90"
+                        class="road-mobile-feather absolute inset-x-0 bottom-0 w-full h-[64vh] supports-[height:100dvh]:h-[64dvh] sm:h-full object-cover object-[66%_bottom] sm:object-bottom brightness-90"
                         onerror="this.style.display='none'"
                     />
                     <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#16202C]/85 via-[#1B2838]/25 to-[#16202C]/55"></div>
                 </div>
 
                 <!-- Countdown Content -->
-                <div class="relative z-10 max-w-4xl mx-auto px-12 sm:px-4 pt-16 pb-2 text-center">
-                    <h2 class="font-aboreto uppercase text-champagne tracking-[0.12em] drop-shadow-[0_3px_16px_rgba(15,24,34,0.85)]" style="font-size: clamp(1.35rem, 4.2vw, 2.5rem);">
+                <div class="relative z-10 max-w-4xl mx-auto px-12 sm:px-4 pt-[9vh] supports-[height:100dvh]:pt-[9dvh] sm:pt-16 pb-2 text-center">
+                    <h2 class="font-aboreto uppercase text-champagne tracking-[0.12em] drop-shadow-[0_3px_16px_rgba(15,24,34,0.85)]" style="font-size: clamp(1.3rem, 4.2vw, 2.5rem);">
                         The countdown begins
                     </h2>
 
@@ -976,17 +981,17 @@
                 </div>
 
                 <!-- Scroll-Animated Transparent Footer Car (Enters Right -> Drives Forward Near Left) -->
-                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[5vh] sm:pb-[5vh] pointer-events-none">
+                <div class="relative z-10 w-full flex-1 flex items-end justify-center pb-[3.5vh] sm:pb-[5vh] pointer-events-none">
                     <div
                         id="footer-car-wrap"
-                        class="car-scroll-layer w-[320px] sm:w-[440px] md:w-[540px]"
-                        style="transform: translate3d(24vw, -12vh, 0) scale(0.42); opacity: 0.85;"
+                        class="car-scroll-layer w-[76vw] max-w-[330px] sm:max-w-none sm:w-[440px] md:w-[540px]"
+                        style="transform: translate3d(20vw, -14vh, 0) scale(0.44); opacity: 0.85;"
                     >
                         <img
                             src="./src/assets/images/footer_car_transparent.png"
                             alt="Night-lit obsidian vintage wedding roadster with glowing amber headlights and couple silhouette"
                             referrerPolicy="no-referrer"
-                            class="relative z-10 w-full h-auto object-contain drop-shadow-[0_14px_24px_rgba(10,16,26,0.55)]"
+                            class="relative z-10 w-full h-auto object-contain drop-shadow-[0_10px_18px_rgba(10,16,26,0.5)]"
                             onerror="this.style.display='none'"
                         />
                         <div class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/80 blur-md"></div>
@@ -994,8 +999,8 @@
                 </div>
 
                 <!-- Subtle Clean Couple Footer Sign-Off (No Watermark, No Pricing) -->
-                <div class="relative z-10 w-full py-5 px-4 text-center">
-                    <p class="font-cormorant italic text-lg sm:text-xl text-champagne/90 tracking-wide">
+                <div class="relative z-10 w-full pt-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] px-4 text-center">
+                    <p class="font-cormorant italic text-base sm:text-xl text-champagne/90 tracking-wide">
                         Niraalii &amp; Uttkarsh &middot; 11th February 2027 &middot; Delhi
                     </p>
                 </div>
@@ -1122,10 +1127,10 @@
 
                     let xVw, yVh, scale, opacity;
                     if (isMobile) {
-                        // Mobile portrait path: keep car clearly legible across full road into visible right palace gate
-                        xVw = quadBezier(-34, -1, 16, p);
-                        yVh = quadBezier(4, 1, -13, p);
-                        scale = lerp(1.16, 0.46, Math.pow(p, 0.9));
+                        // Mobile 20:9 portrait path: keep car clearly legible across full road into visible right palace gate
+                        xVw = quadBezier(-32, -1, 16, p);
+                        yVh = quadBezier(3, 0, -14, p);
+                        scale = lerp(1.14, 0.46, Math.pow(p, 0.9));
                         opacity = p < 0.88 ? 1 : lerp(1, 0.4, (p - 0.88) / 0.12);
                     } else {
                         // Desktop wide path: P0 (-44vw, +6vh) -> P1 (-2vw, +4vh) -> P2 (+21vw, -14vh)
@@ -1147,11 +1152,11 @@
 
                     let xVw, yVh, scale, opacity;
                     if (isMobile) {
-                        // Mobile portrait path: clearly visible roadster driving forward from right archway to foreground
+                        // Mobile 20:9 portrait path: clearly visible roadster driving forward from right archway to foreground
                         xVw = quadBezier(20, 4, -5, p);
-                        yVh = quadBezier(-13, -3, 1, p);
-                        scale = lerp(0.42, 1.06, Math.pow(p, 0.95));
-                        opacity = lerp(0.82, 1, clamp(p * 1.8, 0, 1));
+                        yVh = quadBezier(-14, -3, 0, p);
+                        scale = lerp(0.44, 1.04, Math.pow(p, 0.95));
+                        opacity = lerp(0.85, 1, clamp(p * 1.8, 0, 1));
                     } else {
                         // Desktop wide path: P0 (+32vw, -10vh) -> P1 (+4vw, +1vh) -> P2 (-12vw, +1vh)
                         xVw = quadBezier(32, 4, -12, p);

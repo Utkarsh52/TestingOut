@@ -55,6 +55,9 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Preload primary display font for faster LCP -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap">
+
     <!-- Google Fonts matching City 2 – Grand Heritage: Aboreto, Cormorant, Cormorant Upright, Gotu, Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,6 +102,7 @@
             color: #F3ECBA;
             overflow-x: clip;
             font-family: 'Cormorant', Georgia, serif;
+            touch-action: pan-y;
         }
 
         /* Woven Cane / Rattan Arch Border (Signature City-2 Event Card Frame) */
@@ -167,16 +171,16 @@
             border: 1px solid rgba(243, 236, 186, 0.45);
         }
 
-        /* Floating Lantern Glow Animation */
+        /* Floating Lantern Glow Animation — organic cubic-bezier, slightly longer durations */
         @keyframes lanternFloat {
             0%, 100% { transform: translateY(0px); opacity: 0.85; }
             50% { transform: translateY(-10px); opacity: 1; }
         }
         .lantern-float {
-            animation: lanternFloat 5.5s ease-in-out infinite;
+            animation: lanternFloat 6.2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
         }
         .lantern-float-delayed {
-            animation: lanternFloat 6.8s ease-in-out 1.4s infinite;
+            animation: lanternFloat 7.6s cubic-bezier(0.37, 0, 0.63, 1) 1.4s infinite;
         }
 
         /* Hero Couple Names & Foreground Lanterns: Rise Upward Into Sky */
@@ -209,13 +213,13 @@
             animation: heroLanternRise 2.2s cubic-bezier(0.22, 1, 0.36, 1) both;
         }
         .hero-lantern-bob {
-            animation: heroLanternBob 6.2s ease-in-out 2.2s infinite;
+            animation: heroLanternBob 7s cubic-bezier(0.37, 0, 0.63, 1) 2.2s infinite;
         }
         .lantern-drift-a {
-            animation: lanternDriftA 5.8s ease-in-out 2.1s infinite;
+            animation: lanternDriftA 6.6s cubic-bezier(0.37, 0, 0.63, 1) 2.1s infinite;
         }
         .lantern-drift-b {
-            animation: lanternDriftB 6.8s ease-in-out 2.4s infinite;
+            animation: lanternDriftB 7.8s cubic-bezier(0.37, 0, 0.63, 1) 2.4s infinite;
         }
 
         /* Hero Car: Gentle Default Roll-In Glide On Initial Page Load */
@@ -253,8 +257,8 @@
             mask-image: radial-gradient(ellipse 68% 62% at 50% 54%, #000 48%, transparent 94%);
         }
 
+        /* Static will-change removed — managed dynamically via JS for GPU memory savings on mobile */
         .car-scroll-layer {
-            will-change: transform, opacity;
             transform-origin: center center;
             backface-visibility: hidden;
         }
@@ -270,6 +274,59 @@
             .road-mobile-feather {
                 -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.82) 18%, #000 34%);
                 mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.82) 18%, #000 34%);
+            }
+        }
+
+        /* Gallery carousel crossfade transition: scale + opacity */
+        .gallery-crossfade {
+            transition: opacity 0.5s cubic-bezier(0.37, 0, 0.63, 1), transform 0.5s cubic-bezier(0.37, 0, 0.63, 1);
+        }
+        .gallery-crossfade.gallery-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .gallery-crossfade.gallery-inactive {
+            opacity: 0;
+            transform: scale(1.03);
+            pointer-events: none;
+        }
+
+        /* Gallery viewport: allow horizontal pan for touch swipe */
+        #gallery-viewport {
+            touch-action: pan-x;
+        }
+
+        /* Countdown seconds pulse */
+        @keyframes countdownPulse {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .countdown-pulse {
+            animation: countdownPulse 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Scroll-down chevron at bottom of hero */
+        @keyframes scrollChevronBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.75; }
+            50% { transform: translateY(6px); opacity: 1; }
+        }
+        .scroll-chevron {
+            animation: scrollChevronBounce 2.2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Content-visibility for below-fold sections: massive rendering perf gain */
+        .cv-auto {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 800px;
+        }
+
+        /* Music toggle: 48x48 on mobile for easier tapping */
+        @media (max-width: 639px) {
+            #music-toggle {
+                width: 48px;
+                height: 48px;
             }
         }
     </style>
@@ -314,6 +371,7 @@
                         src="./src/assets/images/hero_palace_road_1794855675093.jpg"
                         alt="Twilight Delhi heritage palace courtyard road with glowing lanterns"
                         referrerPolicy="no-referrer"
+                        fetchpriority="high"
                         class="road-mobile-feather absolute inset-x-0 bottom-0 w-full h-[64vh] supports-[height:100dvh]:h-[64dvh] sm:h-full object-cover object-[66%_bottom] sm:object-bottom"
                         onerror="this.style.display='none'"
                     />
@@ -329,6 +387,8 @@
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
+                            loading="lazy"
+                            decoding="async"
                             class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_12px_rgba(246,185,102,0.42)]"
                             onerror="this.style.display='none'"
                         />
@@ -340,6 +400,8 @@
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
+                            loading="lazy"
+                            decoding="async"
                             class="lantern-drift-b w-full h-auto object-contain drop-shadow-[0_0_10px_rgba(235,120,76,0.4)]"
                             onerror="this.style.display='none'"
                         />
@@ -351,6 +413,8 @@
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
+                            loading="lazy"
+                            decoding="async"
                             class="lantern-drift-b w-full h-auto object-contain drop-shadow-[0_0_12px_rgba(246,195,112,0.42)]"
                             onerror="this.style.display='none'"
                         />
@@ -362,6 +426,8 @@
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
+                            loading="lazy"
+                            decoding="async"
                             class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_12px_rgba(235,120,76,0.42)]"
                             onerror="this.style.display='none'"
                         />
@@ -373,6 +439,8 @@
                             alt=""
                             aria-hidden="true"
                             referrerPolicy="no-referrer"
+                            loading="lazy"
+                            decoding="async"
                             class="lantern-drift-a w-full h-auto object-contain drop-shadow-[0_0_10px_rgba(246,185,102,0.36)]"
                             onerror="this.style.display='none'"
                         />
@@ -408,11 +476,19 @@
                                 src="./src/assets/images/hero_car_transparent.png"
                                 alt="Night-lit midnight emerald vintage wedding convertible with mysterious couple silhouette"
                                 referrerPolicy="no-referrer"
+                                loading="lazy"
+                                decoding="async"
                                 class="relative z-10 w-full h-auto object-contain drop-shadow-[0_10px_18px_rgba(10,16,26,0.5)]"
                                 onerror="this.style.display='none'"
                             />
-                            <div class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/75 blur-md"></div>
+                            <div id="hero-car-shadow" class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/75 blur-md"></div>
                         </div>
+                    </div>
+                    <!-- Animated scroll-down chevron -->
+                    <div id="scroll-chevron" class="scroll-chevron absolute bottom-[max(1.2rem,env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+                        <svg class="w-7 h-7 text-champagne/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
                     </div>
                 </div>
             </section>
@@ -421,7 +497,7 @@
         <!-- ===============================================================
              SECTION 1 (PART B): GANESHA INVOCATION, INVITE & 6 ARCH EVENTS
         ================================================================ -->
-        <section class="relative w-full bg-gradient-to-b from-[#283B4E] via-[#24384B] to-[#1F3142] text-champagne py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
+        <section class="cv-auto relative w-full bg-gradient-to-b from-[#283B4E] via-[#24384B] to-[#1F3142] text-champagne py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
             <!-- Subtle Mughal Architectural Arch Linework Backdrop -->
             <div class="pointer-events-none absolute inset-x-0 top-0 flex justify-center opacity-[0.08]">
                 <svg class="w-[920px] max-w-none h-[540px]" viewBox="0 0 920 540" fill="none" stroke="#F3ECBA" stroke-width="1.2">
@@ -727,7 +803,7 @@
         <!-- ===============================================================
              SECTION 2: MEET THE BRIDE AND GROOM, FRAME GALLERY & RSVP
         ================================================================ -->
-        <section class="relative w-full bg-gradient-to-b from-[#563740] via-[#66414B] to-[#4A2F37] text-blushcream py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
+        <section class="cv-auto relative w-full bg-gradient-to-b from-[#563740] via-[#66414B] to-[#4A2F37] text-blushcream py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
             <div class="max-w-4xl mx-auto text-center">
 
                 <!-- Editorial Stacked Heading -->
@@ -755,7 +831,9 @@
                                     src="./src/assets/images/couple_portrait_one_1794854789919.jpg"
                                     alt="Niraalii and Uttkarsh pre-wedding portrait beneath Delhi sandstone heritage arches"
                                     referrerPolicy="no-referrer"
-                                    class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 opacity-100"
+                                    loading="lazy"
+                                    decoding="async"
+                                    class="absolute inset-0 w-full h-full object-cover object-center gallery-crossfade gallery-active"
                                     onerror="this.style.display='none'"
                                 />
                                 <img
@@ -763,7 +841,9 @@
                                     src="./src/assets/images/couple_portrait_two_1794854788998.jpg"
                                     alt="Niraalii and Uttkarsh smiling on a sandstone balcony with bougainvillea and lanterns"
                                     referrerPolicy="no-referrer"
-                                    class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 opacity-0 pointer-events-none"
+                                    loading="lazy"
+                                    decoding="async"
+                                    class="absolute inset-0 w-full h-full object-cover object-center gallery-crossfade gallery-inactive"
                                     onerror="this.style.display='none'"
                                 />
                                 <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent"></div>
@@ -843,7 +923,7 @@
         <!-- ===============================================================
              SECTION 3: THINGS TO KNOW & FOLLOW THE ACTION (INSTAGRAM)
         ================================================================ -->
-        <section class="relative w-full bg-gradient-to-b from-sagecanvas to-sagewash text-olivemoss py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
+        <section class="cv-auto relative w-full bg-gradient-to-b from-sagecanvas to-sagewash text-olivemoss py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
             <div class="max-w-5xl mx-auto text-center">
 
                 <!-- Heading & Subtitle -->
@@ -851,7 +931,7 @@
                     Things to know
                 </h2>
                 <p class="font-cormorant text-xl sm:text-2xl leading-relaxed text-olivemoss/90 max-w-2xl mx-auto mb-16">
-                    To help you feel at ease and enjoy every moment of the celebrations, we’ve gathered a few thoughtful details we’d love for you to know before the big day.
+                    To help you feel at ease and enjoy every moment of the celebrations, we've gathered a few thoughtful details we'd love for you to know before the big day.
                 </p>
 
                 <!-- 4 Illustrated Details Grid (Hashtag, Weather, Staff, Parking) -->
@@ -948,7 +1028,7 @@
         <!-- ===============================================================
              FOOTER: THE COUNTDOWN BEGINS + SCROLLING CAR (RIGHT -> LEFT)
         ================================================================ -->
-        <div id="footer-scroll-track" class="relative w-full h-[185vh] supports-[height:100dvh]:h-[185dvh] sm:h-[175vh] bg-twilight">
+        <div id="footer-scroll-track" class="cv-auto relative w-full h-[185vh] supports-[height:100dvh]:h-[185dvh] sm:h-[175vh] bg-twilight">
             <footer class="sticky top-0 w-full h-screen supports-[height:100dvh]:h-[100dvh] flex flex-col items-center justify-between overflow-hidden bg-twilight text-champagne">
                 <!-- Stationary Twilight Palace Road Backdrop -->
                 <div class="absolute inset-0 bg-gradient-to-b from-[#3B516B] via-[#2C3F54] to-[#1B2736]">
@@ -956,6 +1036,8 @@
                         src="./src/assets/images/hero_palace_road_1794855675093.jpg"
                         alt="Twilight Delhi heritage palace cobblestone road with lanterns"
                         referrerPolicy="no-referrer"
+                        loading="lazy"
+                        decoding="async"
                         class="road-mobile-feather absolute inset-x-0 bottom-0 w-full h-[64vh] supports-[height:100dvh]:h-[64dvh] sm:h-full object-cover object-[66%_bottom] sm:object-bottom brightness-90"
                         onerror="this.style.display='none'"
                     />
@@ -991,10 +1073,12 @@
                             src="./src/assets/images/footer_car_transparent.png"
                             alt="Night-lit obsidian vintage wedding roadster with glowing amber headlights and couple silhouette"
                             referrerPolicy="no-referrer"
+                            loading="lazy"
+                            decoding="async"
                             class="relative z-10 w-full h-auto object-contain drop-shadow-[0_10px_18px_rgba(10,16,26,0.5)]"
                             onerror="this.style.display='none'"
                         />
-                        <div class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/80 blur-md"></div>
+                        <div id="footer-car-shadow" class="pointer-events-none mx-auto -mt-4 sm:-mt-6 h-4 sm:h-6 w-[74%] rounded-[100%] bg-[#091019]/80 blur-md"></div>
                     </div>
                 </div>
 
@@ -1031,7 +1115,7 @@
             }, 2600);
         }
 
-        // Couple Gallery Carousel
+        // Couple Gallery Carousel with crossfade scale+opacity and touch swipe
         const coupleCaptions = [
             'Niraalii & Uttkarsh — Palace Courtyard',
             'Niraalii & Uttkarsh — Evening Lanterns'
@@ -1047,11 +1131,11 @@
                 const img = document.getElementById(`gallery-img-${i}`);
                 if (!img) return;
                 if (i === currentPhotoIndex) {
-                    img.classList.remove('opacity-0', 'pointer-events-none');
-                    img.classList.add('opacity-100');
+                    img.classList.remove('gallery-inactive');
+                    img.classList.add('gallery-active');
                 } else {
-                    img.classList.remove('opacity-100');
-                    img.classList.add('opacity-0', 'pointer-events-none');
+                    img.classList.remove('gallery-active');
+                    img.classList.add('gallery-inactive');
                 }
             });
 
@@ -1066,10 +1150,33 @@
         function prevPhoto() { setPhoto(currentPhotoIndex - 1); }
         function nextPhoto() { setPhoto(currentPhotoIndex + 1); }
 
+        // Touch swipe detection for gallery carousel
+        (function initGallerySwipe() {
+            const viewport = document.getElementById('gallery-viewport');
+            if (!viewport) return;
+            let touchStartX = 0;
+            let touchStartY = 0;
+            viewport.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].clientX;
+                touchStartY = e.changedTouches[0].clientY;
+            }, { passive: true });
+            viewport.addEventListener('touchend', function(e) {
+                const deltaX = e.changedTouches[0].clientX - touchStartX;
+                const deltaY = e.changedTouches[0].clientY - touchStartY;
+                // Only trigger swipe if horizontal movement dominates and exceeds threshold
+                if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+                    if (deltaX < 0) nextPhoto();
+                    else prevPhoto();
+                }
+            }, { passive: true });
+        })();
+
         // Live Wedding Countdown Timer -> Thursday, 11th Feb 2027 6:00 PM IST (Delhi)
+        // With subtle scale pulse when seconds change
         (function initCountdown() {
             const target = new Date('2027-02-11T18:00:00+05:30').getTime();
             const el = document.getElementById('countdown-display');
+            let lastSecs = '';
             function tick() {
                 if (!el) return;
                 const diff = Math.max(0, target - Date.now());
@@ -1077,20 +1184,49 @@
                 const hours = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
                 const mins = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
                 const secs = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-                el.textContent = `${days}:${hours}:${mins}:${secs}`;
+                const str = `${days}:${hours}:${mins}:${secs}`;
+                el.textContent = str;
+                // Pulse on seconds change
+                if (secs !== lastSecs) {
+                    lastSecs = secs;
+                    el.classList.remove('countdown-pulse');
+                    // Force reflow to restart animation
+                    void el.offsetWidth;
+                    el.classList.add('countdown-pulse');
+                }
             }
             tick();
             setInterval(tick, 1000);
         })();
 
-        // City-2 Scroll-Driven Car Animations
-        // Top car: enters from outside left -> drives along road toward right and shrinks away
-        // Bottom car: enters small from far right -> drives forward toward near-left foreground
+        // Scroll chevron fade-out on scroll
+        (function initScrollChevron() {
+            const chevron = document.getElementById('scroll-chevron');
+            if (!chevron) return;
+            let hidden = false;
+            function checkScroll() {
+                const scrollY = window.scrollY || window.pageYOffset;
+                if (scrollY > 80 && !hidden) {
+                    hidden = true;
+                    chevron.style.opacity = '0';
+                } else if (scrollY <= 80 && hidden) {
+                    hidden = false;
+                    chevron.style.opacity = '';
+                }
+            }
+            window.addEventListener('scroll', checkScroll, { passive: true });
+        })();
+
+        // City-2 Scroll-Driven Car Animations — Spring-Damped Interpolation System
+        // Continuous rAF loop lerps current values toward targets for buttery-smooth movement.
+        // Includes: path-derivative rotation, suspension bounce, and dynamic shadow scaling.
         (function initScrollCars() {
             const heroTrack = document.getElementById('hero-scroll-track');
             const heroCar = document.getElementById('hero-car-wrap');
+            const heroShadow = document.getElementById('hero-car-shadow');
             const footerTrack = document.getElementById('footer-scroll-track');
             const footerCar = document.getElementById('footer-car-wrap');
+            const footerShadow = document.getElementById('footer-car-shadow');
             const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             if (reducedMotion) {
@@ -1105,81 +1241,180 @@
                 return;
             }
 
-            let ticking = false;
             const clamp = (val, min, max) => Math.min(max, Math.max(min, val));
-            const lerp = (a, b, t) => a + (b - a) * t;
-            const quadBezier = (p0, p1, p2, t) => {
+            const lerpVal = (a, b, t) => a + (b - a) * t;
+
+            // Cubic Bézier evaluator for refined S-curve paths
+            function cubicBezier(p0, p1, p2, p3, t) {
                 const inv = 1 - t;
-                return inv * inv * p0 + 2 * inv * t * p1 + t * t * p2;
-            };
+                return inv * inv * inv * p0 + 3 * inv * inv * t * p1 + 3 * inv * t * t * p2 + t * t * t * p3;
+            }
+            // Cubic Bézier derivative for path-tangent rotation
+            function cubicBezierDeriv(p0, p1, p2, p3, t) {
+                const inv = 1 - t;
+                return 3 * inv * inv * (p1 - p0) + 6 * inv * t * (p2 - p1) + 3 * t * t * (p3 - p2);
+            }
 
-            function updateCars() {
-                ticking = false;
-                const vh = window.innerHeight || 800;
-                const vw = window.innerWidth || 1200;
-                const isMobile = vw < 640;
+            // Damping factor for spring interpolation
+            const DAMP = 0.09;
 
-                // Top Car: sweeps from outside left -> curves along cobblestone road -> drives toward right palace archway
+            // Suspension bounce: subtle sinusoidal vertical oscillation simulating cobblestone bumps
+            function suspensionBounce(p) {
+                return Math.sin(p * Math.PI * 14) * 1.5 * Math.sin(p * Math.PI); // ±1.5px, amplitude envelope
+            }
+
+            // Current interpolated states for each car
+            const heroState = { x: -32, y: 3, scale: 1.14, opacity: 1, rotation: 0 };
+            const footerState = { x: 20, y: -14, scale: 0.44, opacity: 0.85, rotation: 0 };
+
+            // Cache computed pixel-based viewport dimensions to avoid jank from mobile address bar
+            let cachedVH = window.innerHeight || 800;
+            let cachedVW = window.innerWidth || 1200;
+            let resizeTimer = null;
+            window.addEventListener('resize', function() {
+                // Debounce resize to avoid jank
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    cachedVH = window.innerHeight || 800;
+                    cachedVW = window.innerWidth || 1200;
+                }, 150);
+            }, { passive: true });
+
+            // Dynamic will-change management via IntersectionObserver
+            const carElements = [heroCar, footerCar].filter(Boolean);
+            if ('IntersectionObserver' in window && carElements.length) {
+                const willChangeObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.style.willChange = 'transform, opacity';
+                        } else {
+                            entry.target.style.willChange = 'auto';
+                        }
+                    });
+                }, { rootMargin: '200px 0px' });
+                carElements.forEach(function(el) { willChangeObserver.observe(el); });
+            }
+
+            // Continuous rAF loop — always running, lerps toward target each frame
+            let running = true;
+            function animationLoop() {
+                if (!running) return;
+
+                const isMobile = cachedVW < 640;
+
+                // ===== HERO CAR: drives from left -> right, receding into palace road =====
                 if (heroTrack && heroCar) {
                     const rect = heroTrack.getBoundingClientRect();
-                    const scrollable = Math.max(1, heroTrack.offsetHeight - vh);
+                    const scrollable = Math.max(1, heroTrack.offsetHeight - cachedVH);
                     const p = clamp(-rect.top / scrollable, 0, 1);
 
-                    let xVw, yVh, scale, opacity;
+                    let targetX, targetY, targetScale, targetOpacity, targetRotation;
                     if (isMobile) {
-                        // Mobile 20:9 portrait path: keep car clearly legible across full road into visible right palace gate
-                        xVw = quadBezier(-32, -1, 16, p);
-                        yVh = quadBezier(3, 0, -14, p);
-                        scale = lerp(1.14, 0.46, Math.pow(p, 0.9));
-                        opacity = p < 0.88 ? 1 : lerp(1, 0.4, (p - 0.88) / 0.12);
+                        // Mobile S-curve: cubic Bézier for natural road feel
+                        targetX = cubicBezier(-32, -8, 6, 16, p);
+                        targetY = cubicBezier(3, 1, -4, -14, p);
+                        targetScale = lerpVal(1.14, 0.46, Math.pow(p, 0.9));
+                        targetOpacity = p < 0.88 ? 1 : lerpVal(1, 0.4, (p - 0.88) / 0.12);
+                        // Path-derivative rotation: subtle tilt following road curve
+                        const dxdt = cubicBezierDeriv(-32, -8, 6, 16, p);
+                        const dydt = cubicBezierDeriv(3, 1, -4, -14, p);
+                        targetRotation = Math.atan2(dydt, dxdt) * (180 / Math.PI) * 0.18; // scale down
                     } else {
-                        // Desktop wide path: P0 (-44vw, +6vh) -> P1 (-2vw, +4vh) -> P2 (+21vw, -14vh)
-                        xVw = quadBezier(-44, -2, 21, p);
-                        yVh = quadBezier(6, 4, -14, p);
-                        scale = lerp(1.22, 0.2, Math.pow(p, 0.92));
-                        opacity = p < 0.84 ? 1 : lerp(1, 0.15, (p - 0.84) / 0.16);
+                        // Desktop refined S-curve
+                        targetX = cubicBezier(-44, -16, 6, 21, p);
+                        targetY = cubicBezier(6, 5, -2, -14, p);
+                        targetScale = lerpVal(1.22, 0.2, Math.pow(p, 0.92));
+                        targetOpacity = p < 0.84 ? 1 : lerpVal(1, 0.15, (p - 0.84) / 0.16);
+                        const dxdt = cubicBezierDeriv(-44, -16, 6, 21, p);
+                        const dydt = cubicBezierDeriv(6, 5, -2, -14, p);
+                        targetRotation = Math.atan2(dydt, dxdt) * (180 / Math.PI) * 0.14;
                     }
 
-                    heroCar.style.transform = `translate3d(${xVw}vw, ${yVh}vh, 0) scale(${scale})`;
-                    heroCar.style.opacity = opacity.toFixed(3);
+                    // Add suspension bounce
+                    const bounce = suspensionBounce(p);
+                    targetY += bounce / cachedVH * 100; // convert px offset to vh-approximate
+
+                    // Spring-damped interpolation
+                    heroState.x += (targetX - heroState.x) * DAMP;
+                    heroState.y += (targetY - heroState.y) * DAMP;
+                    heroState.scale += (targetScale - heroState.scale) * DAMP;
+                    heroState.opacity += (targetOpacity - heroState.opacity) * DAMP;
+                    heroState.rotation += (targetRotation - heroState.rotation) * DAMP;
+
+                    // Convert vw/vh to px for jank-free mobile rendering
+                    const xPx = heroState.x * cachedVW / 100;
+                    const yPx = heroState.y * cachedVH / 100;
+
+                    heroCar.style.transform = `translate3d(${xPx.toFixed(1)}px, ${yPx.toFixed(1)}px, 0) scale(${heroState.scale.toFixed(4)}) rotate(${heroState.rotation.toFixed(2)}deg)`;
+                    heroCar.style.opacity = heroState.opacity.toFixed(3);
+
+                    // Dynamic shadow: smaller and tighter when far, larger and softer when close
+                    if (heroShadow) {
+                        const shadowScale = clamp(heroState.scale / 1.14, 0.3, 1);
+                        const shadowBlur = lerpVal(4, 12, shadowScale);
+                        heroShadow.style.transform = `scaleX(${shadowScale.toFixed(3)}) scaleY(${(shadowScale * 0.7).toFixed(3)})`;
+                        heroShadow.style.filter = `blur(${shadowBlur.toFixed(1)}px)`;
+                        heroShadow.style.opacity = (shadowScale * 0.75 + 0.15).toFixed(3);
+                    }
                 }
 
-                // Bottom Car: emerges from right palace archway -> drives forward prominently toward near-left foreground
+                // ===== FOOTER CAR: drives from right palace archway -> forward toward near-left =====
                 if (footerTrack && footerCar) {
                     const rect = footerTrack.getBoundingClientRect();
                     const totalSpan = Math.max(1, footerTrack.offsetHeight);
-                    const p = clamp((vh - rect.top) / totalSpan, 0, 1);
+                    const p = clamp((cachedVH - rect.top) / totalSpan, 0, 1);
 
-                    let xVw, yVh, scale, opacity;
+                    let targetX, targetY, targetScale, targetOpacity, targetRotation;
                     if (isMobile) {
-                        // Mobile 20:9 portrait path: clearly visible roadster driving forward from right archway to foreground
-                        xVw = quadBezier(20, 4, -5, p);
-                        yVh = quadBezier(-14, -3, 0, p);
-                        scale = lerp(0.44, 1.04, Math.pow(p, 0.95));
-                        opacity = lerp(0.85, 1, clamp(p * 1.8, 0, 1));
+                        targetX = cubicBezier(20, 10, 0, -5, p);
+                        targetY = cubicBezier(-14, -6, -1, 0, p);
+                        targetScale = lerpVal(0.44, 1.04, Math.pow(p, 0.95));
+                        targetOpacity = lerpVal(0.85, 1, clamp(p * 1.8, 0, 1));
+                        const dxdt = cubicBezierDeriv(20, 10, 0, -5, p);
+                        const dydt = cubicBezierDeriv(-14, -6, -1, 0, p);
+                        targetRotation = Math.atan2(dydt, dxdt) * (180 / Math.PI) * 0.15;
                     } else {
-                        // Desktop wide path: P0 (+32vw, -10vh) -> P1 (+4vw, +1vh) -> P2 (-12vw, +1vh)
-                        xVw = quadBezier(32, 4, -12, p);
-                        yVh = quadBezier(-10, 1, 1, p);
-                        scale = lerp(0.18, 0.94, Math.pow(p, 1.02));
-                        opacity = lerp(0.75, 1, clamp(p * 1.6, 0, 1));
+                        targetX = cubicBezier(32, 14, -2, -12, p);
+                        targetY = cubicBezier(-10, -2, 0, 1, p);
+                        targetScale = lerpVal(0.18, 0.94, Math.pow(p, 1.02));
+                        targetOpacity = lerpVal(0.75, 1, clamp(p * 1.6, 0, 1));
+                        const dxdt = cubicBezierDeriv(32, 14, -2, -12, p);
+                        const dydt = cubicBezierDeriv(-10, -2, 0, 1, p);
+                        targetRotation = Math.atan2(dydt, dxdt) * (180 / Math.PI) * 0.12;
                     }
 
-                    footerCar.style.transform = `translate3d(${xVw}vw, ${yVh}vh, 0) scale(${scale})`;
-                    footerCar.style.opacity = opacity.toFixed(3);
+                    // Suspension bounce
+                    const bounce = suspensionBounce(p);
+                    targetY += bounce / cachedVH * 100;
+
+                    // Spring-damped interpolation
+                    footerState.x += (targetX - footerState.x) * DAMP;
+                    footerState.y += (targetY - footerState.y) * DAMP;
+                    footerState.scale += (targetScale - footerState.scale) * DAMP;
+                    footerState.opacity += (targetOpacity - footerState.opacity) * DAMP;
+                    footerState.rotation += (targetRotation - footerState.rotation) * DAMP;
+
+                    const xPx = footerState.x * cachedVW / 100;
+                    const yPx = footerState.y * cachedVH / 100;
+
+                    footerCar.style.transform = `translate3d(${xPx.toFixed(1)}px, ${yPx.toFixed(1)}px, 0) scale(${footerState.scale.toFixed(4)}) rotate(${footerState.rotation.toFixed(2)}deg)`;
+                    footerCar.style.opacity = footerState.opacity.toFixed(3);
+
+                    // Dynamic shadow
+                    if (footerShadow) {
+                        const shadowScale = clamp(footerState.scale / 1.04, 0.2, 1);
+                        const shadowBlur = lerpVal(3, 14, shadowScale);
+                        footerShadow.style.transform = `scaleX(${shadowScale.toFixed(3)}) scaleY(${(shadowScale * 0.65).toFixed(3)})`;
+                        footerShadow.style.filter = `blur(${shadowBlur.toFixed(1)}px)`;
+                        footerShadow.style.opacity = (shadowScale * 0.8 + 0.1).toFixed(3);
+                    }
                 }
+
+                requestAnimationFrame(animationLoop);
             }
 
-            function onScroll() {
-                if (!ticking) {
-                    ticking = true;
-                    window.requestAnimationFrame(updateCars);
-                }
-            }
-
-            updateCars();
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', onScroll, { passive: true });
+            // Kick off the continuous animation loop
+            requestAnimationFrame(animationLoop);
         })();
 
         // Gentle Synthesized Wedding Chime / Ambient Loop (Zero external audio dependencies)
@@ -1242,5 +1477,6 @@
             showToast('Playing gentle wedding melody');
         }
     </script>
+
 </body>
 </html>

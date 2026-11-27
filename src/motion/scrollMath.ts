@@ -1,16 +1,8 @@
-export interface CarTransform {
+export interface HorizontalEntranceTransform {
   /** Horizontal offset in vw units */
   xVw: number;
-  /** Vertical offset in vh units */
-  yVh: number;
-  /** Uniform perspective scale */
-  scale: number;
   /** Opacity between 0 and 1 */
   opacity: number;
-  /** Ground shadow scale multiplier */
-  shadowScale: number;
-  /** Ground shadow opacity */
-  shadowOpacity: number;
 }
 
 export interface CountdownParts {
@@ -49,194 +41,30 @@ export function easeInOutCubic(t: number): number {
   return c < 0.5 ? 4 * c * c * c : 1 - Math.pow(-2 * c + 2, 3) / 2;
 }
 
-export function smoothstep(edge0: number, edge1: number, x: number): number {
-  const t = clamp((x - edge0) / (edge1 - edge0), 0, 1);
-  return t * t * (3 - 2 * t);
-}
-
 /**
- * Frame-rate-independent exponential smoothing.
- * Behaves identically across 60Hz, 120Hz, and variable-refresh displays.
+ * Top Hero Car: Smoothly enters from the left end of the screen (-100vw)
+ * to the exact horizontal middle (0vw).
  */
-export function damp(
-  current: number,
-  target: number,
-  lambda: number,
-  dtSeconds: number,
-  epsilon = 0.0005
-): number {
-  const safeDt = clamp(dtSeconds, 0, 0.1);
-  const next = lerp(current, target, 1 - Math.exp(-lambda * safeDt));
-  return Math.abs(target - next) <= epsilon ? target : next;
-}
-
-/**
- * Normalizes a browser WheelEvent delta across PIXEL (0), LINE (1), and PAGE (2) modes
- * and caps the maximum impulse per wheel tick so aggressive flicks stay smooth.
- */
-export function normalizeWheelDelta(
-  deltaY: number,
-  deltaMode: number,
-  viewportHeight = 900,
-  maxStepPx = 90
-): number {
-  let px = deltaY;
-  if (deltaMode === 1) {
-    px = deltaY * 32;
-  } else if (deltaMode === 2) {
-    px = deltaY * viewportHeight * 0.85;
-  }
-  return clamp(px, -maxStepPx, maxStepPx);
-}
-
-/**
- * Advances a smoothed scroll position toward targetY using exponential damping
- * while enforcing a strict maximum scroll speed (px/sec) so animations never get skipped.
- */
-export function stepVelocityClampedScroll(
-  currentY: number,
-  targetY: number,
-  dtSeconds: number,
-  lambda = 7.5,
-  maxSpeedPxPerSec = 1250
-): number {
-  const safeDt = clamp(dtSeconds, 0, 0.05);
-  if (safeDt === 0) return currentY;
-  const damped = damp(currentY, targetY, lambda, safeDt, 0.25);
-  const maxStep = maxSpeedPxPerSec * safeDt;
-  const delta = damped - currentY;
-  if (Math.abs(delta) > maxStep) {
-    return currentY + Math.sign(delta) * maxStep;
-  }
-  return damped;
-}
-
-/**
- * Advances an animation progress value [0, 1] with both exponential smoothing
- * and a maximum rate cap (progress units per second), ensuring touch flings or
- * scrollbar jumps still animate car trajectories gracefully without teleporting.
- */
-export function stepRateLimitedProgress(
-  currentP: number,
-  targetP: number,
-  dtSeconds: number,
-  lambda = 10,
-  maxProgressPerSec = 1.65
-): number {
-  const safeDt = clamp(dtSeconds, 0, 0.05);
-  if (safeDt === 0) return currentP;
-  const damped = damp(currentP, targetP, lambda, safeDt, 0.0004);
-  const maxStep = maxProgressPerSec * safeDt;
-  const delta = damped - currentP;
-  if (Math.abs(delta) > maxStep) {
-    return clamp(currentP + Math.sign(delta) * maxStep, 0, 1);
-  }
-  return clamp(damped, 0, 1);
-}
-
-/**
- * Evaluates a quadratic Bezier curve for clean, wobble-free road paths.
- */
-export function quadBezier(p0: number, p1: number, p2: number, t: number): number {
-  const c = clamp(t, 0, 1);
-  const inv = 1 - c;
-  return inv * inv * p0 + 2 * inv * c * p1 + c * c * p2;
-}
-
-/**
- * Hero vintage convertible:
- * - At progress = 0: Proudly framed on the foreground cobblestone road (fully visible, not clipped).
- * - As user scrolls (0 -> 1): Glides smoothly along the curved road toward the glowing palace archway
- *   on the right, shrinking cleanly in perspective with zero jitter or awkward sideways tilt.
- */
-export function computeHeroCarTransform(progress: number, isMobile: boolean): CarTransform {
-  const p = clamp(progress, 0, 1);
-  const eased = easeInOutCubic(p);
-  const scaleEase = Math.pow(p, 0.88);
-
-  if (isMobile) {
-    const xVw = quadBezier(-6, 8, 22, eased);
-    const yVh = quadBezier(0, -6, -18, eased);
-    const scale = lerp(1.0, 0.42, scaleEase);
-    const opacity = p < 0.8 ? 1 : lerp(1, 0.25, (p - 0.8) / 0.2);
-    const shadowScale = clamp(scale, 0.35, 1);
-    return {
-      xVw,
-      yVh,
-      scale,
-      opacity,
-      shadowScale,
-      shadowOpacity: lerp(0.72, 0.22, p),
-    };
-  }
-
-  const xVw = quadBezier(-10, 7, 24, eased);
-  const yVh = quadBezier(1, -5, -19, eased);
-  const scale = lerp(1.04, 0.34, scaleEase);
-  const opacity = p < 0.78 ? 1 : lerp(1, 0.18, (p - 0.78) / 0.22);
-  const shadowScale = clamp(scale / 1.04, 0.3, 1);
-  return {
-    xVw,
-    yVh,
-    scale,
-    opacity,
-    shadowScale,
-    shadowOpacity: lerp(0.75, 0.2, p),
-  };
-}
-
-/**
- * Footer vintage obsidian roadster:
- * - At progress = 0 (footer entering from bottom): Emerging small from the palace archway on the right.
- * - At progress = 1 (footer settled in viewport): Arrives smoothly in the foreground beneath the countdown.
- */
-export function computeFooterCarTransform(progress: number, isMobile: boolean): CarTransform {
+export function computeHeroCarEntrance(progress: number): HorizontalEntranceTransform {
   const p = clamp(progress, 0, 1);
   const eased = easeOutCubic(p);
-
-  if (isMobile) {
-    const xVw = quadBezier(20, 7, -2, eased);
-    const yVh = quadBezier(-16, -6, 0, eased);
-    const scale = lerp(0.42, 0.98, eased);
-    const opacity = lerp(0.55, 1, smoothstep(0, 0.45, p));
-    const shadowScale = clamp(scale / 0.98, 0.35, 1);
-    return {
-      xVw,
-      yVh,
-      scale,
-      opacity,
-      shadowScale,
-      shadowOpacity: lerp(0.25, 0.78, eased),
-    };
-  }
-
-  const xVw = quadBezier(25, 10, -4, eased);
-  const yVh = quadBezier(-16, -6, 1, eased);
-  const scale = lerp(0.36, 1.0, eased);
-  const opacity = lerp(0.5, 1, smoothstep(0, 0.4, p));
-  const shadowScale = clamp(scale, 0.32, 1);
   return {
-    xVw,
-    yVh,
-    scale,
-    opacity,
-    shadowScale,
-    shadowOpacity: lerp(0.22, 0.8, eased),
+    xVw: lerp(-100, 0, eased),
+    opacity: clamp(p * 3.5, 0, 1),
   };
 }
 
 /**
- * Horizontal vintage car divider glide as the user scrolls past a section breaker.
- * Returns horizontal offset in pixels within [-travelPx, +travelPx].
+ * Bottom Footer Car: Smoothly enters from the right end of the screen (+100vw)
+ * to the exact horizontal middle (0vw).
  */
-export function computeDividerCarOffset(
-  progress: number,
-  direction: 1 | -1,
-  travelPx = 140
-): number {
+export function computeFooterCarEntrance(progress: number): HorizontalEntranceTransform {
   const p = clamp(progress, 0, 1);
-  const centered = (easeInOutCubic(p) - 0.5) * 2;
-  return centered * travelPx * direction;
+  const eased = easeOutCubic(p);
+  return {
+    xVw: lerp(100, 0, eased),
+    opacity: clamp(p * 3.5, 0, 1),
+  };
 }
 
 /**

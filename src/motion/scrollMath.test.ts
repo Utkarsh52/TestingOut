@@ -2,13 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   clamp,
-  damp,
-  normalizeWheelDelta,
-  stepVelocityClampedScroll,
-  stepRateLimitedProgress,
-  computeHeroCarTransform,
-  computeFooterCarTransform,
-  computeDividerCarOffset,
+  computeHeroCarEntrance,
+  computeFooterCarEntrance,
   formatCountdownParts,
   buildEventIcs,
 } from './scrollMath';
@@ -20,72 +15,26 @@ test('clamp constrains values and guards NaN', () => {
   assert.equal(clamp(Number.NaN, 0, 1), 0);
 });
 
-test('damp converges smoothly and snaps cleanly within epsilon', () => {
-  const step60Hz = damp(0, 100, 10, 1 / 60);
-  assert.ok(step60Hz > 10 && step60Hz < 25);
+test('computeHeroCarEntrance glides smoothly from left end (-100vw) to center (0vw)', () => {
+  const start = computeHeroCarEntrance(0);
+  const mid = computeHeroCarEntrance(0.5);
+  const end = computeHeroCarEntrance(1);
 
-  const step120a = damp(0, 100, 10, 1 / 120);
-  const step120b = damp(step120a, 100, 10, 1 / 120);
-  assert.ok(Math.abs(step120b - step60Hz) < 0.05);
-
-  assert.equal(damp(99.9999, 100, 10, 1 / 60, 0.001), 100);
-});
-
-test('normalizeWheelDelta normalizes pixel, line, and page deltas and caps spikes', () => {
-  assert.equal(normalizeWheelDelta(40, 0, 900, 90), 40);
-  assert.equal(normalizeWheelDelta(400, 0, 900, 90), 90);
-  assert.equal(normalizeWheelDelta(-400, 0, 900, 90), -90);
-  assert.equal(normalizeWheelDelta(2, 1, 900, 90), 64);
-  assert.equal(normalizeWheelDelta(1, 2, 900, 90), 90);
-});
-
-test('stepVelocityClampedScroll enforces maximum scroll speed px/sec', () => {
-  const dt = 1 / 60;
-  const maxSpeed = 1200; // max 20px per frame at 60Hz
-  const next = stepVelocityClampedScroll(0, 2000, dt, 10, maxSpeed);
-  assert.ok(next <= 20.0001 && next > 0, `expected clamped step <= 20px, got ${next}`);
-
-  // Reverse direction also capped
-  const back = stepVelocityClampedScroll(2000, 0, dt, 10, maxSpeed);
-  assert.ok(back >= 1979.9999 && back < 2000);
-});
-
-test('stepRateLimitedProgress prevents abrupt car teleports on fast jumps', () => {
-  const dt = 1 / 60;
-  const maxRate = 1.5; // max 0.025 progress per frame
-  const next = stepRateLimitedProgress(0, 1, dt, 12, maxRate);
-  assert.ok(next <= 0.0251 && next > 0, `expected rate-limited progress <= 0.025, got ${next}`);
-});
-
-test('computeHeroCarTransform frames car proudly at top and glides toward palace archway on scroll', () => {
-  const startDesktop = computeHeroCarTransform(0, false);
-  const midDesktop = computeHeroCarTransform(0.5, false);
-  const endDesktop = computeHeroCarTransform(1, false);
-
-  assert.ok(startDesktop.xVw >= -15 && startDesktop.xVw <= 0);
-  assert.equal(startDesktop.opacity, 1);
-  assert.ok(midDesktop.xVw > startDesktop.xVw);
-  assert.ok(endDesktop.xVw > midDesktop.xVw);
-  assert.ok(endDesktop.yVh < startDesktop.yVh);
-  assert.ok(endDesktop.scale < midDesktop.scale && midDesktop.scale < startDesktop.scale);
-});
-
-test('computeFooterCarTransform enters from archway and approaches foreground smoothly', () => {
-  const start = computeFooterCarTransform(0, false);
-  const end = computeFooterCarTransform(1, false);
-
-  assert.ok(start.xVw > end.xVw);
-  assert.ok(start.yVh < end.yVh);
-  assert.ok(end.scale > start.scale);
+  assert.equal(start.xVw, -100);
+  assert.ok(mid.xVw > -100 && mid.xVw < 0, `expected mid xVw between -100 and 0, got ${mid.xVw}`);
+  assert.equal(end.xVw, 0);
   assert.equal(end.opacity, 1);
 });
 
-test('computeDividerCarOffset glides symmetrically in both directions', () => {
-  assert.equal(computeDividerCarOffset(0.5, 1, 120), 0);
-  assert.equal(computeDividerCarOffset(0, 1, 120), -120);
-  assert.equal(computeDividerCarOffset(1, 1, 120), 120);
-  assert.equal(computeDividerCarOffset(0, -1, 120), 120);
-  assert.equal(computeDividerCarOffset(1, -1, 120), -120);
+test('computeFooterCarEntrance glides smoothly from right end (+100vw) to center (0vw)', () => {
+  const start = computeFooterCarEntrance(0);
+  const mid = computeFooterCarEntrance(0.5);
+  const end = computeFooterCarEntrance(1);
+
+  assert.equal(start.xVw, 100);
+  assert.ok(mid.xVw < 100 && mid.xVw > 0, `expected mid xVw between 0 and 100, got ${mid.xVw}`);
+  assert.equal(end.xVw, 0);
+  assert.equal(end.opacity, 1);
 });
 
 test('formatCountdownParts formats days/hours/mins/secs accurately and clamps at zero', () => {

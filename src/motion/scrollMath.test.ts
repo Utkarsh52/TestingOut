@@ -2,8 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   clamp,
-  computeHeroCarEntrance,
-  computeFooterCarEntrance,
+  damp,
+  computeScrollVelocityPitch,
+  computeHeroScrollFrame,
+  computeFooterScrollFrame,
   formatCountdownParts,
   buildEventIcs,
 } from './scrollMath';
@@ -15,26 +17,67 @@ test('clamp constrains values and guards NaN', () => {
   assert.equal(clamp(Number.NaN, 0, 1), 0);
 });
 
-test('computeHeroCarEntrance glides smoothly from left end (-100vw) to center (0vw)', () => {
-  const start = computeHeroCarEntrance(0);
-  const mid = computeHeroCarEntrance(0.5);
-  const end = computeHeroCarEntrance(1);
-
-  assert.equal(start.xVw, -100);
-  assert.ok(mid.xVw > -100 && mid.xVw < 0, `expected mid xVw between -100 and 0, got ${mid.xVw}`);
-  assert.equal(end.xVw, 0);
-  assert.equal(end.opacity, 1);
+test('damp smoothly converges in both forward and reverse directions', () => {
+  const forward = damp(0, 1, 12, 1 / 60);
+  const reverse = damp(1, 0, 12, 1 / 60);
+  assert.ok(forward > 0.1 && forward < 0.3);
+  assert.ok(reverse < 0.9 && reverse > 0.7);
+  assert.equal(damp(0.9998, 1, 12, 1 / 60), 1);
 });
 
-test('computeFooterCarEntrance glides smoothly from right end (+100vw) to center (0vw)', () => {
-  const start = computeFooterCarEntrance(0);
-  const mid = computeFooterCarEntrance(0.5);
-  const end = computeFooterCarEntrance(1);
+test('computeScrollVelocityPitch mirrors forward vs reverse scroll direction and settles at 0', () => {
+  const fwd = computeScrollVelocityPitch(0.08, 1.5, -1);
+  const rev = computeScrollVelocityPitch(-0.08, 1.5, -1);
+  const rest = computeScrollVelocityPitch(0, 1.5, -1);
+  assert.ok(fwd < 0);
+  assert.ok(rev > 0);
+  assert.equal(Math.abs(fwd), Math.abs(rev));
+  assert.equal(rest, 0);
+});
 
-  assert.equal(start.xVw, 100);
-  assert.ok(mid.xVw < 100 && mid.xVw > 0, `expected mid xVw between 0 and 100, got ${mid.xVw}`);
-  assert.equal(end.xVw, 0);
-  assert.equal(end.opacity, 1);
+test('computeHeroScrollFrame drives smoothly forward into archway and reverses identically to center', () => {
+  const rest = computeHeroScrollFrame(0, 0, false);
+  const midFwd = computeHeroScrollFrame(0.5, 0.05, false);
+  const midRev = computeHeroScrollFrame(0.5, -0.05, false);
+  const far = computeHeroScrollFrame(1, 0, false);
+
+  // At top of page, parked dead-center at full scale
+  assert.equal(rest.xVw, 0);
+  assert.equal(rest.yVh, 0);
+  assert.equal(rest.scale, 1);
+  assert.equal(rest.opacity, 1);
+
+  // Mid-scroll position is 100% identical forward vs reverse, while pitch mirrors direction
+  assert.equal(midFwd.xVw, midRev.xVw);
+  assert.equal(midFwd.yVh, midRev.yVh);
+  assert.equal(midFwd.scale, midRev.scale);
+  assert.ok(midFwd.pitchDeg < 0 && midRev.pitchDeg > 0);
+  assert.ok(midRev.lampIntensity > midFwd.lampIntensity, 'brake lamps brighten when reversing');
+
+  // At full hero scroll, convertible has driven right & up into palace archway
+  assert.equal(far.xVw, 18);
+  assert.equal(far.yVh, -16);
+  assert.ok(far.scale < 0.55);
+});
+
+test('computeFooterScrollFrame emerges from upper-right archway on scroll down and reverses on scroll up', () => {
+  const start = computeFooterScrollFrame(0, 0, false);
+  const mid = computeFooterScrollFrame(0.5, 0.06, false);
+  const arrived = computeFooterScrollFrame(1, 0, false);
+
+  assert.equal(start.xVw, 44);
+  assert.equal(start.yVh, -14);
+  assert.equal(start.scale, 0.5);
+  assert.ok(mid.xVw > 0 && mid.xVw < 44);
+  assert.ok(mid.scale > 0.5 && mid.scale < 1);
+  assert.ok(arrived.lampIntensity > start.lampIntensity);
+  assert.ok(arrived.beamOpacity > start.beamOpacity);
+
+  // At bottom of page, roadster is dead-center at full foreground scale
+  assert.equal(arrived.xVw, 0);
+  assert.equal(arrived.yVh, 0);
+  assert.equal(arrived.scale, 1);
+  assert.equal(arrived.opacity, 1);
 });
 
 test('formatCountdownParts formats days/hours/mins/secs accurately and clamps at zero', () => {

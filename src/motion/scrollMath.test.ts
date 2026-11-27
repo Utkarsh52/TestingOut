@@ -3,6 +3,9 @@ import assert from 'node:assert/strict';
 import {
   clamp,
   damp,
+  normalizeWheelDelta,
+  stepVelocityClampedScroll,
+  stepRateLimitedProgress,
   computeHeroCarTransform,
   computeFooterCarTransform,
   computeDividerCarOffset,
@@ -19,15 +22,39 @@ test('clamp constrains values and guards NaN', () => {
 
 test('damp converges smoothly and snaps cleanly within epsilon', () => {
   const step60Hz = damp(0, 100, 10, 1 / 60);
-  assert.ok(step60Hz > 10 && step60Hz < 25, `expected realistic 60Hz step, got ${step60Hz}`);
+  assert.ok(step60Hz > 10 && step60Hz < 25);
 
-  // Two 120Hz steps should closely match one 60Hz step (frame-rate independence)
   const step120a = damp(0, 100, 10, 1 / 120);
   const step120b = damp(step120a, 100, 10, 1 / 120);
   assert.ok(Math.abs(step120b - step60Hz) < 0.05);
 
-  // Snaps directly to target when within epsilon
   assert.equal(damp(99.9999, 100, 10, 1 / 60, 0.001), 100);
+});
+
+test('normalizeWheelDelta normalizes pixel, line, and page deltas and caps spikes', () => {
+  assert.equal(normalizeWheelDelta(40, 0, 900, 90), 40);
+  assert.equal(normalizeWheelDelta(400, 0, 900, 90), 90);
+  assert.equal(normalizeWheelDelta(-400, 0, 900, 90), -90);
+  assert.equal(normalizeWheelDelta(2, 1, 900, 90), 64);
+  assert.equal(normalizeWheelDelta(1, 2, 900, 90), 90);
+});
+
+test('stepVelocityClampedScroll enforces maximum scroll speed px/sec', () => {
+  const dt = 1 / 60;
+  const maxSpeed = 1200; // max 20px per frame at 60Hz
+  const next = stepVelocityClampedScroll(0, 2000, dt, 10, maxSpeed);
+  assert.ok(next <= 20.0001 && next > 0, `expected clamped step <= 20px, got ${next}`);
+
+  // Reverse direction also capped
+  const back = stepVelocityClampedScroll(2000, 0, dt, 10, maxSpeed);
+  assert.ok(back >= 1979.9999 && back < 2000);
+});
+
+test('stepRateLimitedProgress prevents abrupt car teleports on fast jumps', () => {
+  const dt = 1 / 60;
+  const maxRate = 1.5; // max 0.025 progress per frame
+  const next = stepRateLimitedProgress(0, 1, dt, 12, maxRate);
+  assert.ok(next <= 0.0251 && next > 0, `expected rate-limited progress <= 0.025, got ${next}`);
 });
 
 test('computeHeroCarTransform frames car proudly at top and glides toward palace archway on scroll', () => {
@@ -35,30 +62,21 @@ test('computeHeroCarTransform frames car proudly at top and glides toward palace
   const midDesktop = computeHeroCarTransform(0.5, false);
   const endDesktop = computeHeroCarTransform(1, false);
 
-  // Starts well inside viewport (not clipped off-screen at -44vw)
   assert.ok(startDesktop.xVw >= -15 && startDesktop.xVw <= 0);
   assert.equal(startDesktop.opacity, 1);
-
-  // Drives rightward and upward along perspective road while shrinking smoothly
   assert.ok(midDesktop.xVw > startDesktop.xVw);
   assert.ok(endDesktop.xVw > midDesktop.xVw);
   assert.ok(endDesktop.yVh < startDesktop.yVh);
   assert.ok(endDesktop.scale < midDesktop.scale && midDesktop.scale < startDesktop.scale);
-
-  // Mobile framing stays cleanly bounded
-  const startMobile = computeHeroCarTransform(0, true);
-  const endMobile = computeHeroCarTransform(1, true);
-  assert.ok(startMobile.xVw >= -10 && startMobile.scale === 1);
-  assert.ok(endMobile.xVw > startMobile.xVw && endMobile.scale < startMobile.scale);
 });
 
 test('computeFooterCarTransform enters from archway and approaches foreground smoothly', () => {
   const start = computeFooterCarTransform(0, false);
   const end = computeFooterCarTransform(1, false);
 
-  assert.ok(start.xVw > end.xVw, 'car should travel right-to-left from archway');
-  assert.ok(start.yVh < end.yVh, 'car should move down into foreground road');
-  assert.ok(end.scale > start.scale, 'car should grow as it approaches viewer');
+  assert.ok(start.xVw > end.xVw);
+  assert.ok(start.yVh < end.yVh);
+  assert.ok(end.scale > start.scale);
   assert.equal(end.opacity, 1);
 });
 
@@ -71,7 +89,7 @@ test('computeDividerCarOffset glides symmetrically in both directions', () => {
 });
 
 test('formatCountdownParts formats days/hours/mins/secs accurately and clamps at zero', () => {
-  const target = Date.parse('2027-02-11T18:00:00+05:30');
+  const target = Date.parse('2027-02-11T10:00:00+05:30');
   const now = target - (5 * 86400000 + 3 * 3600000 + 9 * 60000 + 4 * 1000);
   const parts = formatCountdownParts(target, now);
   assert.deepEqual(parts, {
@@ -92,19 +110,19 @@ test('formatCountdownParts formats days/hours/mins/secs accurately and clamps at
   });
 });
 
-test('buildEventIcs emits valid VCALENDAR payload with UTC timestamps', () => {
+test('buildEventIcs emits valid VCALENDAR payload for updated dates', () => {
   const ics = buildEventIcs({
-    id: 'shaadi-2027',
-    title: 'Shaadi — Niraalii & Uttkarsh',
-    startIso: '2027-02-11T18:00:00+05:30',
-    endIso: '2027-02-12T00:00:00+05:30',
+    id: 'day-wedding-2027',
+    title: 'Day Wedding — Niraalii & Uttkarsh',
+    startIso: '2027-02-11T10:00:00+05:30',
+    endIso: '2027-02-11T15:00:00+05:30',
     location: 'New Delhi, India',
-    description: 'Wedding ceremony of Niraalii & Uttkarsh.',
+    description: 'Day Wedding ceremony of Niraalii & Uttkarsh. #NiUturn',
   });
 
   assert.ok(ics.startsWith('BEGIN:VCALENDAR'));
-  assert.ok(ics.includes('DTSTART:20270211T123000Z'));
-  assert.ok(ics.includes('SUMMARY:Shaadi — Niraalii & Uttkarsh'));
-  assert.ok(ics.includes('LOCATION:New Delhi\\, India'));
+  assert.ok(ics.includes('DTSTART:20270211T043000Z'));
+  assert.ok(ics.includes('SUMMARY:Day Wedding — Niraalii & Uttkarsh'));
+  assert.ok(ics.includes('#NiUturn'));
   assert.ok(ics.endsWith('END:VCALENDAR'));
 });

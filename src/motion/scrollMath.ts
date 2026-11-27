@@ -71,6 +71,70 @@ export function damp(
 }
 
 /**
+ * Normalizes a browser WheelEvent delta across PIXEL (0), LINE (1), and PAGE (2) modes
+ * and caps the maximum impulse per wheel tick so aggressive flicks stay smooth.
+ */
+export function normalizeWheelDelta(
+  deltaY: number,
+  deltaMode: number,
+  viewportHeight = 900,
+  maxStepPx = 90
+): number {
+  let px = deltaY;
+  if (deltaMode === 1) {
+    px = deltaY * 32;
+  } else if (deltaMode === 2) {
+    px = deltaY * viewportHeight * 0.85;
+  }
+  return clamp(px, -maxStepPx, maxStepPx);
+}
+
+/**
+ * Advances a smoothed scroll position toward targetY using exponential damping
+ * while enforcing a strict maximum scroll speed (px/sec) so animations never get skipped.
+ */
+export function stepVelocityClampedScroll(
+  currentY: number,
+  targetY: number,
+  dtSeconds: number,
+  lambda = 7.5,
+  maxSpeedPxPerSec = 1250
+): number {
+  const safeDt = clamp(dtSeconds, 0, 0.05);
+  if (safeDt === 0) return currentY;
+  const damped = damp(currentY, targetY, lambda, safeDt, 0.25);
+  const maxStep = maxSpeedPxPerSec * safeDt;
+  const delta = damped - currentY;
+  if (Math.abs(delta) > maxStep) {
+    return currentY + Math.sign(delta) * maxStep;
+  }
+  return damped;
+}
+
+/**
+ * Advances an animation progress value [0, 1] with both exponential smoothing
+ * and a maximum rate cap (progress units per second), ensuring touch flings or
+ * scrollbar jumps still animate car trajectories gracefully without teleporting.
+ */
+export function stepRateLimitedProgress(
+  currentP: number,
+  targetP: number,
+  dtSeconds: number,
+  lambda = 10,
+  maxProgressPerSec = 1.65
+): number {
+  const safeDt = clamp(dtSeconds, 0, 0.05);
+  if (safeDt === 0) return currentP;
+  const damped = damp(currentP, targetP, lambda, safeDt, 0.0004);
+  const maxStep = maxProgressPerSec * safeDt;
+  const delta = damped - currentP;
+  if (Math.abs(delta) > maxStep) {
+    return clamp(currentP + Math.sign(delta) * maxStep, 0, 1);
+  }
+  return clamp(damped, 0, 1);
+}
+
+/**
  * Evaluates a quadratic Bezier curve for clean, wobble-free road paths.
  */
 export function quadBezier(p0: number, p1: number, p2: number, t: number): number {
@@ -91,7 +155,6 @@ export function computeHeroCarTransform(progress: number, isMobile: boolean): Ca
   const scaleEase = Math.pow(p, 0.88);
 
   if (isMobile) {
-    // Mobile: road archway sits right-of-center above foreground road
     const xVw = quadBezier(-6, 8, 22, eased);
     const yVh = quadBezier(0, -6, -18, eased);
     const scale = lerp(1.0, 0.42, scaleEase);
@@ -107,7 +170,6 @@ export function computeHeroCarTransform(progress: number, isMobile: boolean): Ca
     };
   }
 
-  // Desktop: car starts proudly in lower-center-left foreground, drives smoothly right into the archway
   const xVw = quadBezier(-10, 7, 24, eased);
   const yVh = quadBezier(1, -5, -19, eased);
   const scale = lerp(1.04, 0.34, scaleEase);
@@ -173,7 +235,7 @@ export function computeDividerCarOffset(
   travelPx = 140
 ): number {
   const p = clamp(progress, 0, 1);
-  const centered = (easeInOutCubic(p) - 0.5) * 2; // [-1, 1]
+  const centered = (easeInOutCubic(p) - 0.5) * 2;
   return centered * travelPx * direction;
 }
 
@@ -221,11 +283,11 @@ export function buildEventIcs(event: CalendarEventInput): string {
   return [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Niraalii & Uttkarsh Wedding//Delhi 2027//EN',
+    'PRODID:-//Niraalii & Uttkarsh Wedding//NiUturn 2027//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',
-    `UID:${event.id}@niraaliiuttkarsh.wedding`,
+    `UID:${event.id}@niuturn.in`,
     `DTSTART:${toIcsUtcStamp(event.startIso)}`,
     `DTEND:${toIcsUtcStamp(event.endIso)}`,
     `SUMMARY:${escapeIcs(event.title)}`,
